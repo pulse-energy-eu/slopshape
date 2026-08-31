@@ -1,0 +1,18 @@
+{
+  "taxonomy": "outputs/study_b/r3/dedup/condensed_taxonomy_0.85.json",
+  "model": "openai/gpt-5.4",
+  "runs": 3,
+  "features": 266,
+  "rated": 266,
+  "exact_3run_agreement": 0.989,
+  "rating_distribution": {
+    "low": 219,
+    "medium": 19,
+    "high": 28
+  },
+  "excluded_from_narrative_strict": 34,
+  "excluded_by_dimension": {
+    "writing_style": 34
+  },
+  "narrative_strict_features": 232
+}

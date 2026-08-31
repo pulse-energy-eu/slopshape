@@ -1,0 +1,4172 @@
+{
+  "taxonomy_metadata": {
+    "total_features": 266,
+    "feature_type_counts": {
+      "categorical": 124,
+      "multi_select": 21,
+      "binary": 61,
+      "ordinal": 41,
+      "scale": 19
+    },
+    "dimension_coverage": {
+      "purpose_reader_payoff": 14,
+      "audience_problem_stakes": 26,
+      "structure_and_flow": 24,
+      "explanation_depth": 24,
+      "evidence_and_proof": 21,
+      "voices_and_sources": 23,
+      "actionability": 39,
+      "brand_product_integration": 16,
+      "timeliness": 23,
+      "page_format_navigation": 22,
+      "writing_style": 34
+    }
+  },
+  "feature_taxonomy": {
+    "purpose_reader_payoff": {
+      "aspects": {
+        "dominant_job": {
+          "features": [
+            {
+              "id": "PUR_JOB_001",
+              "name": "Dominant Communicative Purpose",
+              "question": "What is the single primary job the post performs for its reader?",
+              "type": "categorical",
+              "values": [
+                "explain",
+                "instruct",
+                "analyze",
+                "compare",
+                "persuade",
+                "announce",
+                "interview",
+                "recap",
+                "curate"
+              ],
+              "detection_method": "Identify the activity receiving the most structural space and closure emphasis: understanding, doing, evaluating, adopting, learning news, hearing a guest, reviewing past material, or browsing selections."
+            },
+            {
+              "id": "PUR_JOB_003",
+              "name": "Secondary Purpose Mix",
+              "question": "Which secondary purposes materially shape the post in addition to its main purpose?",
+              "type": "multi_select",
+              "values": [
+                "education",
+                "instruction",
+                "strategic persuasion",
+                "lead generation",
+                "product enablement",
+                "advocacy",
+                "reader reassurance",
+                "resource discovery",
+                "commercial conversion"
+              ],
+              "detection_method": "Select every purpose supported by a dedicated section, repeated framing, product bridge, CTA, or explicit reader invitation."
+            },
+            {
+              "id": "PUR_JOB_004",
+              "name": "Change Requested of Reader",
+              "question": "What kind of change does the post primarily seek from the reader?",
+              "type": "categorical",
+              "values": [
+                "none beyond understanding",
+                "adopt a belief or reframe",
+                "make a decision",
+                "perform a task",
+                "adopt a recurring operating practice",
+                "contact or buy from a provider",
+                "share or advocate publicly"
+              ],
+              "detection_method": "Inspect the conclusion, imperatives, recommended next steps, and stated consequences of following the advice."
+            }
+          ]
+        },
+        "reader_outcome": {
+          "features": [
+            {
+              "id": "PUR_OUT_001",
+              "name": "Promised Outcome Type",
+              "question": "What is the main outcome the reader is promised?",
+              "type": "categorical",
+              "values": [
+                "conceptual understanding",
+                "diagnostic recognition",
+                "fit-based decision",
+                "task completion",
+                "repeatable workflow",
+                "risk reduction",
+                "business performance improvement",
+                "product or service adoption"
+              ],
+              "detection_method": "Code the outcome named or implied by the headline, lede, subheadings, and final paragraph."
+            },
+            {
+              "id": "PUR_OUT_003",
+              "name": "Payoff First-Promise Location",
+              "question": "Where is the reader payoff first promised?",
+              "type": "categorical",
+              "values": [
+                "title",
+                "subtitle_or_deck",
+                "opening_paragraph",
+                "first_major_section",
+                "mid_article",
+                "conclusion_only",
+                "never_explicitly_promised"
+              ],
+              "detection_method": "Locate the first text span that states or unmistakably signals what the reader will receive."
+            },
+            {
+              "id": "PUR_OUT_004",
+              "name": "Success Criterion Visibility",
+              "question": "How does the post indicate that the reader will know the guidance worked?",
+              "type": "categorical",
+              "values": [
+                "no visible success criterion",
+                "general improvement claim only",
+                "self-check or diagnostic test",
+                "measurable threshold or metric",
+                "completed workflow or artifact",
+                "external validation or professional handoff"
+              ],
+              "detection_method": "Identify whether success is defined through a takeaway, test, score, threshold, checklist completion, output artifact, appointment, consultation, or purchase."
+            }
+          ]
+        },
+        "format_and_signal": {
+          "features": [
+            {
+              "id": "PUR_FMT_003",
+              "name": "Format-Purpose Alignment",
+              "question": "How closely does the format support the post's dominant purpose?",
+              "type": "categorical",
+              "values": [
+                "strongly-aligned",
+                "mostly-aligned-with-secondary-tension",
+                "mixed-or-hybrid-alignment",
+                "format-purpose-mismatch"
+              ],
+              "detection_method": "Compare the implied promise of the format with the actual work performed; for example, assess whether a guide genuinely instructs or mostly sells."
+            }
+          ]
+        },
+        "commercial_and_closure": {
+          "features": [
+            {
+              "id": "PUR_SEC_001",
+              "name": "Commercial Integration Level",
+              "question": "How centrally is a named brand, product, provider, or commercial category integrated into the article's resolution?",
+              "type": "categorical",
+              "values": [
+                "absent",
+                "metadata-only or contextual mention",
+                "illustrative example",
+                "enabling tool within the method",
+                "recurring solution throughout the body",
+                "primary subject and conversion target"
+              ],
+              "detection_method": "Track named brand references, their explanatory role, recurrence, and whether the argument can resolve without them."
+            },
+            {
+              "id": "PUR_SEC_007",
+              "name": "Payoff Restatement at Close",
+              "question": "Does the conclusion restate the reader's promised benefit or success condition?",
+              "type": "binary",
+              "values": [
+                "not restated",
+                "restated"
+              ],
+              "detection_method": "Compare the closing language with the opening promise, title claim, or stated intended outcome."
+            },
+            {
+              "id": "PUR_SEC_010",
+              "name": "Professional Handoff",
+              "question": "Does the article direct the reader to an external professional decision-maker or specialist as part of success?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for instructions to consult a clinician, lawyer, advisor, technician, regulator, specialist, or qualified service provider before or after reader action."
+            }
+          ]
+        },
+        "section_jobs_and_closure": {
+          "features": [
+            {
+              "id": "PUR_SEC_004",
+              "name": "Verification Loop Presence",
+              "question": "Does the post require readers to verify, measure, test, monitor, or reassess the result of its recommended action?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for explicit validation, thresholds, audits, monitoring, testing, comparison against baseline, self-checks, or post-action review."
+            },
+            {
+              "id": "PUR_SEC_006",
+              "name": "Commercial Solution Placement",
+              "question": "Where does the first substantive branded product, provider, or commercial solution enter the argument?",
+              "type": "categorical",
+              "values": [
+                "no_substantive_commercial_solution",
+                "title_or_opening",
+                "early_body",
+                "middle_body",
+                "late_body",
+                "conclusion_only",
+                "separate_post_article_module"
+              ],
+              "detection_method": "Locate the first mention that materially links a named brand, provider, or commercial category to solving the reader's problem."
+            },
+            {
+              "id": "PUR_SEC_009",
+              "name": "Recap Behavior",
+              "question": "How does the post revisit its promised payoff near the end?",
+              "type": "categorical",
+              "values": [
+                "no_recap",
+                "brief_takeaway_restatement",
+                "full_summary_of_key_points",
+                "decision_rule_recap",
+                "workflow_or_checklist_recap",
+                "payoff_replaced_by_commercial_pitch"
+              ],
+              "detection_method": "Compare the ending with the opening promise and identify whether it restates the payoff, summarizes content, repeats a rule, reconstructs a process, or shifts directly to a pitch."
+            }
+          ]
+        },
+        "outcome_and_payoff": {
+          "features": [
+            {
+              "id": "PUR_OUT_008",
+              "name": "Closing Payoff Behavior",
+              "question": "How does the post handle the reader payoff at the close?",
+              "type": "categorical",
+              "values": [
+                "restates-payoff",
+                "summarizes-with-new-synthesis",
+                "ends-on-new-point",
+                "ends-on-product-or-contact-prompt",
+                "ends-on-related-resource",
+                "stops-without-closure"
+              ],
+              "detection_method": "Inspect the final substantive section and determine whether it recaps the promised value, introduces new material, converts, redirects, or ends abruptly."
+            }
+          ]
+        }
+      }
+    },
+    "audience_problem_stakes": {
+      "aspects": {
+        "target_reader": {
+          "features": [
+            {
+              "id": "AUD_RDR_001",
+              "name": "Reader Naming Explicitness",
+              "question": "How explicitly does the article name its intended reader?",
+              "type": "categorical",
+              "values": [
+                "explicit_role_or_persona_named",
+                "explicit_organization_or_industry_named",
+                "explicit_role_and_organization_context_named",
+                "implied_through_topic_and_examples",
+                "undifferentiated_general_audience"
+              ],
+              "detection_method": "Inspect the title, introduction, and early headings for direct naming of roles, personas, industries, organization types, or a generic public."
+            },
+            {
+              "id": "AUD_RDR_005",
+              "name": "Audience Breadth",
+              "question": "How narrowly bounded is the intended audience?",
+              "type": "ordinal",
+              "values": [
+                "1_undifferentiated_public",
+                "2_broad_interest_group",
+                "3_role_or_use_case_group",
+                "4_narrow_role_in_specific_context",
+                "5_highly_qualified_persona_with_multiple_conditions"
+              ],
+              "detection_method": "Assess the number and specificity of qualifying attributes attached to the target reader."
+            },
+            {
+              "id": "AUD_RDR_008",
+              "name": "Reader Expertise Assumption",
+              "question": "How much domain knowledge does the article assume before explaining its recommendations?",
+              "type": "scale",
+              "values": [
+                "1_no_prior_knowledge_assumed",
+                "2_basic_familiarity_assumed",
+                "3_intermediate_practitioner_knowledge_assumed",
+                "4_advanced_specialist_knowledge_assumed",
+                "5_executive_or_expert_level_knowledge_assumed"
+              ],
+              "detection_method": "Assess whether the article defines basic terms, assumes fluency with jargon, and expects readers to understand specialist tools or governance concepts."
+            },
+            {
+              "id": "AUD_RDR_009",
+              "name": "Reader Role Framing",
+              "question": "How does the article position the reader's primary role in relation to the problem?",
+              "type": "categorical",
+              "values": [
+                "learner_seeking_understanding",
+                "operator_executing_tasks",
+                "evaluator_choosing_among_options",
+                "manager_coordinating_others",
+                "leader_setting_strategy_or_budget",
+                "consumer_making_personal_choice"
+              ],
+              "detection_method": "Identify the dominant implied reader job in directives, examples, and conclusions."
+            },
+            {
+              "id": "AUD_RDR_010",
+              "name": "Situation Mirroring in Opening",
+              "question": "Does the opening reflect the reader's likely lived situation before explaining the topic or solution?",
+              "type": "categorical",
+              "values": [
+                "direct_second_person_mirroring",
+                "role_specific_scenario_mirroring",
+                "hypothetical_third_person_scenario",
+                "broad_market_or_workplace_situation",
+                "no_situation_mirroring"
+              ],
+              "detection_method": "Examine the title and first two paragraphs for a recognizable reader circumstance, pain scene, or role-specific scenario."
+            }
+          ]
+        },
+        "reader_construction": {
+          "features": [
+            {
+              "id": "AUD_RDR_006",
+              "name": "Reader Situation Mirroring",
+              "question": "Does the opening reflect the reader's likely lived situation before presenting advice?",
+              "type": "binary",
+              "values": [
+                "present",
+                "absent"
+              ],
+              "detection_method": "Look for second-person or persona-specific recognition such as a scenario, frustration, constraint, or familiar moment in the opening."
+            },
+            {
+              "id": "AUD_RDR_007",
+              "name": "Audience Qualification Density",
+              "question": "How extensively does the article specify who the advice is or is not for?",
+              "type": "scale",
+              "values": [
+                "1_none",
+                "2_one_light_qualification",
+                "3_several_conditions",
+                "4_repeated_fit_and_exclusion_rules",
+                "5_diagnostic_segmentation_throughout"
+              ],
+              "detection_method": "Assess the frequency of if/when/unless clauses, fit criteria, exclusions, and segment-specific recommendations."
+            }
+          ]
+        },
+        "trigger_and_relevance": {
+          "features": [
+            {
+              "id": "AUD_TRG_001",
+              "name": "Primary Trigger Type",
+              "question": "What makes the topic relevant to the reader now?",
+              "type": "categorical",
+              "values": [
+                "acute_failure_or_incident",
+                "standing_operational_pain",
+                "growth_or_scaling_transition",
+                "market_or_competitive_shift",
+                "policy_or_regulatory_change",
+                "seasonal_or_calendar_event",
+                "lifecycle_or_decision_moment",
+                "new_opportunity_or_capability"
+              ],
+              "detection_method": "Identify the main event, condition, or opportunity used to justify relevance in the title and opening."
+            },
+            {
+              "id": "AUD_TRG_004",
+              "name": "Temporal Specificity",
+              "question": "How specific are the article's relevance-related time references?",
+              "type": "ordinal",
+              "values": [
+                "1_no_time_reference",
+                "2_general_now_or_future_language",
+                "3_recurring_cadence_or_relative_time",
+                "4_specific_period_or_season",
+                "5_exact_dates_deadlines_or_time_windows"
+              ],
+              "detection_method": "Assess the precision of dates, hours, weeks, quarters, seasons, or specified event windows."
+            }
+          ]
+        },
+        "trigger_and_timeliness": {
+          "features": [
+            {
+              "id": "AUD_TRG_002",
+              "name": "Trigger Time Anchor",
+              "question": "How is the trigger temporally framed?",
+              "type": "categorical",
+              "values": [
+                "timeless_standing_condition",
+                "recurring_operational_cycle",
+                "seasonal_or_calendar_period",
+                "dated_current_event",
+                "retrospective_historical_event",
+                "future_transition_or_forecast"
+              ],
+              "detection_method": "Inspect dates, seasons, quarters, deadlines, recurring cadences, historical references, and future-oriented language."
+            },
+            {
+              "id": "AUD_TRG_003",
+              "name": "Urgency Construction",
+              "question": "How strongly does the article present action as time-sensitive?",
+              "type": "scale",
+              "values": [
+                "1_no_urgency",
+                "2_soft_relevance",
+                "3_operational_timeliness",
+                "4_clear_urgency",
+                "5_high_pressure_or_deadline_urgency"
+              ],
+              "detection_method": "Rate the strength of urgency cues such as now, before it is too late, immediate action, limited windows, deadlines, or imminent loss."
+            }
+          ]
+        },
+        "problem_construction": {
+          "features": [
+            {
+              "id": "AUD_PRB_002",
+              "name": "Problem Placement",
+              "question": "Where does the core problem first become explicit?",
+              "type": "ordinal",
+              "values": [
+                "1_title_or_subtitle",
+                "2_opening_sentence",
+                "3_first_paragraph",
+                "4_after_context_or_preamble",
+                "5_only_implied_across_sections"
+              ],
+              "detection_method": "Locate the first sentence that clearly identifies the obstacle, tension, or decision."
+            },
+            {
+              "id": "AUD_PRB_005",
+              "name": "False Default Challenged",
+              "question": "Does the article explicitly portray an existing default practice as inadequate?",
+              "type": "binary",
+              "values": [
+                "present",
+                "absent"
+              ],
+              "detection_method": "Look for contrasts such as reactive versus proactive, legacy versus modern, manual versus automated, or generic versus tailored."
+            }
+          ]
+        },
+        "problem": {
+          "features": [
+            {
+              "id": "AUD_PRB_006",
+              "name": "Legacy Versus Modern Contrast",
+              "question": "Does the article frame the core problem as dependence on an outdated or inferior legacy approach?",
+              "type": "binary",
+              "values": [
+                "legacy_or_old_model_explicitly_contrasted",
+                "no_explicit_legacy_contrast"
+              ],
+              "detection_method": "Look for explicit old-versus-new, manual-versus-automated, reactive-versus-proactive, or traditional-versus-modern contrasts."
+            }
+          ]
+        },
+        "stakes_and_payoff": {
+          "features": [
+            {
+              "id": "AUD_STK_005",
+              "name": "Stakes Escalation",
+              "question": "Does the article escalate from a practical inconvenience to a larger strategic, financial, safety, or identity consequence?",
+              "type": "binary",
+              "values": [
+                "present",
+                "absent"
+              ],
+              "detection_method": "Mark present when the article explicitly moves from a small issue, such as delay or friction, to major loss, harm, compliance exposure, or strategic failure."
+            },
+            {
+              "id": "AUD_STK_007",
+              "name": "Product as Stakes Resolution",
+              "question": "Is a named product, platform, provider, or service framed as necessary to resolve the article's stakes?",
+              "type": "binary",
+              "values": [
+                "present",
+                "absent"
+              ],
+              "detection_method": "Mark present when the named offering is presented as the practical answer to the diagnosed risk or missed opportunity."
+            }
+          ]
+        },
+        "stakes": {
+          "features": [
+            {
+              "id": "AUD_STK_004",
+              "name": "Stakes Valence",
+              "question": "Does the article frame stakes as avoiding losses, gaining benefits, or both?",
+              "type": "categorical",
+              "values": [
+                "loss_avoidance_primary",
+                "gain_capture_primary",
+                "balanced_loss_and_gain",
+                "neutral_or_no_stakes_frame"
+              ],
+              "detection_method": "Compare language about risk, failure, harm, loss, opportunity, growth, upside, and benefit."
+            }
+          ]
+        },
+        "stakes_and_consequences": {
+          "features": [
+            {
+              "id": "AUD_STK_003",
+              "name": "Consequence Specificity",
+              "question": "How concretely are consequences rendered?",
+              "type": "ordinal",
+              "values": [
+                "1_absent_or_generic",
+                "2_general_qualitative_consequences",
+                "3_named_operational_or_personal_outcomes",
+                "4_specific_scenarios_or_examples",
+                "5_quantified_or_threshold_based_consequences"
+              ],
+              "detection_method": "Assess whether consequences are vague, named, scenarized, or expressed using amounts, rates, deadlines, or thresholds."
+            }
+          ]
+        },
+        "opening_hook": {
+          "features": [
+            {
+              "id": "AUD_HOK_003",
+              "name": "Hook-to-Reader Connection Speed",
+              "question": "How quickly does the opening connect its hook to a named or implied reader need?",
+              "type": "categorical",
+              "values": [
+                "same_sentence",
+                "within_first_paragraph",
+                "within_first_two_paragraphs",
+                "after_extended_preamble",
+                "never_directly_connected"
+              ],
+              "detection_method": "Locate the first sentence that translates the hook into relevance for the reader's role, condition, or decision."
+            },
+            {
+              "id": "AUD_HOK_006",
+              "name": "Opening Reader Question Invitation",
+              "question": "Does the opening explicitly invite the reader to self-diagnose through a question or recognizable condition?",
+              "type": "binary",
+              "values": [
+                "self_diagnostic_invitation_present",
+                "no_self_diagnostic_invitation"
+              ],
+              "detection_method": "Look for questions or conditional statements asking readers to recognize themselves, their team, or their current situation."
+            },
+            {
+              "id": "AUD_HOK_008",
+              "name": "Opening Relevance Devices",
+              "question": "Which relevance devices appear in the opening?",
+              "type": "multi_select",
+              "values": [
+                "direct_reader_naming",
+                "second_person_address",
+                "specific_role_or_industry",
+                "time_or_deadline_reference",
+                "pain_or_failure_description",
+                "loss_or_risk_warning",
+                "gain_or_opportunity_promise",
+                "statistic_or_metric",
+                "scenario_or_anecdote",
+                "question",
+                "metaphor_or_vivid_image",
+                "brand_capability_reference"
+              ],
+              "detection_method": "Mark all devices that occur in the title, deck, or first two paragraphs."
+            }
+          ]
+        },
+        "scope_and_applicability": {
+          "features": [
+            {
+              "id": "AUD_STK_010",
+              "name": "Exclusion Clarity",
+              "question": "How clearly does the article state cases where its recommendation does not apply?",
+              "type": "categorical",
+              "values": [
+                "no_exclusions",
+                "implicit_caveats_only",
+                "one_explicit_exception",
+                "multiple_explicit_exceptions",
+                "diagnostic_inclusion_and_exclusion_rules"
+              ],
+              "detection_method": "Look for not-for-you language, contraindications, disqualifying conditions, and alternative paths."
+            }
+          ]
+        },
+        "solution_relation": {
+          "features": [
+            {
+              "id": "AUD_PRB_011",
+              "name": "Solution Pressure",
+              "question": "How strongly does the article imply that readers should adopt its preferred solution?",
+              "type": "scale",
+              "values": [
+                "1_neutral_information",
+                "2_gentle_suggestion",
+                "3_clear_recommendation",
+                "4_strong_directional_persuasion",
+                "5_urgent_or_exclusive_solution_claim"
+              ],
+              "detection_method": "Assess modal verbs, comparative claims, imperatives, dismissal of alternatives, and CTA strength."
+            },
+            {
+              "id": "AUD_PRB_012",
+              "name": "Commercial Resolution Mode",
+              "question": "How does the article commercially resolve, if at all?",
+              "type": "categorical",
+              "values": [
+                "no_commercial_resolution",
+                "related_content_only",
+                "light_contextual_brand_mention",
+                "product_as_example_or_enabler",
+                "product_integrated_throughout",
+                "explicit_contact_demo_purchase_or_application_cta"
+              ],
+              "detection_method": "Review product placement and the final section for brand-driven next steps."
+            }
+          ]
+        },
+        "trigger": {
+          "features": [
+            {
+              "id": "AUD_TRG_006",
+              "name": "Trigger Framing Polarity",
+              "question": "Is the trigger framed primarily as danger, opportunity, or both?",
+              "type": "categorical",
+              "values": [
+                "loss_or_risk_to_avoid",
+                "gain_or_opportunity_to_capture",
+                "balanced_loss_and_gain",
+                "neutral_context_without_polarity"
+              ],
+              "detection_method": "Identify whether relevance rests on avoiding harm, capturing upside, both, or simply understanding a context."
+            },
+            {
+              "id": "AUD_TRG_007",
+              "name": "Operational Timing Guidance",
+              "question": "Does the article translate relevance into a specific operational time to act?",
+              "type": "binary",
+              "values": [
+                "specific_operational_timing_present",
+                "no_specific_operational_timing"
+              ],
+              "detection_method": "Look for instructions such as before listing, during onboarding, within 24 hours, before an event, after a trigger, or at a stated cadence."
+            }
+          ]
+        }
+      }
+    },
+    "structure_and_flow": {
+      "aspects": {
+        "overall_flow": {
+          "features": [
+            {
+              "id": "STR_FLW_005",
+              "name": "Legacy-versus-Modern Contrast",
+              "question": "Does the article organize persuasion around replacing a legacy, reactive, rigid, or fragmented model with a modern, proactive, or integrated model?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Look for a sustained old-model versus new-model contrast across the heading sequence or major sections."
+            },
+            {
+              "id": "STR_FLW_006",
+              "name": "Thesis Before First Unit",
+              "question": "Does the opening state a clear governing claim or recommendation before the article begins its main repeated units?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Check whether the preferred conclusion or central claim appears before the first main section, tip, case, or step."
+            },
+            {
+              "id": "STR_FLW_007",
+              "name": "Commercial Resolution Placement",
+              "question": "Where does the commercial solution or branded next step enter the article's structural flow?",
+              "type": "categorical",
+              "values": [
+                "absent",
+                "opening_premise",
+                "embedded_throughout",
+                "middle_after_diagnosis",
+                "final_solution_section",
+                "separate_closing_cta"
+              ],
+              "detection_method": "Locate the first substantive brand or product bridge and assess whether it recurs through the article or is isolated."
+            }
+          ]
+        },
+        "stage_inventory": {
+          "features": [
+            {
+              "id": "STR_STG_001",
+              "name": "Functional Stage Inventory",
+              "question": "Which major functional stages are present in the article?",
+              "type": "multi_select",
+              "values": [
+                "context",
+                "problem_diagnosis",
+                "definition_or_orientation",
+                "mechanism_explanation",
+                "evidence_or_case",
+                "comparison_or_alternatives",
+                "recommendation_or_method",
+                "exception_or_qualification",
+                "implementation_or_workflow",
+                "summary_or_synthesis",
+                "commercial_cta"
+              ],
+              "detection_method": "Mark every stage that receives a distinct passage, section, or sustained rhetorical function."
+            },
+            {
+              "id": "STR_STG_005",
+              "name": "Exception and Qualification Placement",
+              "question": "Where are exceptions, caveats, edge cases, eligibility limits, or safety qualifications primarily located?",
+              "type": "categorical",
+              "values": [
+                "inline_with_relevant_claims",
+                "dedicated_exception_section",
+                "late_before_conclusion",
+                "distributed_across_article",
+                "absent_or_minimal"
+              ],
+              "detection_method": "Identify where the article says advice varies by condition, audience, jurisdiction, risk, timing, or implementation context."
+            }
+          ]
+        },
+        "functional_stages": {
+          "features": [
+            {
+              "id": "STR_STG_004",
+              "name": "Evidence Stage Placement",
+              "question": "Where is supporting evidence, case material, quotation, or proof primarily placed?",
+              "type": "categorical",
+              "values": [
+                "opening_authority_or_context",
+                "dedicated_mid_article_evidence_stage",
+                "distributed_within_sections",
+                "late_validation_before_conclusion",
+                "conclusion_only",
+                "no_distinct_evidence_stage"
+              ],
+              "detection_method": "Track the location of attributed examples, numbers, cases, quotations, or research references."
+            },
+            {
+              "id": "STR_STG_008",
+              "name": "Conclusion Behavior",
+              "question": "How does the article primarily end?",
+              "type": "categorical",
+              "values": [
+                "summary_of_main_points",
+                "restated_thesis_or_reframe",
+                "final_action_plan",
+                "product_or_contact_cta",
+                "related_content_or_resource_route",
+                "new_substantive_point",
+                "abrupt_end_without_conclusion"
+              ],
+              "detection_method": "Classify the final substantive section or final two paragraphs by dominant function."
+            },
+            {
+              "id": "STR_STG_009",
+              "name": "Editorial-to-CTA Separation",
+              "question": "How clearly is commercial or next-step material separated from editorial guidance?",
+              "type": "categorical",
+              "values": [
+                "no_cta_or_commercial_material",
+                "fully_blended_into_editorial_body",
+                "light_contextual_bridge",
+                "clearly_separated_final_section",
+                "standalone_landing_page_cta_module"
+              ],
+              "detection_method": "Inspect whether the article shifts visibly from advice to promotion, contact, download, demo, or purchase language."
+            }
+          ]
+        },
+        "building_blocks": {
+          "features": [
+            {
+              "id": "STR_BLK_001",
+              "name": "Primary Repeated Building Block",
+              "question": "What is the dominant recurring unit used to build the article body?",
+              "type": "categorical",
+              "values": [
+                "numbered_step",
+                "tip_or_recommendation",
+                "warning_sign_or_mistake",
+                "problem_remedy_pair",
+                "comparison_option",
+                "case_or_profile",
+                "finding_or_evidence_item",
+                "question_answer_pair",
+                "platform_or_product_profile",
+                "myth_correction",
+                "risk_or_control",
+                "section_without_repeated_template",
+                "transcript_turn"
+              ],
+              "detection_method": "Identify the unit repeated across most body sections, headings, or paragraphs."
+            },
+            {
+              "id": "STR_BLK_002",
+              "name": "Main Unit Count",
+              "question": "How many primary repeated units make up the article body?",
+              "type": "ordinal",
+              "values": [
+                "one_to_three",
+                "four_to_six",
+                "seven_to_ten",
+                "eleven_or_more",
+                "no_repeated_units"
+              ],
+              "detection_method": "Count main steps, cases, tips, questions, profiles, or equivalent repeated sections."
+            },
+            {
+              "id": "STR_BLK_006",
+              "name": "Examples as Structural Units",
+              "question": "How are examples used structurally in the article?",
+              "type": "categorical",
+              "values": [
+                "examples_absent_or_incidental",
+                "examples_support_sections",
+                "repeated_hypothetical_scenarios",
+                "repeated_named_cases",
+                "worked_examples_or_calculations",
+                "expert_quotes_or_testimony_drive_units"
+              ],
+              "detection_method": "Assess whether examples are occasional support, recurring hypothetical units, named cases, worked demonstrations, or the main unit structure."
+            },
+            {
+              "id": "STR_BLK_007",
+              "name": "Heading-to-Unit Alignment",
+              "question": "How closely do headings correspond to the article's actual repeated units?",
+              "type": "categorical",
+              "values": [
+                "one_heading_per_repeated_unit",
+                "headings_group_multiple_units",
+                "headings_mark_argument_stages_not_units",
+                "minimal_headings_despite_units",
+                "no_repeated_units"
+              ],
+              "detection_method": "Compare headings with the boundaries of tips, cases, steps, questions, or profiles."
+            }
+          ]
+        },
+        "ordering_and_navigation": {
+          "features": [
+            {
+              "id": "STR_ORD_002",
+              "name": "Ordering Announced to Reader",
+              "question": "Does the article explicitly announce how sections, steps, phases, or categories are ordered?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Look for language such as 'Step One,' 'three phases,' 'first,' 'next,' 'by priority,' or an explicit roadmap."
+            }
+          ]
+        },
+        "ordering_and_decision_logic": {
+          "features": [
+            {
+              "id": "STR_ORD_003",
+              "name": "Dependency Explicitness",
+              "question": "How explicitly does the article state that one action, phase, or section depends on another?",
+              "type": "ordinal",
+              "values": [
+                "no_dependency_language",
+                "occasional_dependency_language",
+                "repeated_dependency_language",
+                "strict_gated_sequence"
+              ],
+              "detection_method": "Track terms such as 'before,' 'after,' 'only once,' 'then,' 'next,' 'prerequisite,' and explicit gates."
+            },
+            {
+              "id": "STR_ORD_004",
+              "name": "Conditional Routing Model",
+              "question": "How does the article route readers to different recommendations?",
+              "type": "categorical",
+              "values": [
+                "no_routing_universal_guidance",
+                "simple_if_then_rules",
+                "audience_segment_routing",
+                "threshold_or_score_routing",
+                "decision_matrix_or_comparison_routing",
+                "diagnostic_symptom_routing",
+                "branching_workflow_with_multiple_paths"
+              ],
+              "detection_method": "Identify whether recommendations vary according to reader conditions, scores, roles, symptoms, scale, or constraints."
+            },
+            {
+              "id": "STR_ORD_007",
+              "name": "Comparison Architecture",
+              "question": "How are alternatives, options, or competing approaches organized?",
+              "type": "categorical",
+              "values": [
+                "no_substantive_comparison",
+                "single_preferred_solution_after_problem",
+                "parallel_option_profiles",
+                "pros_cons_or_tradeoff_comparison",
+                "legacy_vs_modern_binary",
+                "fit_based_recommendation_matrix",
+                "ranked_or_prioritized_options",
+                "case_comparison"
+              ],
+              "detection_method": "Inspect whether alternatives receive parallel treatment and how the article resolves the comparison."
+            }
+          ]
+        },
+        "implementation_and_control": {
+          "features": [
+            {
+              "id": "STR_UNI_001",
+              "name": "Action Packaging Mode",
+              "question": "How is practical guidance packaged?",
+              "type": "categorical",
+              "values": [
+                "principle_level_recommendations",
+                "independent_checklist_actions",
+                "conditional_decision_rules",
+                "ordered_workflow",
+                "diagnostic_then_intervention_loop",
+                "interface_or_click_by_click_tutorial",
+                "reference_only_without_actions"
+              ],
+              "detection_method": "Identify whether actions are free-standing, conditional, sequential, diagnostic, interface-specific, or mostly absent."
+            },
+            {
+              "id": "STR_UNI_002",
+              "name": "Procedure Granularity",
+              "question": "At what level of detail are the article's practical instructions specified?",
+              "type": "scale",
+              "values": [
+                "1_aspirational_only",
+                "2_general_recommendations",
+                "3_concrete_actions",
+                "4_ordered_steps_with_conditions",
+                "5_artifacts_thresholds_and_verification_controls"
+              ],
+              "detection_method": "Assess the presence of named artifacts, thresholds, scripts, timing, tools, decision gates, and success checks."
+            },
+            {
+              "id": "STR_UNI_003",
+              "name": "Conditional Routing Density",
+              "question": "How central are if-then fit rules, eligibility conditions, or branching recommendations to the article?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "isolated_conditions",
+                "several_conditions",
+                "dominant_decision_structure",
+                "fully_branching_decision_system"
+              ],
+              "detection_method": "Count and assess the structural importance of conditional recommendations such as 'choose X if Y' or 'avoid X when Y.'"
+            }
+          ]
+        },
+        "section_transitions_and_headings": {
+          "features": [
+            {
+              "id": "STR_UNI_004",
+              "name": "Explicit Numbering of Main Sections",
+              "question": "Are main content units explicitly numbered as steps, tips, parts, reasons, or ranked entries?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Check headings and lists for ordinal numbering that organizes the article's main body."
+            },
+            {
+              "id": "STR_UNI_007",
+              "name": "Action Verification Mechanism",
+              "question": "How does the article tell readers to verify progress, correctness, or completion?",
+              "type": "categorical",
+              "values": [
+                "no_verification_mechanism",
+                "self_reflection_or_observation",
+                "threshold_or_metric_check",
+                "test_or_experiment",
+                "audit_or_checklist_completion",
+                "monitoring_dashboard_or_alert",
+                "expert_or_clinician_review",
+                "customer_or_team_feedback_loop"
+              ],
+              "detection_method": "Look for explicit success criteria, tests, measurement, review, validation, monitoring, or handoff."
+            },
+            {
+              "id": "STR_UNI_008",
+              "name": "New Material Introduced in Conclusion",
+              "question": "Does the conclusion introduce a substantial new idea, framework, product, or recommendation not developed earlier?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Compare the conclusion with prior sections and identify whether it adds rather than synthesizes."
+            },
+            {
+              "id": "STR_UNI_009",
+              "name": "Standalone Article Shell",
+              "question": "Does the page function primarily as a self-contained article rather than a resource hub, landing page, or linked content ecosystem?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Assess whether the reader can complete the article without depending on embedded resources, forms, linked modules, or external content."
+            },
+            {
+              "id": "STR_UNI_010",
+              "name": "Navigation and Page-Furniture Density",
+              "question": "How much visible navigation, supplementary page furniture, or conversion scaffolding surrounds the article body?",
+              "type": "scale",
+              "values": [
+                "1_bare_article_body",
+                "2_headings_only",
+                "3_internal_links_or_simple_resources",
+                "4_multiple_resources_or_page_modules",
+                "5_hybrid_landing_page_or_content_hub"
+              ],
+              "detection_method": "Rate visible use of tables of contents, links, author cards, related content, forms, downloads, subscriptions, videos, and conversion modules."
+            }
+          ]
+        }
+      }
+    },
+    "explanation_depth": {
+      "aspects": {
+        "knowledge_and_audience": {
+          "features": [
+            {
+              "id": "EXP_KNW_002",
+              "name": "Assumed Reader Expertise",
+              "question": "What level of prior domain knowledge does the post assume from its primary reader?",
+              "type": "categorical",
+              "values": [
+                "novice",
+                "mixed",
+                "intermediate",
+                "expert"
+              ],
+              "detection_method": "Assess whether jargon is defined, basic concepts are introduced, setup steps are supplied, and advanced terminology is used without explanation."
+            },
+            {
+              "id": "EXP_KNW_003",
+              "name": "Jargon Treatment",
+              "question": "How does the article handle specialized terminology and acronyms?",
+              "type": "categorical",
+              "values": [
+                "all_or_nearly_all_terms_defined",
+                "most_terms_glossed_at_first_use",
+                "some_terms_glossed_selectively",
+                "terms_used_bare"
+              ],
+              "detection_method": "Sample specialized terms across the article and record whether they receive definitions, parenthetical glosses, examples, or no explanation."
+            },
+            {
+              "id": "EXP_KNW_004",
+              "name": "Reader Role Framing",
+              "question": "What role does the article assign to the reader during explanation?",
+              "type": "categorical",
+              "values": [
+                "learner",
+                "consumer_or_personal_user",
+                "hands_on_operator",
+                "manager_or_decision_maker",
+                "expert_evaluator",
+                "mixed_roles"
+              ],
+              "detection_method": "Inspect direct address, recommended actions, and implied responsibility for whether the reader is asked to learn, buy, operate, manage, evaluate, or occupy multiple roles."
+            },
+            {
+              "id": "EXP_KNW_006",
+              "name": "Theory-to-Practice Bridge Form",
+              "question": "How does the post convert explanation into reader implications?",
+              "type": "categorical",
+              "values": [
+                "no_explicit_bridge",
+                "implicit_recommendations",
+                "occasional_explicit_implications",
+                "repeated_explicit_implications",
+                "mechanism_to_action_in_each_major_section"
+              ],
+              "detection_method": "Look for formulations such as 'what this means,' 'therefore,' 'so you should,' or repeated explanation-to-action transitions."
+            },
+            {
+              "id": "EXP_KNW_008",
+              "name": "Question Anticipation Level",
+              "question": "How actively does the article pre-empt likely reader questions, objections, or uncertainties?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "implicit_answering_only",
+                "occasional_explicit_questions_or_objections",
+                "recurrent_question_anticipation",
+                "question_led_or_FAQ_structure"
+              ],
+              "detection_method": "Count rhetorical questions, objection-handling passages, FAQ headings, and explicit responses to likely reader concerns."
+            }
+          ]
+        },
+        "evidence_and_explanatory_support": {
+          "features": [
+            {
+              "id": "EXP_KNW_007",
+              "name": "External Voice Integration",
+              "question": "How are outside people or institutions incorporated into the explanatory argument?",
+              "type": "categorical",
+              "values": [
+                "no_external_voice",
+                "named_organization_or_standard_only",
+                "paraphrased_external_authority",
+                "single_named_expert_quote",
+                "repeated_named_expert_quotes",
+                "customer_or_user_testimony",
+                "multi_voice_interview_or_q_and_a"
+              ],
+              "detection_method": "Check for named studies, regulators, standards, quotes, customer stories, interviews, or repeated external speakers."
+            },
+            {
+              "id": "EXP_KNW_009",
+              "name": "Evidence Limitation Disclosure",
+              "question": "Does the post explicitly disclose limits in its evidence, methods, date range, or applicability?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for statements that a statistic is dated, a method is undisclosed, an example is illustrative, claims vary by context, or data has defined scope limits."
+            }
+          ]
+        },
+        "commercial_explanatory_bridge": {
+          "features": [
+            {
+              "id": "EXP_KNW_010",
+              "name": "Product Role in Explanation",
+              "question": "What role does a branded product or service play in the article's explanatory logic?",
+              "type": "categorical",
+              "values": [
+                "no_product_role",
+                "metadata_or_context_only",
+                "illustrative_example",
+                "enabling_tool",
+                "integrated_solution_mechanism",
+                "comparison_winner",
+                "direct_conversion_destination"
+              ],
+              "detection_method": "Determine whether the brand is absent, incidental, illustrative, an enabling tool, the mechanism of the solution, a preferred winner, or the explicit endpoint."
+            },
+            {
+              "id": "EXP_KNW_012",
+              "name": "Editorial-to-Commercial Separation",
+              "question": "How clearly does the post separate educational explanation from its commercial recommendation?",
+              "type": "categorical",
+              "values": [
+                "no_commercial_content",
+                "fully_blended_throughout",
+                "contextual_mentions_with_editorial_priority",
+                "distinct_late_product_bridge",
+                "dedicated_conversion_section_or_cta"
+              ],
+              "detection_method": "Assess whether product mentions are woven into explanation, appear lightly as context, arrive after editorial guidance, or occupy a visibly separate CTA section."
+            }
+          ]
+        },
+        "definitions_and_prerequisites": {
+          "features": [
+            {
+              "id": "EXP_DEF_001",
+              "name": "Definition Placement Pattern",
+              "question": "Where are important terms primarily defined?",
+              "type": "categorical",
+              "values": [
+                "at_first_use",
+                "in_dedicated_orientation_section",
+                "distributed_after_use",
+                "primarily_in_examples_or_side_notes",
+                "not_explicitly_defined"
+              ],
+              "detection_method": "Track first appearances of central terms and identify the dominant placement pattern."
+            },
+            {
+              "id": "EXP_DEF_002",
+              "name": "Dominant Definition Form",
+              "question": "How does the post most often define domain terms?",
+              "type": "categorical",
+              "values": [
+                "formal_x_is_statement",
+                "parenthetical_gloss",
+                "definition_by_example",
+                "definition_by_contrast",
+                "definition_by_metaphor_or_analogy",
+                "definition_by_feature_or_function",
+                "no_explicit_definition_form"
+              ],
+              "detection_method": "Identify the most frequent form used when terms are introduced, such as direct definition, parenthesis, example, comparison, metaphor, or feature explanation."
+            }
+          ]
+        },
+        "definitions_and_concepts": {
+          "features": [
+            {
+              "id": "EXP_DEF_005",
+              "name": "Definition Reinforcement",
+              "question": "After introducing a key term, does the article reinforce its meaning through repeated use, examples, or application?",
+              "type": "binary",
+              "values": [
+                "not_reinforced",
+                "reinforced"
+              ],
+              "detection_method": "Check whether defined terms recur in later explanations, examples, headings, decision rules, or recommendations with consistent meaning."
+            },
+            {
+              "id": "EXP_DEF_006",
+              "name": "Named Framework Use",
+              "question": "Does the article organize explanation around an explicitly named framework, model, protocol, or set of pillars?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "single_lightweight_named_framework",
+                "single_central_named_framework",
+                "multiple_named_frameworks"
+              ],
+              "detection_method": "Identify named constructs such as protocols, matrices, pillars, maturity models, diagnostic systems, or branded conceptual labels."
+            }
+          ]
+        },
+        "mechanisms_and_examples": {
+          "features": [
+            {
+              "id": "EXP_MEC_006",
+              "name": "Operational Artifact Specificity",
+              "question": "How specific are the concrete artifacts named in the explanation?",
+              "type": "scale",
+              "values": [
+                "1_abstract_only",
+                "2_generic_actions",
+                "3_named_categories_or_tools",
+                "4_named_settings_templates_or_metrics",
+                "5_reproducible_artifacts_or_configuration"
+              ],
+              "detection_method": "Assess whether the post names only principles, generic actions, tool categories, specific settings or templates, or exact reproducible commands, fields, files, formulas, or scripts."
+            }
+          ]
+        },
+        "mechanisms_and_bridging": {
+          "features": [
+            {
+              "id": "EXP_MEC_009",
+              "name": "Ownership Assignment",
+              "question": "Does the article specify who should perform, own, approve, or review recommended actions?",
+              "type": "categorical",
+              "values": [
+                "no_owner_specified",
+                "reader_only",
+                "single_role_specified",
+                "multiple_roles_with_general_responsibilities",
+                "multiple_roles_with_handoffs_or_escalation"
+              ],
+              "detection_method": "Inspect recommendations for named actors, role allocation, handoffs, approval paths, escalation conditions, or cross-functional responsibilities."
+            }
+          ]
+        },
+        "caveats_comparisons_and_limits": {
+          "features": [
+            {
+              "id": "EXP_CAV_001",
+              "name": "Caveat Presence",
+              "question": "Does the article explicitly state limitations, exclusions, contraindications, or conditions under which its guidance may not apply?",
+              "type": "binary",
+              "values": [
+                "no_explicit_caveats",
+                "explicit_caveats_present"
+              ],
+              "detection_method": "Look for exclusions, exceptions, safety warnings, limitations, not-for-you statements, legal qualifications, or dependency conditions."
+            }
+          ]
+        },
+        "caveats_comparisons_and_bridging": {
+          "features": [
+            {
+              "id": "EXP_CAV_003",
+              "name": "Contraindication Specificity",
+              "question": "How specifically does the post state who should not follow a recommendation or when an action should stop?",
+              "type": "categorical",
+              "values": [
+                "no_contraindications",
+                "generic_seek_advice_warning",
+                "broad_user_or_context_exclusions",
+                "specific_symptom_condition_or_threshold_stop_rules",
+                "multiple_specific_stop_and_escalation_rules"
+              ],
+              "detection_method": "Code exclusions, emergency conditions, eligibility limits, escalation triggers, and stop-use rules."
+            },
+            {
+              "id": "EXP_CAV_005",
+              "name": "Comparison Presence",
+              "question": "Does the post explicitly compare alternatives?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Identify direct treatment of two or more options, approaches, product types, workflows, or strategic models."
+            },
+            {
+              "id": "EXP_CAV_007",
+              "name": "Trade-off Explicitness",
+              "question": "How explicitly does the post state costs or disadvantages of the preferred recommendation?",
+              "type": "ordinal",
+              "values": [
+                "no_tradeoffs_stated",
+                "minor_generic_tradeoff",
+                "one_specific_tradeoff",
+                "multiple_specific_tradeoffs",
+                "balanced_tradeoff_analysis"
+              ],
+              "detection_method": "Code whether the preferred path's costs, limits, risks, or implementation burdens are named and substantively weighed."
+            },
+            {
+              "id": "EXP_CAV_009",
+              "name": "Commercial Solution Separation",
+              "question": "How is a branded product or service positioned relative to the educational explanation?",
+              "type": "categorical",
+              "values": [
+                "no_commercial_solution",
+                "metadata_or_context_only",
+                "illustrative_mid_article_example",
+                "embedded_as_mechanism",
+                "separate_closing_cta",
+                "opening_to_conclusion_sales_resolution"
+              ],
+              "detection_method": "Track whether branded capability is absent, contextual, illustrative, inseparable from the method, reserved for a closing CTA, or present throughout as the resolution."
+            },
+            {
+              "id": "EXP_CAV_010",
+              "name": "External Authority Integration",
+              "question": "What external authority form materially contributes to explanation?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "named_expert_quote",
+                "customer_or_practitioner_testimony",
+                "regulator_or_standard",
+                "academic_or_industry_research",
+                "historical_or_public_case",
+                "third_party_tool_or_documentation"
+              ],
+              "detection_method": "Select every authority type that is substantively used to explain, validate, or qualify the argument; select none only when no external authority appears."
+            },
+            {
+              "id": "EXP_CAV_012",
+              "name": "Temporal Qualification Mode",
+              "question": "How does the post handle the time sensitivity of its explanations and recommendations?",
+              "type": "categorical",
+              "values": [
+                "timeless_without_time_cues",
+                "evergreen_with_operational_cadence",
+                "current_state_without_specific_dates",
+                "historically_or_event_anchored",
+                "dated_policy_product_or_market_dependent",
+                "mixed_temporal_modes"
+              ],
+              "detection_method": "Identify whether time is absent, operational, broadly current, historically anchored, dependent on dated facts, or mixed across sections."
+            }
+          ]
+        },
+        "comparisons_and_caveats": {
+          "features": [
+            {
+              "id": "EXP_CAV_006",
+              "name": "Safety or Professional Escalation Guidance",
+              "question": "Does the post identify situations requiring professional review, emergency action, or specialist escalation?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for explicit referral to clinicians, legal counsel, technicians, security specialists, financial advisors, or emergency/stop-use instructions."
+            }
+          ]
+        },
+        "application_and_operationalization": {
+          "features": [
+            {
+              "id": "EXP_MEC_011",
+              "name": "Validation and Feedback Loop Presence",
+              "question": "Does the post instruct readers to validate results, monitor outcomes, or adjust the approach after implementation?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for testing, monitoring, review, reconciliation, postmortems, dashboards, retesting, iteration, audits, or adjustment instructions."
+            }
+          ]
+        }
+      }
+    },
+    "evidence_and_proof": {
+      "aspects": {
+        "evidence_mix": {
+          "features": [
+            {
+              "id": "EVD_MIX_004",
+              "name": "External Authority Presence",
+              "question": "Does the post use at least one identifiable external authority to support a substantive claim?",
+              "type": "binary",
+              "values": [
+                "present",
+                "absent"
+              ],
+              "detection_method": "Mark present only when a named external person, organization, regulator, study, standard, customer, or public case supports a claim rather than appearing only as an unrelated example."
+            },
+            {
+              "id": "EVD_MIX_006",
+              "name": "First-Party Proof Type",
+              "question": "What first-party proof does the publisher use, if any?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "claimed operational experience",
+                "proprietary dataset or analytics",
+                "customer result or case study",
+                "product performance metric",
+                "internal benchmark or experiment",
+                "employee or founder testimony",
+                "named product workflow or demonstration"
+              ],
+              "detection_method": "Mark all forms of publisher-controlled proof; do not count a generic claim that the brand is experienced unless experience is explicitly asserted."
+            }
+          ]
+        },
+        "evidence_mix_and_authority": {
+          "features": [
+            {
+              "id": "EVD_MIX_002",
+              "name": "Evidence Source Types Present",
+              "question": "Which source types appear anywhere as support for claims?",
+              "type": "multi_select",
+              "values": [
+                "unattributed assertion",
+                "illustrative scenario or hypothetical",
+                "first-party product claim",
+                "first-party operational data",
+                "customer case or testimonial",
+                "named individual expert",
+                "named organization or publisher",
+                "regulator, statute, standard, or policy",
+                "academic or professional research",
+                "historical event or public incident",
+                "reproducible code, calculation, table, or experiment"
+              ],
+              "detection_method": "Mark every listed source type visibly used to support a substantive claim, excluding passing mentions that do not bear argumentative weight."
+            },
+            {
+              "id": "EVD_MIX_005",
+              "name": "External Voice Construction",
+              "question": "How does the article incorporate voices beyond the main narrator?",
+              "type": "categorical",
+              "values": [
+                "no external or secondary voice",
+                "generalized unnamed experts or users",
+                "paraphrased named authority",
+                "single direct quotation",
+                "repeated direct quotations from one source",
+                "multiple quoted outside sources",
+                "interview or Q&A led by named expert"
+              ],
+              "detection_method": "Inspect quotation marks, attributed paraphrases, interview turns, bios, testimonials, and expert references across the article."
+            },
+            {
+              "id": "EVD_MIX_007",
+              "name": "First-Party Proof Scope Disclosure",
+              "question": "When first-party proof appears, how specifically does the article define its scope?",
+              "type": "ordinal",
+              "values": [
+                "no first-party proof",
+                "unspecified first-party claim",
+                "scope or use case stated",
+                "scope and time period stated",
+                "scope, time period, and method or population stated"
+              ],
+              "detection_method": "For publisher-originated claims, check whether the text gives a relevant use case, period, sample, customer population, data coverage, or method."
+            },
+            {
+              "id": "EVD_MIX_008",
+              "name": "Illustrative Scenario Use",
+              "question": "How are hypothetical or illustrative scenarios used as support?",
+              "type": "categorical",
+              "values": [
+                "not used",
+                "used only for explanation",
+                "used to illustrate a recommendation",
+                "used as primary proof of efficacy or magnitude",
+                "used as recurring case-like evidence"
+              ],
+              "detection_method": "Identify invented reader situations, example companies, sample calculations, or hypothetical incidents and assess their argumentative role."
+            },
+            {
+              "id": "EVD_MIX_009",
+              "name": "Demonstrative Proof Presence",
+              "question": "Does the article provide a reproducible or inspectable demonstration of a claim?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for executable code, a complete calculation, a benchmark setup, a documented test procedure, a table of raw comparison inputs, or another artifact that a reader could replicate."
+            }
+          ]
+        },
+        "numbers_and_measurement": {
+          "features": [
+            {
+              "id": "EVD_NUM_001",
+              "name": "Numeric Density",
+              "question": "How frequently does the post use numerical support in substantive claims?",
+              "type": "ordinal",
+              "values": [
+                "no numbers",
+                "isolated figure or date",
+                "several figures",
+                "repeated metrics across sections",
+                "dense quantitative argument"
+              ],
+              "detection_method": "Count figures, percentages, ranges, time intervals, monetary values, thresholds, sample sizes, or measurement claims that support a claim rather than merely label a section."
+            },
+            {
+              "id": "EVD_NUM_004",
+              "name": "Baseline Disclosure for Comparative Numbers",
+              "question": "When the post makes comparative numeric claims, does it state the comparison baseline?",
+              "type": "categorical",
+              "values": [
+                "no comparative numeric claim",
+                "baseline consistently stated",
+                "baseline sometimes stated",
+                "baseline generally unstated"
+              ],
+              "detection_method": "For claims such as faster, lower, higher, improved, or saved, check whether the prior state, comparator, or denominator is supplied."
+            },
+            {
+              "id": "EVD_NUM_005",
+              "name": "Operational Threshold Use",
+              "question": "Does the post turn one or more numeric values into an action trigger, eligibility rule, threshold, or decision boundary?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for numbers tied to instructions such as wait times, limits, percentages, warning levels, budget triggers, sample windows, or escalation conditions."
+            },
+            {
+              "id": "EVD_NUM_006",
+              "name": "Quantitative Claim Sourcing",
+              "question": "How are the post's central numeric claims sourced?",
+              "type": "categorical",
+              "values": [
+                "no substantive numeric claims",
+                "all central figures are unattributed",
+                "mix of attributed and unattributed figures",
+                "most central figures identify a source",
+                "figures include source and methodological context"
+              ],
+              "detection_method": "Evaluate the main figures used to establish magnitude, efficacy, savings, risk, or comparison; dates alone do not count as central numeric claims."
+            }
+          ]
+        },
+        "attribution_and_checkability": {
+          "features": [
+            {
+              "id": "EVD_ATT_001",
+              "name": "Attribution Density",
+              "question": "How frequently are substantive factual claims credited to identifiable sources?",
+              "type": "ordinal",
+              "values": [
+                "none or nearly none",
+                "isolated attribution",
+                "occasional attribution",
+                "frequent attribution",
+                "source-led throughout"
+              ],
+              "detection_method": "Assess attribution across factual, numerical, causal, and efficacy claims; exclude generic phrases such as 'experts say' unless the expert is identifiable."
+            },
+            {
+              "id": "EVD_ATT_002",
+              "name": "Dominant Attribution Form",
+              "question": "What attribution form is most prominent when the article credits evidence?",
+              "type": "categorical",
+              "values": [
+                "no attribution",
+                "unnamed general source reference",
+                "named individual",
+                "named organization",
+                "formal study or report citation",
+                "regulatory or policy reference",
+                "direct quotation",
+                "link or resource reference",
+                "methodological note"
+              ],
+              "detection_method": "Identify the most frequent or most rhetorically important form used to credit sources."
+            },
+            {
+              "id": "EVD_ATT_004",
+              "name": "Direct External Link Provision",
+              "question": "Does the article provide direct external links to evidence, source material, regulator guidance, research, or documentation?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Inspect hyperlinks or explicitly provided URLs that lead outside the publisher's own site to supporting material."
+            }
+          ]
+        },
+        "methods_limits_and_calibration": {
+          "features": [
+            {
+              "id": "EVD_MTH_001",
+              "name": "Methods Disclosure Level",
+              "question": "How much does the post disclose about how evidence, data, testing, or comparison claims were produced?",
+              "type": "ordinal",
+              "values": [
+                "no methods disclosure",
+                "vague method language",
+                "partial conditions or scope",
+                "clear method elements",
+                "reproducible method, data, or test conditions"
+              ],
+              "detection_method": "Look for sample, time period, source coverage, test environment, assumptions, inclusion criteria, process steps, or reproducible instructions."
+            },
+            {
+              "id": "EVD_MTH_002",
+              "name": "Limits or Caveats Presence",
+              "question": "Does the article explicitly state evidence limits, exceptions, exclusions, uncertainty, or circumstances where advice may not apply?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for limitations such as jurisdiction dependence, eligibility conditions, incomplete methodology, atypical cases, contraindications, dated figures, or product-feature variability."
+            },
+            {
+              "id": "EVD_MTH_004",
+              "name": "Causal Claim Strength",
+              "question": "How strongly does the post claim that an intervention, product, or condition causes an outcome?",
+              "type": "categorical",
+              "values": [
+                "no causal claim",
+                "possibility or association only",
+                "qualified causal claim",
+                "strong causal claim",
+                "guaranteed or deterministic causal claim"
+              ],
+              "detection_method": "Identify the strongest causal language used, including may, can, helps, leads to, drives, prevents, ensures, or will."
+            },
+            {
+              "id": "EVD_MTH_008",
+              "name": "Evidence-to-Claim Placement",
+              "question": "How is evidence generally sequenced around the claims it supports?",
+              "type": "categorical",
+              "values": [
+                "no evidence-linked claims",
+                "claim then evidence",
+                "evidence then claim",
+                "claim and evidence interwoven",
+                "evidence clustered in a separate proof section",
+                "mixed sequencing"
+              ],
+              "detection_method": "Inspect section and sentence order to determine whether support precedes, follows, is integrated with, or is separated from the claim."
+            },
+            {
+              "id": "EVD_MTH_009",
+              "name": "Evidence Transparency Score",
+              "question": "Overall, how transparent is the post about where its consequential claims come from and what their limits are?",
+              "type": "scale",
+              "values": [
+                "1 - opaque assertion",
+                "2 - minimal source signaling",
+                "3 - partial attribution or caveats",
+                "4 - clear sources or methods with limits",
+                "5 - highly transparent and reproducible"
+              ],
+              "detection_method": "Holistically assess attribution specificity, methods, scope, limitations, source accessibility, and reproducibility for consequential claims."
+            },
+            {
+              "id": "EVD_MTH_010",
+              "name": "Testing or Validation Instruction",
+              "question": "Does the post instruct the reader to validate a claim, configuration, choice, or outcome before relying on it?",
+              "type": "binary",
+              "values": [
+                "present",
+                "absent"
+              ],
+              "detection_method": "Mark present when the text directs readers to run a test, pilot, benchmark, audit, compare outcomes, monitor metrics, use a checklist, or verify a result."
+            }
+          ]
+        },
+        "numbers_and_quantification": {
+          "features": [
+            {
+              "id": "EVD_NUM_007",
+              "name": "Reader-Generated Measurement Prompt",
+              "question": "Does the article ask readers to calculate, test, track, audit, or benchmark their own situation?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for instructions to measure time, calculate ratios, run a test, inspect logs, compare prices, track trends, or evaluate a threshold."
+            }
+          ]
+        }
+      }
+    },
+    "voices_and_sources": {
+      "aspects": {
+        "main_voice": {
+          "features": [
+            {
+              "id": "VOC_VOX_001",
+              "name": "Primary Voice Identity",
+              "question": "Who is the dominant speaking persona for the main body of the post?",
+              "type": "categorical",
+              "values": [
+                "institutional_brand",
+                "editorial_explainer",
+                "named_individual_expert",
+                "founder_or_executive",
+                "interviewer_or_host",
+                "curator_or_compiler"
+              ],
+              "detection_method": "Identify the persona that makes the main claims, frames recommendations, and controls the conclusion; use bylines, first-person claims, editorial framing, and speaker labels."
+            },
+            {
+              "id": "VOC_VOX_005",
+              "name": "Authorial Advocacy Intensity",
+              "question": "How strongly does the main narrator advocate a preferred model, platform, or behavior?",
+              "type": "scale",
+              "values": [
+                "1_neutral_orientation",
+                "2_light_recommendation",
+                "3_balanced_preference",
+                "4_strong_directional_advocacy",
+                "5_imperative_or_conversion_driven_advocacy"
+              ],
+              "detection_method": "Assess evaluative wording, binary contrasts, imperative language, dismissal of alternatives, and whether the conclusion presents one preferred path as necessary."
+            }
+          ]
+        },
+        "main_voice_and_format": {
+          "features": [
+            {
+              "id": "VOC_VOX_007",
+              "name": "Floor Control",
+              "question": "Who receives the greatest share of discursive space in a multi-voice article?",
+              "type": "categorical",
+              "values": [
+                "main_narrator_overwhelmingly_controls",
+                "main_narrator_controls_with_short_source_insertions",
+                "main_narrator_and_secondary_voice_share_space",
+                "featured_expert_or_guest_controls",
+                "multiple_secondary_voices_share_space"
+              ],
+              "detection_method": "Compare paragraph volume, quotation length, turn count, and whether the narrator summarizes versus relays other speakers."
+            }
+          ]
+        },
+        "quotation_and_source_forms": {
+          "features": [
+            {
+              "id": "VOC_QUO_001",
+              "name": "Direct Quotation Presence",
+              "question": "Does the article include direct quotations attributable to someone other than the main narrator?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for quotation marks or transcript turns attributed to experts, customers, leaders, employees, regulators, or other external speakers."
+            }
+          ]
+        },
+        "secondary_voices_and_quotation": {
+          "features": [
+            {
+              "id": "VOC_QUO_002",
+              "name": "Quotation Prominence",
+              "question": "What structural role do direct quotations play?",
+              "type": "categorical",
+              "values": [
+                "no_direct_quotes",
+                "isolated_supporting_quotes",
+                "recurring_supporting_quotes",
+                "quotation_led_sections",
+                "quotation_led_entire_article"
+              ],
+              "detection_method": "Assess whether quotations are absent, incidental, repeated evidence, section-organizing devices, or the main article format."
+            }
+          ]
+        },
+        "secondary_voices": {
+          "features": [
+            {
+              "id": "VOC_QUO_003",
+              "name": "Secondary Voice Forms",
+              "question": "What forms do secondary voices take?",
+              "type": "multi_select",
+              "values": [
+                "direct_quote",
+                "paraphrased_attribution",
+                "testimonial_or_customer_case",
+                "transcript_turn",
+                "hypothetical_scenario_voice",
+                "sample_script_or_dialogue",
+                "institutional_or_regulatory_reference"
+              ],
+              "detection_method": "Mark every represented form, distinguishing actual attributed people from invented scenarios and sample language."
+            },
+            {
+              "id": "VOC_QUO_004",
+              "name": "Named Expert Voice Use",
+              "question": "How is a named individual expert used, if at all?",
+              "type": "categorical",
+              "values": [
+                "no_named_individual_expert",
+                "named_but_only_mentioned",
+                "named_and_paraphrased",
+                "named_and_quoted_once",
+                "named_and_repeatedly_quoted",
+                "named_expert_is_primary_speaker"
+              ],
+              "detection_method": "Check bylines, bios, quotations, Q&A labels, and repeated attribution to determine the expert's actual speaking role."
+            },
+            {
+              "id": "VOC_QUO_006",
+              "name": "Voice Floor Control",
+              "question": "Who receives the greatest substantive textual space in a multi-voice post?",
+              "type": "categorical",
+              "values": [
+                "main_narrator_overwhelmingly_dominant",
+                "main_narrator_dominant_with_supporting_voices",
+                "roughly_balanced_narrator_and_guest",
+                "featured_expert_or_subject_dominant",
+                "multiple_secondary_voices_collectively_dominant"
+              ],
+              "detection_method": "Estimate relative word count and argumentative control across narrator prose, quotations, transcript turns, and case material."
+            },
+            {
+              "id": "VOC_QUO_007",
+              "name": "Authorial Framing of Secondary Voices",
+              "question": "How does the main narrator handle secondary voices?",
+              "type": "categorical",
+              "values": [
+                "no_secondary_voices",
+                "briefly_cites_without_interpretation",
+                "paraphrases_into_house_argument",
+                "frames_then_interprets_quotes",
+                "challenges_or_qualifies_voice",
+                "largely_relays_voice_without_interruption"
+              ],
+              "detection_method": "Examine text before and after quotations or attributed material for interpretation, agreement, qualification, challenge, or minimal mediation."
+            }
+          ]
+        },
+        "credibility_grounding": {
+          "features": [
+            {
+              "id": "VOC_CRD_001",
+              "name": "Dominant Credibility Basis",
+              "question": "What is the article's primary method for establishing credibility?",
+              "type": "categorical",
+              "values": [
+                "confident_institutional_explanation",
+                "named_role_or_professional_expertise",
+                "firsthand_lived_or_operational_experience",
+                "external_research_or_data",
+                "regulatory_or_standards_authority",
+                "customer_or_peer_social_proof",
+                "technical_demonstration_or_code"
+              ],
+              "detection_method": "Determine which credibility device is most central to why the reader should trust the article's recommendations."
+            },
+            {
+              "id": "VOC_CRD_002",
+              "name": "Attribution Transparency",
+              "question": "How transparently does the article identify the origin of its factual or expert claims?",
+              "type": "ordinal",
+              "values": [
+                "1_unattributed_assertion_dominant",
+                "2_general_authority_invocation",
+                "3_named_source_without_locator",
+                "4_named_source_with_specific_report_or_case",
+                "5_linked_or_formally_cited_source_apparatus"
+              ],
+              "detection_method": "Assess citations, links, publication names, report titles, dates, DOI-style references, named datasets, and source locators."
+            },
+            {
+              "id": "VOC_CRD_005",
+              "name": "Proprietary Authority Claim",
+              "question": "Does the article use proprietary platform access, internal data, customer scale, or product capability as proof?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Mark present when claims rely on the company's dashboard, customer base, product telemetry, service history, platform functionality, or internal observations."
+            }
+          ]
+        },
+        "credibility_and_sourcing": {
+          "features": [
+            {
+              "id": "VOC_CRD_003",
+              "name": "Attribution Specificity",
+              "question": "How specifically are external claims or authorities attributed?",
+              "type": "ordinal",
+              "values": [
+                "none_or_unattributed",
+                "generic_unnamed_authority",
+                "named_organization_or_concept",
+                "named_person_or_public_case",
+                "fully_identified_source_with_traceable_detail"
+              ],
+              "detection_method": "Assess the most specific attribution level used for factual, expert, or performance claims."
+            },
+            {
+              "id": "VOC_CRD_004",
+              "name": "External Authority Types",
+              "question": "What types of external authority are invoked?",
+              "type": "multi_select",
+              "values": [
+                "regulator_or_government_body",
+                "academic_or_research_institution",
+                "industry_analyst_or_market_report",
+                "professional_association_or_standard",
+                "news_or_media_source",
+                "third_party_company_or_platform",
+                "public_case_or_historical_event",
+                "named_individual_expert"
+              ],
+              "detection_method": "Mark each external authority type explicitly named or clearly invoked in the article."
+            }
+          ]
+        },
+        "reader_address_and_positioning": {
+          "features": [
+            {
+              "id": "VOC_ADR_001",
+              "name": "Primary Reader Role",
+              "question": "What role does the article primarily assign to the reader?",
+              "type": "categorical",
+              "values": [
+                "observer",
+                "learner",
+                "operator",
+                "evaluator",
+                "participant",
+                "conversational_contributor"
+              ],
+              "detection_method": "Infer the role from verbs, tasks, questions, and the kind of agency the article asks the reader to exercise."
+            },
+            {
+              "id": "VOC_ADR_002",
+              "name": "Second-Person Address Density",
+              "question": "How frequently does the article directly address the reader as 'you' or through equivalent imperatives?",
+              "type": "ordinal",
+              "values": [
+                "none_or_negligible",
+                "occasional",
+                "recurring",
+                "dense_throughout"
+              ],
+              "detection_method": "Scan body sections for direct second-person pronouns, direct questions, and imperative clauses addressed to the reader."
+            },
+            {
+              "id": "VOC_ADR_003",
+              "name": "Reader Address Mode",
+              "question": "What is the dominant rhetorical mode of reader address?",
+              "type": "categorical",
+              "values": [
+                "explanatory_distance",
+                "direct_instruction",
+                "self_assessment_prompting",
+                "persuasive_challenge",
+                "reassurance_or_coaching",
+                "commercial_invitation"
+              ],
+              "detection_method": "Identify whether the reader is mainly informed, told what to do, asked to diagnose themselves, challenged to change, reassured, or invited toward a service."
+            }
+          ]
+        },
+        "participation": {
+          "features": [
+            {
+              "id": "VOC_PRT_001",
+              "name": "Reader Participation Invitation Presence",
+              "question": "Does the post explicitly invite the reader to take part beyond silently reading?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for invitations to comment, ask a question, self-assess, use a tool, attend, contact, subscribe, join, download, or complete a task."
+            }
+          ]
+        },
+        "participation_and_next_steps": {
+          "features": [
+            {
+              "id": "VOC_PRT_003",
+              "name": "Commercial CTA Intensity",
+              "question": "How commercially direct is the article's strongest next step?",
+              "type": "ordinal",
+              "values": [
+                "no_commercial_cta",
+                "related_content_only",
+                "contextual_brand_mention",
+                "soft_contact_or_resource_cta",
+                "direct_demo_purchase_application_or_booking_cta"
+              ],
+              "detection_method": "Assess the closing and any prominent in-body invitations for contact, demo, purchase, signup, booking, or application language."
+            },
+            {
+              "id": "VOC_PRT_005",
+              "name": "External Participation Pathway",
+              "question": "Does the article route readers beyond the article through a participation or resource mechanism?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Check for links or explicit routes to demos, documentation, tools, videos, case studies, webinars, newsletters, communities, support resources, or purchase pages."
+            }
+          ]
+        },
+        "voice_format_and_floor_control": {
+          "features": [
+            {
+              "id": "VOC_VOX_008",
+              "name": "Speaking Format",
+              "question": "What is the article's dominant speaking arrangement?",
+              "type": "categorical",
+              "values": [
+                "single_author_article",
+                "quotation_led_article",
+                "interview_or_qa",
+                "edited_transcript",
+                "event_or_content_recap",
+                "case_compilation",
+                "listicle_with_source_units"
+              ],
+              "detection_method": "Identify whether prose is primarily authored narration, organized around quotations, speaker turns, transcript exchanges, recap units, cases, or source-specific list entries."
+            },
+            {
+              "id": "VOC_VOX_010",
+              "name": "Secondary Voice Entry Mode",
+              "question": "How do secondary voices primarily enter the text?",
+              "type": "categorical",
+              "values": [
+                "absent",
+                "direct_quotation",
+                "paraphrased_authority",
+                "testimonial_or_customer_case",
+                "illustrative_dialogue_or_script",
+                "hypothetical_persona_or_vignette",
+                "transcript_turns"
+              ],
+              "detection_method": "Classify the dominant way non-narrator perspectives appear. If more than one form occurs, select the form that receives the greatest textual emphasis."
+            },
+            {
+              "id": "VOC_VOX_012",
+              "name": "Source Interruption Pattern",
+              "question": "When other voices appear, how does the main author handle them?",
+              "type": "categorical",
+              "values": [
+                "no_secondary_voices",
+                "briefly_cites_then_resumes",
+                "paraphrases_into_house_argument",
+                "quotes_then_interprets",
+                "lets_source_answer_at_length",
+                "contrasts_multiple_sources"
+              ],
+              "detection_method": "Inspect the paragraphs surrounding quotes, testimonies, cases, or expert turns to determine whether the author absorbs, interprets, relays, or contrasts them."
+            }
+          ]
+        }
+      }
+    },
+    "actionability": {
+      "aspects": {
+        "guidance_level_and_structure": {
+          "features": [
+            {
+              "id": "ACT_LVL_001",
+              "name": "Overall Guidance Level",
+              "question": "What is the highest sustained level of executable guidance provided by the post?",
+              "type": "ordinal",
+              "values": [
+                "informational_only",
+                "recommendation_oriented",
+                "checklist_like",
+                "stepwise_procedural",
+                "implementation_playbook"
+              ],
+              "detection_method": "Assess whether the article merely explains, recommends actions, lists actionable items, provides ordered steps, or supplies an end-to-end implementation system with roles, controls, and follow-up."
+            },
+            {
+              "id": "ACT_STP_002",
+              "name": "Dominant Action Structure",
+              "question": "How are the article's main actions structurally organized?",
+              "type": "categorical",
+              "values": [
+                "no_action_structure",
+                "independent_tips",
+                "checklist",
+                "ordered_workflow",
+                "staged_maturity_plan",
+                "conditional_decision_path",
+                "case_or_example_specific_actions"
+              ],
+              "detection_method": "Identify whether actions are isolated suggestions, scannable checklist items, ordered steps, phases of adoption, if-then choices, or actions attached to individual cases or profiles."
+            },
+            {
+              "id": "ACT_STP_004",
+              "name": "Numbered Procedure Presence",
+              "question": "Does the article present any principal guidance as explicitly numbered steps, phases, or stages?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Mark yes when headings or body text explicitly enumerate a procedure using numbered steps, phases, parts, or stages."
+            },
+            {
+              "id": "ACT_STP_006",
+              "name": "Decision Rule Presence",
+              "question": "Does the post give explicit criteria for choosing among actions, tools, or paths?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Identify explicit fit language such as if, unless, when, based on, choose X for Y, avoid X if Y, or eligibility requirements."
+            },
+            {
+              "id": "ACT_STP_007",
+              "name": "Implementation Lifecycle Coverage",
+              "question": "Which lifecycle stages are covered by the article's guidance?",
+              "type": "multi_select",
+              "values": [
+                "diagnose_or_assess",
+                "plan_or_select",
+                "implement_or_execute",
+                "monitor_or_verify",
+                "adjust_or_optimize",
+                "escalate_or_exit"
+              ],
+              "detection_method": "Select every lifecycle stage explicitly addressed through action guidance. Do not infer stages from background explanation alone."
+            }
+          ]
+        },
+        "actors_and_assignment": {
+          "features": [
+            {
+              "id": "ACT_STP_008",
+              "name": "Primary Actor Expected to Act",
+              "question": "Who is primarily expected to perform the article's recommended actions?",
+              "type": "categorical",
+              "values": [
+                "no_actor_specified",
+                "individual_reader",
+                "manager_or_leader",
+                "cross_functional_team",
+                "organization",
+                "external_provider_or_vendor",
+                "professional_advisor_or_regulator",
+                "combination_of_actors"
+              ],
+              "detection_method": "Identify the actor addressed by imperatives and responsibility statements, such as the reader, manager, team, organization, vendor, clinician, lawyer, or consultant."
+            },
+            {
+              "id": "ACT_STP_011",
+              "name": "Escalation Ownership",
+              "question": "Does the post specify who should take over when the initial actor cannot safely or effectively proceed?",
+              "type": "categorical",
+              "values": [
+                "no_escalation_path",
+                "generic_seek_help",
+                "named_internal_escalation",
+                "named_external_service_escalation",
+                "regulated_orprofessional_escalation",
+                "emergency_stop_and_escalation"
+              ],
+              "detection_method": "Look for instructions to contact a manager, vendor, support team, mechanic, clinician, attorney, regulator, or emergency service, including stop-work or stop-use directions."
+            }
+          ]
+        },
+        "concreteness_and_operational_detail": {
+          "features": [
+            {
+              "id": "ACT_CON_012",
+              "name": "Instructional Concreteness Markers",
+              "question": "What concrete execution markers appear in the article's guidance?",
+              "type": "multi_select",
+              "values": [
+                "named_tool_or_platform",
+                "named_document_or_artifact",
+                "numeric_quantity_or_range",
+                "time_or_cadence",
+                "threshold_or_trigger",
+                "named_role_or_contact",
+                "script_or_exact_wording",
+                "physical_material_or_equipment",
+                "interface_field_or_setting"
+              ],
+              "detection_method": "Select each marker explicitly used in actionable instruction, not merely mentioned in background context."
+            },
+            {
+              "id": "ACT_CON_013",
+              "name": "Numerical Operational Specificity",
+              "question": "How are numbers used in the article's action guidance?",
+              "type": "categorical",
+              "values": [
+                "no_operational_numbers",
+                "illustrative_numbers_only",
+                "recommended_ranges",
+                "fixed_operating_targets",
+                "decision_thresholds_or_cutoffs",
+                "multiple_numeric_control_types"
+              ],
+              "detection_method": "Distinguish illustrative examples from recommended ranges, fixed targets, explicit thresholds, and articles using multiple numeric control forms."
+            },
+            {
+              "id": "ACT_CON_014",
+              "name": "Timing Specificity",
+              "question": "What type of timing instruction supports the recommended actions?",
+              "type": "categorical",
+              "values": [
+                "no_timing_instruction",
+                "relative_urgency_only",
+                "general_recurring_cadence",
+                "specific_duration_or_wait_window",
+                "calendar_or_deadline_based_timing",
+                "event_triggered_timing",
+                "multiple_timing_types"
+              ],
+              "detection_method": "Identify whether timing is vague urgency, recurring cadence, a wait duration, a calendar date or deadline, an event trigger, or several of these."
+            },
+            {
+              "id": "ACT_CON_015",
+              "name": "Artifact Production Requirement",
+              "question": "Does the guidance require the reader to create, collect, update, or submit a tangible operational artifact?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Mark yes for required artifacts such as a checklist, CSV, report, dashboard, chart, script, contract, log, template, inventory, or documented plan."
+            },
+            {
+              "id": "ACT_CON_018",
+              "name": "Effort Framing",
+              "question": "How does the article frame the effort required to execute its recommendations?",
+              "type": "categorical",
+              "values": [
+                "no_effort_framing",
+                "qualitative_easy_or_difficult_framing",
+                "time_estimate",
+                "cost_or_budget_estimate",
+                "staffing_or_skill_requirement",
+                "multiple_effort_dimensions"
+              ],
+              "detection_method": "Look for stated time, money, staffing, skill level, complexity, implementation burden, or comparisons of effort."
+            }
+          ]
+        },
+        "instruction_specificity": {
+          "features": [
+            {
+              "id": "ACT_CON_016",
+              "name": "Named Tool Specificity",
+              "question": "What level of tool specificity appears in the instructions?",
+              "type": "categorical",
+              "values": [
+                "no_tools_named",
+                "generic_tool_category",
+                "named_tool_or_platform",
+                "named_feature_or_setting",
+                "exact_command_code_or_interface_path"
+              ],
+              "detection_method": "Identify whether instructions mention only categories, named products, named features, or exact commands, APIs, flags, menus, file names, or interface controls."
+            },
+            {
+              "id": "ACT_CON_017",
+              "name": "Quantification Type",
+              "question": "What forms of quantification are used in actionable instructions?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "counts_or_quantities",
+                "percentages_or_ratios",
+                "currency_or_cost",
+                "time_duration_or_cadence",
+                "volume_or_scale",
+                "technical_threshold_or_tolerance",
+                "health_or_safety_dose"
+              ],
+              "detection_method": "Mark every applicable type of number used as an instruction, threshold, target, dose, timing, scale marker, or budget criterion."
+            },
+            {
+              "id": "ACT_CON_019",
+              "name": "Scripted Language Availability",
+              "question": "Does the post supply words the reader can use verbatim?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "example_question_only",
+                "example_phrase_or_sentence",
+                "multi_line_script",
+                "template_message_or_email"
+              ],
+              "detection_method": "Identify quoted phrases, sample replies, negotiation lines, customer messages, emails, or dialogue scripts intended for direct reuse."
+            },
+            {
+              "id": "ACT_CON_020",
+              "name": "Timing Specificity",
+              "question": "How specifically does the post attach timing to actions?",
+              "type": "ordinal",
+              "values": [
+                "no_timing",
+                "general_urgency",
+                "relative_sequence_only",
+                "recurring_cadence",
+                "precise_windows_or_deadlines"
+              ],
+              "detection_method": "Check for vague urgency, first/next sequencing, weekly/monthly cycles, or exact periods such as 48 hours, day three, 90 days, Q4, 24-hour response, or 7 DPO."
+            }
+          ]
+        },
+        "decision_support_and_conditions": {
+          "features": [
+            {
+              "id": "ACT_CHK_018",
+              "name": "Conditional Logic Presence",
+              "question": "Does the post provide explicit conditions for choosing among actions?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for if, when, unless, depending on, based on, only if, avoid if, or comparable decision criteria tied to different recommendations."
+            },
+            {
+              "id": "ACT_CHK_019",
+              "name": "Conditional Logic Complexity",
+              "question": "What is the most complex form of conditional logic used in the post?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "single_condition_single_action",
+                "multiple_independent_conditions",
+                "two_path_decision",
+                "multi_factor_routing",
+                "iterative_feedback_decision_loop"
+              ],
+              "detection_method": "Assess whether the article has one simple rule, multiple separate rules, a binary choice, a multi-variable fit model, or a loop in which results determine the next action."
+            },
+            {
+              "id": "ACT_CHK_022",
+              "name": "Trade-off Disclosure",
+              "question": "How does the post handle drawbacks, costs, or conditions under which its recommendation may not fit?",
+              "type": "categorical",
+              "values": [
+                "no_tradeoffs",
+                "brief_generic_caveat",
+                "specific_drawbacks",
+                "balanced_pros_and_cons",
+                "risk_screening_and_alternative_path"
+              ],
+              "detection_method": "Assess whether caveats are absent, vague, specific, balanced across options, or used to route readers to a different solution or professional handoff."
+            }
+          ]
+        },
+        "verification_and_decision_support": {
+          "features": [
+            {
+              "id": "ACT_CHK_023",
+              "name": "Success Verification Design",
+              "question": "How does the post tell the reader to verify that an action worked?",
+              "type": "categorical",
+              "values": [
+                "no_verification",
+                "subjective_self_assessment",
+                "observable_result",
+                "metric_or_threshold_check",
+                "formal_test_or_audit",
+                "ongoing_monitoring_dashboard"
+              ],
+              "detection_method": "Look for expected results, checks, before/after measures, audit criteria, test outputs, dashboards, monitoring, or review cycles."
+            },
+            {
+              "id": "ACT_CHK_029",
+              "name": "Repetition and Review Loop",
+              "question": "Does the post prescribe repeated review, iteration, or continuous improvement?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Identify recurring reviews, reassessments, retrospectives, monthly checks, optimization loops, recurring audits, or ongoing measurement."
+            },
+            {
+              "id": "ACT_CHK_030",
+              "name": "Feedback Source",
+              "question": "What feedback source is used to adjust actions over time?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "reader_self_observation",
+                "customer_or_user_feedback",
+                "operational_metrics",
+                "system_alerts_or_logs",
+                "manager_or_team_review",
+                "professional_advisor_feedback",
+                "external_market_or_regulatory_change"
+              ],
+              "detection_method": "Mark each feedback source that the post says should inform adjustment, optimization, escalation, or next decisions."
+            }
+          ]
+        },
+        "verification_feedback_and_resources": {
+          "features": [
+            {
+              "id": "ACT_CHK_024",
+              "name": "Verification Method",
+              "question": "What is the strongest verification method provided for recommended actions?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "subjective_self_assessment",
+                "observable_result",
+                "measurement_or_metric",
+                "test_or_experiment",
+                "audit_orreview",
+                "external_professional_confirmation"
+              ],
+              "detection_method": "Identify whether success is judged by feeling, observation, a metric, a test, an audit, or validation by a clinician, attorney, vendor, technician, or reviewer."
+            }
+          ]
+        },
+        "resources_and_execution_support": {
+          "features": [
+            {
+              "id": "ACT_CHK_025",
+              "name": "Execution Support Resources",
+              "question": "What supporting resources does the article provide or direct readers toward for execution?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "template_or_script",
+                "checklist_or_framework",
+                "calculator_or_interactive_tool",
+                "code_or_configuration_example",
+                "external_link_or_documentation",
+                "downloadable_asset",
+                "video_or_embedded_media",
+                "contact_or_demo_route",
+                "related_content_route"
+              ],
+              "detection_method": "Select all resources that are actually supplied, linked, embedded, or explicitly offered as execution support."
+            },
+            {
+              "id": "ACT_CHK_026",
+              "name": "Escalation Route Presence",
+              "question": "Does the article provide an explicit route for escalating a difficult, unsafe, regulated, or unresolved situation?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Mark yes when the article directs the reader to a clinician, lawyer, manager, vendor, support team, emergency service, regulator, or another defined escalation destination."
+            },
+            {
+              "id": "ACT_CHK_032",
+              "name": "Link and Resource Placement",
+              "question": "Where are execution-support resources placed in the article?",
+              "type": "categorical",
+              "values": [
+                "no_resources",
+                "opening",
+                "distributed_throughout",
+                "mid_article_solution_section",
+                "conclusion_only",
+                "separate_resource_or_reference_section"
+              ],
+              "detection_method": "Locate resource mentions, links, downloads, demos, support materials, or contact invitations by article position."
+            },
+            {
+              "id": "ACT_CHK_033",
+              "name": "Template or Example Reusability",
+              "question": "How directly can the reader reuse the examples supplied?",
+              "type": "ordinal",
+              "values": [
+                "no_reusable_example",
+                "illustrative_example_only",
+                "adaptable_example",
+                "copyable_template_or_script",
+                "runnable_or_downloadable_artifact"
+              ],
+              "detection_method": "Assess whether examples merely illustrate, can be adapted, can be copied directly, or are runnable/downloadable tools, code, forms, or templates."
+            },
+            {
+              "id": "ACT_CHK_034",
+              "name": "External Authority Support",
+              "question": "What type of external authority supports execution guidance?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "unnamed_experts_or_research",
+                "named_organization_or_standard",
+                "named_individual_expert",
+                "customer_or_practitioner_case",
+                "multiple_authority_types"
+              ],
+              "detection_method": "Identify whether action guidance invokes unnamed expertise, named regulators or standards, named experts, customer cases, or several authority types."
+            }
+          ]
+        },
+        "effort_and_action_balance": {
+          "features": [
+            {
+              "id": "ACT_CON_029",
+              "name": "Effort Estimate Presence",
+              "question": "Does the post estimate the effort, cost, difficulty, or resource burden of acting?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "time_estimate",
+                "cost_estimate",
+                "staffing_or_role_requirement",
+                "technical_skill_requirement",
+                "implementation_complexity_warning",
+                "maintenance_burden"
+              ],
+              "detection_method": "Mark explicit references to duration, budget, headcount, expertise, implementation difficulty, migration cost, ongoing monitoring, or maintenance workload."
+            },
+            {
+              "id": "ACT_CON_030",
+              "name": "Action-to-Explanation Balance",
+              "question": "What proportion of the main article body is executable guidance rather than conceptual explanation, persuasion, or background?",
+              "type": "scale",
+              "values": [
+                "1_almost_all_explanation",
+                "2_explanation_dominant",
+                "3_balanced",
+                "4_guidance_dominant",
+                "5_almost_all_execution"
+              ],
+              "detection_method": "Estimate relative space devoted to actions, steps, rules, scripts, and checks versus definitions, rationale, narrative, persuasion, or product framing."
+            },
+            {
+              "id": "ACT_CON_031",
+              "name": "Reader Burden After Reading",
+              "question": "How much planning, interpretation, or design work remains for the reader after following the article?",
+              "type": "ordinal",
+              "values": [
+                "very_high_reader_design_burden",
+                "high_reader_judgment_burden",
+                "moderate_adaptation_required",
+                "low_adaptation_required",
+                "minimal_execution_burden"
+              ],
+              "detection_method": "Assess whether the reader must invent a plan, select among broad ideas, adapt a supplied framework, fill in a detailed checklist, or simply carry out specified steps."
+            },
+            {
+              "id": "ACT_CON_032",
+              "name": "Commercial Next-Step Placement",
+              "question": "Where does any commercial or provider-led action route appear relative to the editorial guidance?",
+              "type": "categorical",
+              "values": [
+                "no_commercial_next_step",
+                "metadata_orincidental_mention",
+                "opening_premise",
+                "embedded_throughout_method",
+                "middle_solution_bridge",
+                "separated_conclusion_cta",
+                "repeated_conversion_routes"
+              ],
+              "detection_method": "Track product, demo, contact, purchase, consultation, or signup language from opening through conclusion and identify its dominant placement pattern."
+            }
+          ]
+        },
+        "actors_and_ownership": {
+          "features": [
+            {
+              "id": "ACT_LVL_011",
+              "name": "Actor Explicitness",
+              "question": "How explicitly does the post name who should perform each key action?",
+              "type": "ordinal",
+              "values": [
+                "actors_not_named",
+                "reader_implied",
+                "primary_actor_named_once",
+                "actors_named_for_major_steps",
+                "roles_and_handoffs_explicitly_assigned"
+              ],
+              "detection_method": "Check for named roles such as manager, HR, engineer, clinician, finance lead, customer, vendor, administrator, or cross-functional team at action points."
+            },
+            {
+              "id": "ACT_LVL_013",
+              "name": "Reader Agency Framing",
+              "question": "How is the reader positioned as an actor?",
+              "type": "categorical",
+              "values": [
+                "passive_learner",
+                "informed_evaluator",
+                "independent_operator",
+                "team_coordinator",
+                "strategic_decision_maker",
+                "diagnostic_observer"
+              ],
+              "detection_method": "Assess whether the post primarily asks readers to understand, choose, execute, coordinate, allocate resources, or observe and report."
+            }
+          ]
+        },
+        "commercial_action_design": {
+          "features": [
+            {
+              "id": "ACT_LVL_036",
+              "name": "Brand Role in Execution",
+              "question": "What role does the brand or product play in enabling the recommended action?",
+              "type": "categorical",
+              "values": [
+                "brand_absent",
+                "metadata_or_context_only",
+                "illustrative_example",
+                "optional_enabling_tool",
+                "embedded_workflow_infrastructure",
+                "preferred_solution",
+                "exclusive_or_required_solution"
+              ],
+              "detection_method": "Assess whether the brand is absent, illustrative, optional, embedded in execution, recommended as preferred, or presented as the necessary solution."
+            },
+            {
+              "id": "ACT_LVL_037",
+              "name": "Commercial Integration Placement",
+              "question": "Where does the brand or provider enter the action path?",
+              "type": "categorical",
+              "values": [
+                "brand_absent",
+                "title_or_opening",
+                "early_explanatory_body",
+                "mid_article_solution_bridge",
+                "conclusion_only",
+                "distributed_throughout",
+                "separate_CTA_module"
+              ],
+              "detection_method": "Locate the first substantive product or provider reference and determine whether it recurs through the article or is isolated."
+            },
+            {
+              "id": "ACT_LVL_038",
+              "name": "Commercial Next-Step Intensity",
+              "question": "How directly does the post ask the reader to take a commercial next step?",
+              "type": "ordinal",
+              "values": [
+                "no_commercial_next_step",
+                "related_content_only",
+                "soft_contextual_mention",
+                "resource_or_learn_more_invitation",
+                "contact_demo_trial_or_purchase_CTA"
+              ],
+              "detection_method": "Inspect the ending and action sections for related links, soft mentions, learn-more invitations, contact prompts, demo links, trial buttons, downloads, or purchase calls."
+            }
+          ]
+        },
+        "operational_commitment": {
+          "features": [
+            {
+              "id": "ACT_STP_041",
+              "name": "Maintenance Burden",
+              "question": "What ongoing maintenance burden does the post prescribe after initial implementation?",
+              "type": "ordinal",
+              "values": [
+                "none_or_one_time",
+                "occasional_as_needed",
+                "periodic_review",
+                "regular_recurring_management",
+                "continuous_monitoring_and_optimization"
+              ],
+              "detection_method": "Look for scheduled reviews, audits, recurring meetings, monitoring, incident response, iterative optimization, or ongoing administrative upkeep."
+            },
+            {
+              "id": "ACT_STP_042",
+              "name": "Implementation Readiness Check",
+              "question": "Does the post require readers to assess readiness before acting?",
+              "type": "categorical",
+              "values": [
+                "no_readiness_check",
+                "informal_reflective_question",
+                "single_eligibility_check",
+                "multi_factor_readiness_checklist",
+                "formal_assessment_or_audit"
+              ],
+              "detection_method": "Identify preconditions such as budget, skills, role, data quality, health condition, legal eligibility, system inventory, pilot assessment, or formal readiness audit."
+            }
+          ]
+        }
+      }
+    },
+    "brand_product_integration": {
+      "aspects": {
+        "product_role_and_presence": {
+          "features": [
+            {
+              "id": "COM_ROL_002",
+              "name": "Named Offering Presence",
+              "question": "Does the editorial body name the publisher, its product, service, platform, or owned program?",
+              "type": "binary",
+              "values": [
+                "named_in_body",
+                "not_named_in_body"
+              ],
+              "detection_method": "Exclude site chrome, metadata, author bylines, and generic category references; count explicit mentions in the article body."
+            },
+            {
+              "id": "COM_ROL_005",
+              "name": "Self-Reference Frequency",
+              "question": "How often does the publisher refer to itself or its offering in the editorial body?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "single_mention",
+                "two_to_three_mentions",
+                "four_or_more_mentions"
+              ],
+              "detection_method": "Count explicit publisher, product, platform, program, possessive-brand, and first-person institutional references in the body."
+            }
+          ]
+        },
+        "placement_and_cadence": {
+          "features": [
+            {
+              "id": "COM_PLC_005",
+              "name": "Product Mention Cadence",
+              "question": "How persistent is product or brand mention across the article's substantive sections?",
+              "type": "ordinal",
+              "values": [
+                "absent",
+                "isolated",
+                "occasional",
+                "recurring",
+                "pervasive"
+              ],
+              "detection_method": "Estimate section-level recurrence: none, one isolated reference, a few references, repeated references across several sections, or references in nearly every major section."
+            }
+          ]
+        },
+        "placement_and_separation": {
+          "features": [
+            {
+              "id": "COM_PLC_002",
+              "name": "Title-Level Brand Inclusion",
+              "question": "Does the title or H1 include the publisher brand, product, service, or explicit commercial offer?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Inspect the article title/H1 only; do not count generic category terms unless they are a branded product name."
+            }
+          ]
+        },
+        "sales_pressure_and_neutrality": {
+          "features": [
+            {
+              "id": "COM_PRS_001",
+              "name": "Sales Pressure Level",
+              "question": "How strongly does the article pressure the reader toward the publisher's offering?",
+              "type": "scale",
+              "values": [
+                "1_absent_or_editorial",
+                "2_light_contextual",
+                "3_moderate_recommendation",
+                "4_strong_solution_advocacy",
+                "5_conversion_dominant"
+              ],
+              "detection_method": "Judge the combined intensity of brand prominence, superiority claims, conversion language, repeated product references, and CTA pressure."
+            },
+            {
+              "id": "COM_PRS_002",
+              "name": "Preferred Solution Framing",
+              "question": "How does the article frame the publisher's offering relative to alternatives?",
+              "type": "categorical",
+              "values": [
+                "not_present",
+                "one_example_among_options",
+                "suitable_for_specific_conditions",
+                "preferred_for_most_readers",
+                "necessary_infrastructure",
+                "only_viable_or_best_solution"
+              ],
+              "detection_method": "Identify comparative wording and determine whether the offering is one option, conditional fit, generally preferred, necessary infrastructure, or explicitly superior/only viable."
+            },
+            {
+              "id": "COM_PRS_005",
+              "name": "Commercial Interest Disclosure",
+              "question": "Does the article explicitly disclose that the publisher sells, provides, sponsors, or has a commercial interest in the promoted offering?",
+              "type": "binary",
+              "values": [
+                "no_explicit_disclosure",
+                "explicit_disclosure"
+              ],
+              "detection_method": "Look for direct disclosure statements such as sponsored, offered by, our service, client, partner, affiliate, or equivalent transparency language."
+            },
+            {
+              "id": "COM_PRS_006",
+              "name": "Incumbent-to-Modern Solution Contrast",
+              "question": "How does the article position the preferred solution relative to an incumbent default?",
+              "type": "categorical",
+              "values": [
+                "no_incumbent_contrast",
+                "incremental_improvement",
+                "fit_based_alternative",
+                "legacy_to_modern_replacement",
+                "incumbent_portrayed_as_failure_or_risk"
+              ],
+              "detection_method": "Identify whether the article presents no contrast, a modest improvement, a conditional alternative, a modernization transition, or a strong incumbent-failure narrative."
+            }
+          ]
+        },
+        "cta_and_closing": {
+          "features": [
+            {
+              "id": "COM_CTA_008",
+              "name": "CTA Directness",
+              "question": "How directly does the article ask the reader to take the next step?",
+              "type": "ordinal",
+              "values": [
+                "no_cta",
+                "implicit_invitation",
+                "soft_suggestion",
+                "explicit_invitation",
+                "imperative_or_urgency_driven_ask"
+              ],
+              "detection_method": "Code CTA wording from no ask, implied relevance, soft language such as consider/learn more, explicit invitations, to direct imperatives such as book now, request a demo, or start today."
+            },
+            {
+              "id": "COM_CTA_010",
+              "name": "Editorial-to-Commercial Transition Abruptness",
+              "question": "How abrupt is the transition from editorial advice to promotion near the end?",
+              "type": "categorical",
+              "values": [
+                "no_commercial_transition",
+                "fully_integrated_throughout",
+                "gradual_bridge_to_offer",
+                "clearly_separated_soft_promotion",
+                "abrupt_hard_conversion_block"
+              ],
+              "detection_method": "Compare the final editorial section with the promotional material that follows and assess whether product promotion is absent, integrated throughout, gradually bridged, visibly fenced but soft, or abruptly inserted as a hard conversion block."
+            }
+          ]
+        },
+        "bridge_and_justification": {
+          "features": [
+            {
+              "id": "COM_CTA_004",
+              "name": "Proof of Capability Presence",
+              "question": "Does the article provide a concrete demonstration, case, testimonial, benchmark, or operational example tied to the publisher offering?",
+              "type": "binary",
+              "values": [
+                "product_proof_present",
+                "product_proof_absent"
+              ],
+              "detection_method": "Count only proof directly connected to the publisher offering, such as a customer result, workflow example, demo, benchmark, named implementation, or performance claim."
+            },
+            {
+              "id": "COM_CTA_005",
+              "name": "Bridge Location",
+              "question": "Where is the strongest problem-to-product bridge placed?",
+              "type": "categorical",
+              "values": [
+                "no_bridge",
+                "opening",
+                "early_body",
+                "middle_body",
+                "late_body",
+                "conclusion",
+                "repeated_across_article"
+              ],
+              "detection_method": "Identify the clearest bridge passage and record its principal article location; use repeated_across_article when multiple sections independently build the bridge."
+            },
+            {
+              "id": "COM_ROL_007",
+              "name": "Problem-to-Product Bridge Type",
+              "question": "How does the article connect the reader's problem to the publisher offering?",
+              "type": "categorical",
+              "values": [
+                "no_bridge",
+                "implied_fit",
+                "explicit_feature_to_problem_claim",
+                "outcome_to_problem_claim",
+                "worked_demonstration",
+                "diagnostic_then_solution_bridge",
+                "legacy_or_incumbent_failure_bridge"
+              ],
+              "detection_method": "Locate the local sentence or passage that makes the offering relevant and classify the argumentative move it uses."
+            },
+            {
+              "id": "COM_ROL_009",
+              "name": "Product Justification Stack",
+              "question": "What kinds of support are used to justify the publisher-related recommendation?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "named_features",
+                "operational_mechanism",
+                "reader_outcomes",
+                "worked_example_or_demo",
+                "proprietary_data_or_benchmark",
+                "customer_case_or_testimonial",
+                "credentials_or_certifications",
+                "external_research_or_authority",
+                "comparison_with_incumbent_or_competitor",
+                "risk_or_cost_of_inaction"
+              ],
+              "detection_method": "Select every justification type used specifically to support the product-related action; do not select none with any other value."
+            },
+            {
+              "id": "COM_ROL_010",
+              "name": "Claim-to-Capability Specificity",
+              "question": "How specifically does the article explain how the offering delivers its promised benefit?",
+              "type": "scale",
+              "values": [
+                "1_no_product_claim",
+                "2_generic_benefit_assertion",
+                "3_named_feature_without_mechanism",
+                "4_feature_with_operational_mechanism",
+                "5_mechanism_with_example_or_demonstration"
+              ],
+              "detection_method": "Assess the most developed product-benefit explanation, from generic claim through feature, mechanism, and worked proof."
+            },
+            {
+              "id": "COM_ROL_011",
+              "name": "Legacy-to-Modern Commercial Contrast",
+              "question": "Does the article frame the publisher offering as the modern replacement for a legacy, manual, fragmented, or reactive approach?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Look for an explicit contrast where the old approach is framed as deficient and the publisher-related solution as modern, proactive, centralized, automated, or resilient."
+            }
+          ]
+        }
+      }
+    },
+    "timeliness": {
+      "aspects": {
+        "temporal_orientation": {
+          "features": [
+            {
+              "id": "TIM_SEN_001",
+              "name": "Primary Temporal Orientation",
+              "question": "What is the post's dominant temporal orientation?",
+              "type": "categorical",
+              "values": [
+                "evergreen",
+                "seasonal",
+                "event_driven",
+                "policy_update",
+                "crisis_responsive",
+                "retrospective",
+                "current_state_analysis",
+                "future_looking"
+              ],
+              "detection_method": "Identify the time frame that organizes the main argument, headline, opening, and conclusion; choose the orientation most central to why the post matters."
+            },
+            {
+              "id": "TIM_SEN_003",
+              "name": "Retrospective Anchor Type",
+              "question": "What type of retrospective anchor, if any, does the post use to establish relevance?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "historical_background",
+                "dated_market_or_policy_event",
+                "past_crisis_or_disruption",
+                "past_performance_or_case_review"
+              ],
+              "detection_method": "Identify whether the article invokes history generally, a dated event, a prior crisis, or a performance/case retrospective as part of its argument."
+            },
+            {
+              "id": "TIM_SEN_006",
+              "name": "Future Horizon",
+              "question": "What future horizon does the post explicitly invoke for reader planning or anticipated change?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "immediate_hours_or_days",
+                "near_term_weeks_or_months",
+                "annual_or_next_year",
+                "multi_year",
+                "open_ended_long_term"
+              ],
+              "detection_method": "Code the longest materially emphasized forward-looking horizon, not incidental future tense."
+            },
+            {
+              "id": "TIM_SEN_007",
+              "name": "Seasonality Role",
+              "question": "How does seasonality function in the post?",
+              "type": "categorical",
+              "values": [
+                "absent",
+                "incidental_context",
+                "recurring_operational_cue",
+                "primary_publication_peg",
+                "hard_action_window"
+              ],
+              "detection_method": "Look for seasons, holiday periods, annual cycles, peak windows, enrollment periods, or recurring market phases."
+            },
+            {
+              "id": "TIM_CHG_001",
+              "name": "Primary Change Story",
+              "question": "What kind of change does the post primarily describe?",
+              "type": "categorical",
+              "values": [
+                "stable_condition",
+                "emerging_trend",
+                "disruption",
+                "before_after_transition",
+                "anticipated_development"
+              ],
+              "detection_method": "Assess whether the text describes an enduring condition, a newly emerging pattern, a disruption, a transition from an old model to a new model, or an expected future development."
+            },
+            {
+              "id": "TIM_CHG_002",
+              "name": "Future Horizon Specificity",
+              "question": "How specifically does the post describe the future?",
+              "type": "categorical",
+              "values": [
+                "no_future_reference",
+                "generic_future",
+                "recurring_future_cycle",
+                "dated_future_period",
+                "forecasted_multi_year_future"
+              ],
+              "detection_method": "Code the most specific future-oriented language used in the article, from no future reference through generic phrases such as 'going forward' to a named future year or multi-year forecast."
+            }
+          ]
+        },
+        "freshness_signaling_and_now_language": {
+          "features": [
+            {
+              "id": "TIM_SEN_004",
+              "name": "Now-Language Density",
+              "question": "How frequently does the post use present-tense freshness markers such as now, today, currently, this year, or as of?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "isolated",
+                "occasional",
+                "frequent",
+                "pervasive"
+              ],
+              "detection_method": "Count present-oriented freshness words and assess whether they appear only once, recur across sections, or define the article's framing."
+            }
+          ]
+        },
+        "change_story": {
+          "features": [
+            {
+              "id": "TIM_CHG_003",
+              "name": "Urgency Framing Intensity",
+              "question": "How strongly does the post portray delayed action as costly or dangerous?",
+              "type": "scale",
+              "values": [
+                "1_no_urgency",
+                "2_light_encouragement",
+                "3_moderate_need_to_act",
+                "4_strong_urgency",
+                "5_crisis_or_imperative_urgency"
+              ],
+              "detection_method": "Assess urgency wording, consequences of delay, imperative language, countdown framing, and claims that action is necessary now."
+            },
+            {
+              "id": "TIM_CHG_006",
+              "name": "Action Timing Framing",
+              "question": "When does the post principally tell the reader to act?",
+              "type": "categorical",
+              "values": [
+                "no_action_timing_specified",
+                "act_immediately",
+                "act_before_a_trigger_or_deadline",
+                "act_during_a_defined_window",
+                "act_after_an_event_or_signal",
+                "act_on_a_recurring_cadence",
+                "act_at_a_business_or_lifecycle_stage"
+              ],
+              "detection_method": "Classify the most explicit timing instruction attached to the article's main recommendation."
+            }
+          ]
+        },
+        "staleness_and_maintenance": {
+          "features": [
+            {
+              "id": "TIM_STL_001",
+              "name": "Overall Staleness Risk",
+              "question": "How quickly would the post become materially inaccurate or misleading if it were not updated?",
+              "type": "scale",
+              "values": [
+                "1_very_low",
+                "2_low",
+                "3_moderate",
+                "4_high",
+                "5_very_high"
+              ],
+              "detection_method": "Assess dependence on changing regulations, prices, product capabilities, current statistics, market conditions, dates, interfaces, or event details."
+            }
+          ]
+        },
+        "staleness_and_change_exposure": {
+          "features": [
+            {
+              "id": "TIM_STL_004",
+              "name": "Staleness Acknowledgment",
+              "question": "Does the article explicitly acknowledge that rules, prices, product capabilities, research, market conditions, or requirements may change?",
+              "type": "binary",
+              "values": [
+                "yes",
+                "no"
+              ],
+              "detection_method": "Mark yes for visible caveats such as 'subject to change,' 'check current guidance,' 'availability may vary,' or statements that standards, policies, or platform features evolve."
+            }
+          ]
+        },
+        "staleness_exposure": {
+          "features": [
+            {
+              "id": "TIM_STL_003",
+              "name": "Perishable Fact Density",
+              "question": "How densely does the post contain claims likely to require updating?",
+              "type": "ordinal",
+              "values": [
+                "0_none",
+                "1_one_or_two",
+                "2_several",
+                "3_many",
+                "4_pervasive"
+              ],
+              "detection_method": "Count substantive time-sensitive claims about current conditions, rules, prices, availability, statistics, or product capabilities."
+            },
+            {
+              "id": "TIM_STL_005",
+              "name": "Future-Proofing Move",
+              "question": "What primary move does the post make to help the advice survive aging?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "uses_general_principles_over_current_facts",
+                "qualifies_claims_by_context",
+                "directs_reader_to_verify_current_information",
+                "labels_information_as_time_bound",
+                "recommends_recurring_review_or_monitoring",
+                "uses_examples_as_illustrative_not_universal"
+              ],
+              "detection_method": "Identify the strongest explicit strategy for reducing the risk that the article will mislead readers later."
+            }
+          ]
+        },
+        "dates_deadlines_cues": {
+          "features": [
+            {
+              "id": "TIM_CUE_001",
+              "name": "Explicit Date Density",
+              "question": "How many explicit calendar dates, years, months, quarters, or named seasons occur in the post?",
+              "type": "ordinal",
+              "values": [
+                "0_none",
+                "1_one",
+                "2_two_to_three",
+                "3_four_to_six",
+                "4_seven_or_more"
+              ],
+              "detection_method": "Count explicit references such as 2022, Q3, January, November, March 16, winter, or holiday names."
+            },
+            {
+              "id": "TIM_CUE_002",
+              "name": "Most Specific Temporal Reference",
+              "question": "What is the highest specificity of a temporal reference in the post?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "vague_relative_time",
+                "season_or_general_period",
+                "month_or_quarter_or_year",
+                "specific_day_or_date",
+                "exact_timestamp_or_duration_window"
+              ],
+              "detection_method": "Identify the most precise temporal expression, including exact durations such as 48 hours or a dated policy effective date."
+            },
+            {
+              "id": "TIM_CUE_005",
+              "name": "Recurring Cadence Presence",
+              "question": "Does the post prescribe or describe a recurring operating cadence?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for recurring daily, weekly, monthly, quarterly, annual, per-cycle, per-release, or per-event activities."
+            },
+            {
+              "id": "TIM_CUE_009",
+              "name": "Operational Time Granularity",
+              "question": "How precisely does the article specify process timing for recommended actions?",
+              "type": "scale",
+              "values": [
+                "1_no_timing_guidance",
+                "2_general_sequence_only",
+                "3_broad_periods_or_cadence",
+                "4_specific_durations_or_windows",
+                "5_exact_timed_steps_or_deadlines"
+              ],
+              "detection_method": "Assess whether timing is vague, sequential, recurring, duration-based, or exact enough to execute without interpretation."
+            },
+            {
+              "id": "TIM_CUE_011",
+              "name": "Freshness Signaling",
+              "question": "How does the post signal novelty, recency, updating, or current relevance?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "new_or_latest_subject_claim",
+                "updated_or_current_article_claim",
+                "modern_or_next_generation_framing",
+                "recent_market_or_policy_reference",
+                "current_product_or_feature_reference",
+                "future_ready_or_future_proof_claim"
+              ],
+              "detection_method": "Mark explicit language that presents the subject, the article, or the recommendation as new, current, modern, updated, or future-ready."
+            },
+            {
+              "id": "TIM_CUE_012",
+              "name": "Reader Lifecycle Stage",
+              "question": "At what reader or business stage is the timing advice primarily aimed?",
+              "type": "categorical",
+              "values": [
+                "not_stage_specific",
+                "before_starting_or_launching",
+                "during_initial_setup_or_onboarding",
+                "during_active_operation",
+                "at_growth_or_scaling_threshold",
+                "during_incident_or_crisis",
+                "before_renewal_or_expiry",
+                "during_transition_or_exit",
+                "after_completion_or_for_review"
+              ],
+              "detection_method": "Identify the lifecycle moment at which the article expects the reader to use its advice."
+            }
+          ]
+        },
+        "dates_deadlines_and_cadence": {
+          "features": [
+            {
+              "id": "TIM_CUE_003",
+              "name": "Temporal Reference Types",
+              "question": "Which types of temporal references occur in the post?",
+              "type": "multi_select",
+              "values": [
+                "relative_present_language",
+                "historical_date_or_period",
+                "future_date_or_period",
+                "season_or_holiday",
+                "quarter_or_fiscal_cycle",
+                "policy_effective_date",
+                "operational_cadence",
+                "product_or_contract_lifecycle"
+              ],
+              "detection_method": "Select every reference type visibly present. Relative-present language includes terms such as now, today, currently, recently, and these days."
+            },
+            {
+              "id": "TIM_CUE_004",
+              "name": "Operational Cadence Specificity",
+              "question": "How specifically does the post prescribe recurring timing for work, monitoring, review, or maintenance?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "general_recurring",
+                "named_frequency",
+                "fixed_schedule_or_sequence",
+                "multi_stage_cadence_system"
+              ],
+              "detection_method": "Look for recurring intervals such as weekly, monthly, quarterly, daily, or exact schedules with multiple linked stages."
+            },
+            {
+              "id": "TIM_CUE_007",
+              "name": "Seasonal Calendar Use",
+              "question": "How is seasonality used in the article?",
+              "type": "categorical",
+              "values": [
+                "not_used",
+                "incidental_context",
+                "market_or_behavior_explanation",
+                "action_planning_trigger",
+                "core_publishability_hook"
+              ],
+              "detection_method": "Assess whether seasons or recurring holidays are absent, background context, explanatory context, a planning trigger, or the central reason the article is timely."
+            },
+            {
+              "id": "TIM_CUE_008",
+              "name": "Time-Window Precision",
+              "question": "What is the most precise operational time window prescribed in the post?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "broad_period",
+                "recurring_interval",
+                "day_or_week_range",
+                "hour_minute_or_exact_sequence"
+              ],
+              "detection_method": "Identify the narrowest prescribed window, such as sometime this season, weekly, within 48 hours, over three days, or wait 15 minutes."
+            }
+          ]
+        }
+      }
+    },
+    "page_format_navigation": {
+      "aspects": {
+        "page_type_self_containment": {
+          "features": [
+            {
+              "id": "PAG_TYP_002",
+              "name": "Editorial Versus Conversion Page Orientation",
+              "question": "Does the page function primarily as editorial content, a balanced editorial-conversion page, or a conversion destination?",
+              "type": "categorical",
+              "values": [
+                "editorial_only",
+                "editorial_with_contextual_conversion",
+                "editorial_with_separated_conversion_section",
+                "conversion_integrated_throughout",
+                "conversion_destination"
+              ],
+              "detection_method": "Assess the placement and prominence of demos, contact prompts, downloads, product routes, purchase links, or signup paths relative to the editorial body."
+            },
+            {
+              "id": "PAG_TYP_003",
+              "name": "Self-Containment Status",
+              "question": "Can the reader understand and act on the article without leaving the page?",
+              "type": "categorical",
+              "values": [
+                "fully_self_contained",
+                "self_contained_with_optional_related_resources",
+                "dependent_on_linked_resources",
+                "truncated_or_excerpted",
+                "dependent_on_embedded_or_external_conversion_tool"
+              ],
+              "detection_method": "Determine whether key instructions, evidence, lists, recipes, tools, or next steps are wholly present on-page or require linked content, embedded assets, or continuation pages."
+            },
+            {
+              "id": "PAG_TYP_004",
+              "name": "Implied External Continuation",
+              "question": "Does the article imply that a needed full list, guide, resource, recipe, or continuation exists elsewhere?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for language that directs readers to a full list, spreadsheet, team finder, detailed guide, downloadable asset, related continuation, or missing resource."
+            }
+          ]
+        },
+        "navigation_heading_structure": {
+          "features": [
+            {
+              "id": "PAG_NAV_003",
+              "name": "Heading Hierarchy Depth",
+              "question": "How many functional heading levels are visibly used in the article body?",
+              "type": "ordinal",
+              "values": [
+                "no_body_headings",
+                "one_level",
+                "two_levels",
+                "three_or_more_levels"
+              ],
+              "detection_method": "Count distinct heading levels used to organize the body, excluding the page title."
+            },
+            {
+              "id": "PAG_NAV_004",
+              "name": "Workflow Visibility in Headings",
+              "question": "Do headings visibly encode a sequence, process, or staged reader journey?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for step numbers, phases, first/next/final labels, chronological language, or headings that clearly advance an ordered process."
+            },
+            {
+              "id": "PAG_NAV_005",
+              "name": "Heading Scanability Density",
+              "question": "How densely does the page use headings to break the reading column?",
+              "type": "ordinal",
+              "values": [
+                "sparse",
+                "moderate",
+                "dense"
+              ],
+              "detection_method": "Estimate the frequency of headings relative to article length and whether readers can scan the page through many short section markers."
+            },
+            {
+              "id": "PAG_NAV_007",
+              "name": "Bulleted List Usage",
+              "question": "Are bulleted lists used as meaningful visual structure?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Check for unordered lists used to summarize criteria, recommendations, warnings, examples, or supporting points."
+            },
+            {
+              "id": "PAG_NAV_008",
+              "name": "Numbered List Usage",
+              "question": "Are numbered lists used as meaningful visual structure?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Check for ordered lists used for steps, tips, ranked items, phases, or procedures."
+            },
+            {
+              "id": "PAG_NAV_009",
+              "name": "Table or Matrix Usage",
+              "question": "What tabular decision or comparison structure appears in the page?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "single_comparison_table",
+                "single_decision_matrix",
+                "single_reference_table",
+                "multiple_tables_or_matrices"
+              ],
+              "detection_method": "Identify visible grids, tabular comparisons, decision matrices, pricing tables, formula tables, or reference tables."
+            },
+            {
+              "id": "PAG_NAV_010",
+              "name": "Table or Matrix Presence",
+              "question": "Does the page include a table, matrix, field grid, or structured tabular comparison?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for rows and columns organizing comparisons, costs, requirements, fields, scoring, or structured reference data."
+            }
+          ]
+        },
+        "embedded_content_framing": {
+          "features": [
+            {
+              "id": "PAG_EMB_004",
+              "name": "External Resource Linking Density",
+              "question": "How densely does the article body link to third-party resources?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "single_external_link",
+                "occasional_two_to_five_links",
+                "resource_rich_more_than_five_links"
+              ],
+              "detection_method": "Count substantive outbound third-party links in the article body, excluding social-share controls and sitewide footer links."
+            },
+            {
+              "id": "PAG_EMB_006",
+              "name": "Resource Dependency",
+              "question": "Does the article ask the reader to use an external asset or tool to complete its recommended process?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Mark yes when the page's recommended action requires a linked calculator, PDF, external guide, template, app store, team finder, documentation page, or product workflow."
+            }
+          ]
+        },
+        "embedded_content_and_framing": {
+          "features": [
+            {
+              "id": "PAG_EMB_002",
+              "name": "Code Example Presence",
+              "question": "Does the page contain formatted code, command, configuration, or query examples?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Look for monospaced code blocks, shell commands, SQL, YAML, HTML, Python, Java, configuration snippets, or similar technical artifacts."
+            },
+            {
+              "id": "PAG_EMB_003",
+              "name": "Code Example Scope",
+              "question": "What role do code examples play when code is present?",
+              "type": "categorical",
+              "values": [
+                "no_code",
+                "isolated_illustrative_snippet",
+                "multiple_explanatory_snippets",
+                "end_to_end_runnable_workflow",
+                "configuration_or_policy_reference"
+              ],
+              "detection_method": "Assess whether code is a brief example, repeated teaching aid, complete reproducible tutorial, or configuration reference."
+            },
+            {
+              "id": "PAG_EMB_007",
+              "name": "Related Content Module Presence",
+              "question": "Does the page include a dedicated related-post, recommended-reading, featured-content, or most-popular module?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Inspect page-end and sidebar modules for grouped publisher-owned content recommendations."
+            }
+          ]
+        },
+        "furniture_links_and_length": {
+          "features": [
+            {
+              "id": "PAG_FUR_002",
+              "name": "Author Identity Treatment",
+              "question": "How is authorship represented on the page?",
+              "type": "categorical",
+              "values": [
+                "no_visible_author_identity",
+                "generic_brand_authorship",
+                "named_individual_byline",
+                "named_individual_with_bio",
+                "named_expert_or_interviewee_framing",
+                "team_or_editorial_signature"
+              ],
+              "detection_method": "Inspect the byline, author box, signature, title framing, and interview setup."
+            },
+            {
+              "id": "PAG_FUR_008",
+              "name": "Quote or Testimony Structural Role",
+              "question": "How does direct quotation or testimony function in the page?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "isolated_supporting_quote",
+                "repeated_supporting_quotes",
+                "quote_led_article",
+                "interview_question_answer_structure",
+                "testimonial_or_customer_proof_block"
+              ],
+              "detection_method": "Count and locate direct quotations, testimonials, or interview turns and determine whether they are incidental or structurally central."
+            }
+          ]
+        },
+        "page_furniture_conversion": {
+          "features": [
+            {
+              "id": "PAG_FUR_006",
+              "name": "Compliance or Disclaimer Apparatus",
+              "question": "What compliance-oriented material is visibly attached to the page?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "general_informational_disclaimer",
+                "financial_or_investment_disclaimer",
+                "medical_or_health_disclaimer",
+                "legal_or_regulatory_disclaimer",
+                "privacy_or_cookie_notice_within_article_area",
+                "multiple_compliance_elements"
+              ],
+              "detection_method": "Inspect article header, body, close, and adjacent modules for disclaimers, suitability notices, regulated-content warnings, or compliance documents."
+            },
+            {
+              "id": "PAG_FUR_009",
+              "name": "Email Capture Presence",
+              "question": "Does the page visibly ask for an email address for newsletter, updates, gated content, or account registration?",
+              "type": "binary",
+              "values": [
+                "no",
+                "yes"
+              ],
+              "detection_method": "Inspect the page for email fields, subscription prompts, newsletter modules, account signup prompts, or gated-download forms."
+            }
+          ]
+        },
+        "links_furniture_conversion": {
+          "features": [
+            {
+              "id": "PAG_FUR_004",
+              "name": "Publication Metadata Presence",
+              "question": "Which publication metadata items are visibly supplied?",
+              "type": "multi_select",
+              "values": [
+                "none",
+                "publication_date",
+                "updated_date",
+                "reading_time",
+                "category_or_topic_label",
+                "tag_list",
+                "breadcrumb",
+                "original_publication_date"
+              ],
+              "detection_method": "Inventory date labels, update notices, estimated reading time, category labels, tags, breadcrumbs, and original-publication markers."
+            },
+            {
+              "id": "PAG_FUR_010",
+              "name": "Reference Section Presence",
+              "question": "Does the article have a dedicated references, sources, or further-reading section?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Inspect the article end for labeled References, Sources, Further Reading, Bibliography, Notes, or similar sections."
+            },
+            {
+              "id": "PAG_FUR_011",
+              "name": "Article Length Class",
+              "question": "What approximate word-count class best describes the article body?",
+              "type": "categorical",
+              "values": [
+                "short_under_800_words",
+                "medium_800_to_1499_words",
+                "long_1500_to_2999_words",
+                "very_long_3000_or_more_words"
+              ],
+              "detection_method": "Estimate or count body words, excluding navigation, footer, and boilerplate."
+            }
+          ]
+        }
+      }
+    },
+    "writing_style": {
+      "aspects": {
+        "sentence_complexity": {
+          "features": [
+            {
+              "id": "STY_CPX_001",
+              "name": "Dominant Sentence Complexity",
+              "question": "What level of syntactic complexity dominates the article's prose?",
+              "type": "categorical",
+              "values": [
+                "mostly_simple",
+                "simple_to_medium",
+                "medium_with_regular_subordination",
+                "complex_multi_clause",
+                "dense_highly_embedded"
+              ],
+              "detection_method": "Read representative opening, middle, and closing passages; assess clause count, subordination, parenthetical qualification, and nominalization density."
+            },
+            {
+              "id": "STY_CPX_002",
+              "name": "Typical Sentence Length Band",
+              "question": "Which sentence-length band is most common in the article body?",
+              "type": "categorical",
+              "values": [
+                "very_short_1_to_10_words",
+                "short_11_to_16_words",
+                "medium_17_to_24_words",
+                "long_25_to_34_words",
+                "very_long_35_or_more_words"
+              ],
+              "detection_method": "Estimate word counts for a representative sample of body sentences and select the most frequent band."
+            },
+            {
+              "id": "STY_CPX_005",
+              "name": "Fragment Use",
+              "question": "How frequently does the prose use sentence fragments outside headings, quotations, or lists?",
+              "type": "categorical",
+              "values": [
+                "none",
+                "isolated",
+                "occasional_emphatic",
+                "frequent_stylistic"
+              ],
+              "detection_method": "Count non-sentential fragments in prose, such as 'Rows multiply. Formulas break.' or 'Not optional.'"
+            },
+            {
+              "id": "STY_CPX_008",
+              "name": "Parenthetical Qualification Style",
+              "question": "How often does the author interrupt sentences with parentheses, dashes, appositives, or qualifying insertions?",
+              "type": "categorical",
+              "values": [
+                "almost_never",
+                "occasional_parentheses_or_dashes",
+                "regular_inline_qualification",
+                "frequent_multilayered_qualification",
+                "dense_interruption_heavy_style"
+              ],
+              "detection_method": "Inspect sentence interiors for parenthetical remarks, em dashes, explanatory appositives, and qualification clauses."
+            }
+          ]
+        },
+        "sentence_complexity_and_rhythm": {
+          "features": [
+            {
+              "id": "STY_CPX_004",
+              "name": "Emphatic Fragment Use",
+              "question": "Does the author use sentence fragments or clipped standalone phrases for emphasis?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Identify grammatically incomplete standalone constructions used deliberately for impact, such as 'Rows multiply. Formulas break.'"
+            },
+            {
+              "id": "STY_CPX_033",
+              "name": "Paragraph-to-Sentence Texture",
+              "question": "What paragraph-level sentence texture is most common?",
+              "type": "categorical",
+              "values": [
+                "compact paragraphs with several medium sentences",
+                "long dense paragraphs",
+                "short scan-friendly paragraphs",
+                "alternation of long explanation and short emphasis",
+                "list-like prose blocks"
+              ],
+              "detection_method": "Assess the sentence density and sentence-length pattern within paragraphs without classifying article-level structure."
+            }
+          ]
+        },
+        "register_and_discourse": {
+          "features": [
+            {
+              "id": "STY_REG_001",
+              "name": "Dominant Register",
+              "question": "What register dominates the article?",
+              "type": "categorical",
+              "values": [
+                "casual_conversational",
+                "accessible_professional",
+                "neutral_professional",
+                "formal_strategic",
+                "formal_technical_or_clinical"
+              ],
+              "detection_method": "Assess vocabulary, sentence construction, directness, slang, technical terms, and degree of institutional distance."
+            },
+            {
+              "id": "STY_REG_002",
+              "name": "Register Stability Across Topics or Sections",
+              "question": "How stable is the register across the article?",
+              "type": "ordinal",
+              "values": [
+                "1_highly_stable",
+                "2_mostly_stable",
+                "3_sectionally_shifted",
+                "4_strongly_shifted",
+                "5_radically_mixed"
+              ],
+              "detection_method": "Compare opening, technical explanation, examples, conclusion, and CTA sections for shifts between formal, promotional, casual, or instructional language."
+            },
+            {
+              "id": "STY_REG_004",
+              "name": "Colloquial Marker Profile",
+              "question": "Which colloquial markers occur in the article body?",
+              "type": "multi_select",
+              "values": [
+                "contractions",
+                "idioms",
+                "rhetorical_questions",
+                "asides_or_parenthetical_voice",
+                "slang_or_fandom_language",
+                "humor_or_wordplay",
+                "none"
+              ],
+              "detection_method": "Mark each observed marker in prose; examples include contractions, idioms such as 'move the needle,' and rhetorical questions."
+            },
+            {
+              "id": "STY_REG_008",
+              "name": "Intensifier Density",
+              "question": "How frequently does the author intensify claims with adverbs or absolute modifiers?",
+              "type": "ordinal",
+              "values": [
+                "1_minimal",
+                "2_light",
+                "3_moderate",
+                "4_high",
+                "5_saturating"
+              ],
+              "detection_method": "Count intensifiers and absolutes such as 'very,' 'highly,' 'most,' 'deeply,' 'dramatically,' 'ultimate,' and 'only.'"
+            },
+            {
+              "id": "STY_REG_009",
+              "name": "Transition Opener Habit",
+              "question": "Which sentence-transition style is most characteristic?",
+              "type": "categorical",
+              "values": [
+                "minimal_explicit_transitions",
+                "logical_connectors",
+                "contrastive_turns",
+                "conversational_signposts",
+                "rhetorical_label_transitions"
+              ],
+              "detection_method": "Track recurring transitions such as 'however,' 'instead,' 'that is why,' 'here is the thing,' or named turns such as 'The real problem.'"
+            }
+          ]
+        },
+        "register_and_voice": {
+          "features": [
+            {
+              "id": "STY_REG_006",
+              "name": "Specialized Jargon Density",
+              "question": "How dense is specialized domain terminology in the prose?",
+              "type": "categorical",
+              "values": [
+                "minimal_or_plain_language",
+                "light_jargon_with_explanation",
+                "moderate_domain_vocabulary",
+                "high_jargon_but_readable",
+                "very_high_technical_or_specialist_density"
+              ],
+              "detection_method": "Assess the frequency of field-specific terms per paragraph and whether terms are explained in plain language."
+            },
+            {
+              "id": "STY_REG_007",
+              "name": "Jargon Handling Style",
+              "question": "How does the author handle specialized terminology after introducing it?",
+              "type": "categorical",
+              "values": [
+                "avoids_specialized_terms",
+                "defines_terms_immediately",
+                "defines_some_terms_but_assumes_others",
+                "uses_terms_as_known_vocabulary",
+                "layers_multiple_undefined_specialist_terms"
+              ],
+              "detection_method": "Inspect first uses of technical terms and determine whether the prose defines, glosses, exemplifies, or assumes them."
+            }
+          ]
+        },
+        "figurative_and_vivid_language": {
+          "features": [
+            {
+              "id": "STY_FIG_001",
+              "name": "Metaphor Density",
+              "question": "How dense is nonliteral figurative language in the article body?",
+              "type": "scale",
+              "values": [
+                "1_literal",
+                "2_sparse",
+                "3_moderate",
+                "4_dense",
+                "5_pervasive"
+              ],
+              "detection_method": "Count metaphors, analogies, personifications, and figurative labels across representative passages."
+            },
+            {
+              "id": "STY_FIG_002",
+              "name": "Metaphor Scope",
+              "question": "What scope do the article's metaphors usually take?",
+              "type": "categorical",
+              "values": [
+                "no_substantive_metaphors",
+                "isolated_word_or_phrase",
+                "brief_sentence_level_comparison",
+                "recurring_conceptual_frame",
+                "extended_conceit_across_multiple_sentences"
+              ],
+              "detection_method": "Determine whether figurative language is incidental, repeats around a concept, or is developed over multiple sentences."
+            },
+            {
+              "id": "STY_FIG_004",
+              "name": "Vivid Language Placement",
+              "question": "Where does vivid or sensory phrasing appear most often?",
+              "type": "multi_select",
+              "values": [
+                "opening_hook",
+                "problem_or_risk_description",
+                "technical_explanation",
+                "example_or_scenario",
+                "recommendation_or_instruction",
+                "conclusion_or_cta",
+                "throughout",
+                "none"
+              ],
+              "detection_method": "Locate concrete sensory phrases, visual scenes, bodily descriptions, or emotionally vivid wording by article region."
+            },
+            {
+              "id": "STY_FIG_005",
+              "name": "Vivid Sensory Language Presence",
+              "question": "Does the prose use concrete sensory or bodily language?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Identify imagery involving sight, sound, touch, taste, smell, bodily sensation, spatial movement, or material texture."
+            },
+            {
+              "id": "STY_FIG_021",
+              "name": "Metaphor Scope",
+              "question": "How are metaphors typically deployed?",
+              "type": "categorical",
+              "values": [
+                "no meaningful metaphor use",
+                "isolated phrase-level touches",
+                "recurring conceptual labels",
+                "extended analogy within one section",
+                "sustained conceit across the article"
+              ],
+              "detection_method": "Track whether figurative language appears as one-off phrases, repeated labels, or extended analogical framing."
+            },
+            {
+              "id": "STY_FIG_023",
+              "name": "Sensory and Concrete Language Density",
+              "question": "How often does the prose use sensory, spatial, bodily, or concrete scene-based language?",
+              "type": "scale",
+              "values": [
+                "1 - abstract almost throughout",
+                "2 - isolated concrete touches",
+                "3 - regular concrete examples",
+                "4 - frequent vivid phrasing",
+                "5 - consistently sensory or scene-driven"
+              ],
+              "detection_method": "Assess frequency of sensory descriptions, physical scenes, concrete objects, bodily states, and spatial imagery."
+            }
+          ]
+        },
+        "evaluation_and_promotional_stance": {
+          "features": [
+            {
+              "id": "STY_EVL_003",
+              "name": "Judgment Polarity Pattern",
+              "question": "What polarity pattern characterizes judgments in the article?",
+              "type": "categorical",
+              "values": [
+                "mostly_positive",
+                "mostly_negative",
+                "legacy_negative_solution_positive",
+                "risk_negative_reassurance_positive",
+                "mixed_or_ambivalent",
+                "minimal_judgment"
+              ],
+              "detection_method": "Compare whether the prose primarily praises, condemns, contrasts a bad incumbent with a good alternative, or balances competing risks."
+            },
+            {
+              "id": "STY_EVL_006",
+              "name": "Problem Drama Level",
+              "question": "How dramatically does the author frame the problem or negative outcome?",
+              "type": "scale",
+              "values": [
+                "1_matter_of_fact",
+                "2_mild_concern",
+                "3_notable_risk",
+                "4_high_stakes_drama",
+                "5_catastrophic_or_existential"
+              ],
+              "detection_method": "Assess wording around failure, risk, loss, and inaction; note phrases such as 'collapse,' 'minefield,' 'tsunami,' 'death,' or 'existential threat.'"
+            },
+            {
+              "id": "STY_EVL_007",
+              "name": "Signature Evaluative Labels",
+              "question": "Which recurring evaluative-label family appears in the article?",
+              "type": "multi_select",
+              "values": [
+                "legacy_or_obsolete_labels",
+                "trap_or_minefield_labels",
+                "gold_standard_or_holy_grail_labels",
+                "battle_or_survival_labels",
+                "growth_or_transformation_labels",
+                "calm_or_reassurance_labels",
+                "none"
+              ],
+              "detection_method": "Identify repeated label families, such as 'legacy,' 'trap,' 'holy grail,' 'battlefield,' 'transformation,' or 'keep calm.'"
+            }
+          ]
+        },
+        "register_and_colloquiality": {
+          "features": [
+            {
+              "id": "STY_REG_010",
+              "name": "Dominant Formality",
+              "question": "What is the dominant register of the prose?",
+              "type": "ordinal",
+              "values": [
+                "very casual",
+                "conversational-professional",
+                "neutral professional",
+                "formal professional",
+                "formal technical"
+              ],
+              "detection_method": "Assess vocabulary, sentence construction, direct address, contractions, jargon, and degree of institutional distance."
+            },
+            {
+              "id": "STY_REG_011",
+              "name": "Reader Address Style",
+              "question": "How does the author most often position the reader in sentence-level address?",
+              "type": "categorical",
+              "values": [
+                "rarely addresses the reader",
+                "addresses the reader as a learner",
+                "addresses the reader as an operator",
+                "addresses the reader as an executive evaluator",
+                "addresses the reader as a consumer or individual"
+              ],
+              "detection_method": "Identify second-person references, imperatives, role labels, and assumptions about reader responsibility."
+            },
+            {
+              "id": "STY_REG_012",
+              "name": "Contraction Use",
+              "question": "Are contractions used in the prose?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Scan for forms such as 'don't,' 'can't,' 'it's,' 'you're,' and 'isn't.'"
+            },
+            {
+              "id": "STY_REG_013",
+              "name": "Contraction Density",
+              "question": "When contractions appear, how dense are they?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "isolated",
+                "occasional",
+                "regular",
+                "frequent"
+              ],
+              "detection_method": "Count contractions per sampled passage and distinguish a single casual phrase from a recurring conversational habit."
+            },
+            {
+              "id": "STY_REG_014",
+              "name": "Rhetorical Question Use",
+              "question": "Does the author use rhetorical questions to frame or emphasize a point?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Identify questions whose purpose is emphasis, framing, or reader engagement rather than gathering information."
+            },
+            {
+              "id": "STY_REG_016",
+              "name": "Specialized Jargon Density",
+              "question": "How dense is specialized terminology in the prose?",
+              "type": "ordinal",
+              "values": [
+                "minimal",
+                "light",
+                "moderate",
+                "high",
+                "very high"
+              ],
+              "detection_method": "Estimate the frequency of domain-specific technical, regulatory, financial, medical, or operational terms per passage."
+            },
+            {
+              "id": "STY_REG_017",
+              "name": "Technical Term Handling",
+              "question": "How are specialized terms typically introduced?",
+              "type": "categorical",
+              "values": [
+                "rarely uses specialized terms",
+                "uses terms without explanation",
+                "defines terms briefly on first use",
+                "defines terms through examples",
+                "builds extended explanations around terms"
+              ],
+              "detection_method": "Inspect first occurrences of specialist terms and determine whether they are unexplained, glossed, exemplified, or developed at length."
+            },
+            {
+              "id": "STY_REG_034",
+              "name": "Register Shift Magnitude",
+              "question": "How large is the strongest register shift within the article?",
+              "type": "ordinal",
+              "values": [
+                "none",
+                "minor",
+                "moderate",
+                "major",
+                "extreme"
+              ],
+              "detection_method": "Assess the greatest contrast between sections, such as formal technical exposition shifting into casual promotional or community-blog language."
+            }
+          ]
+        },
+        "evaluation_certainty_and_emphasis": {
+          "features": [
+            {
+              "id": "STY_EVL_024",
+              "name": "Evaluative Language Density",
+              "question": "How frequently does the author use explicit judgmental or evaluative wording?",
+              "type": "scale",
+              "values": [
+                "1 - almost entirely neutral",
+                "2 - occasional evaluation",
+                "3 - regular evaluation",
+                "4 - frequent evaluation",
+                "5 - pervasive evaluative framing"
+              ],
+              "detection_method": "Count adjectives, labels, and phrases that judge quality, urgency, desirability, adequacy, or failure."
+            },
+            {
+              "id": "STY_EVL_026",
+              "name": "Dominant Evaluation Polarity",
+              "question": "What evaluative polarity dominates the article?",
+              "type": "categorical",
+              "values": [
+                "mostly neutral",
+                "problem-negative",
+                "solution-positive",
+                "mixed contrastive",
+                "alarmist or adversarial"
+              ],
+              "detection_method": "Assess whether judgments mainly condemn problems, praise solutions, contrast both, or intensify threat."
+            },
+            {
+              "id": "STY_EVL_027",
+              "name": "Intensifier-versus-Hedge Balance",
+              "question": "Which stance marker dominates the prose?",
+              "type": "ordinal",
+              "values": [
+                "strong hedge dominance",
+                "moderate hedge dominance",
+                "balanced",
+                "moderate intensifier dominance",
+                "strong intensifier dominance"
+              ],
+              "detection_method": "Compare hedges such as 'may,' 'might,' 'often,' and 'can' with intensifiers such as 'very,' 'highly,' 'only,' 'critical,' and 'most.'"
+            },
+            {
+              "id": "STY_EVL_029",
+              "name": "Superlative and Absolute Claim Use",
+              "question": "Does the article use superlatives or absolute claims such as 'best,' 'only,' 'ultimate,' or 'necessary'?",
+              "type": "binary",
+              "values": [
+                "absent",
+                "present"
+              ],
+              "detection_method": "Scan for superlatives, exclusivity language, inevitability claims, and categorical recommendations."
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "template_runs_candidates": [
+    353,
+    374,
+    343
+  ],
+  "template_mean": 356.7,
+  "raw_text_run_candidates": 354,
+  "raw_dims_covered": 11,
+  "note": "same comparison batches protocol; raw leg replaces templates with full text"
+}

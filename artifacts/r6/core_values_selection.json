@@ -1,0 +1,77 @@
+{
+  "core_values": [
+    "AUD_PRB_002__ord",
+    "AUD_STK_005__absent",
+    "PAG_FUR_011__short_under_800_words",
+    "PUR_OUT_003__title",
+    "STR_FLW_005__no",
+    "STR_FLW_006__no",
+    "STR_STG_001__summary_or_synthesis",
+    "STR_STG_008__restated_thesis_or_reframe",
+    "VOC_PRT_005__absent",
+    "VOC_VOX_001__editorial_explainer"
+  ],
+  "core_features": [
+    "AUD_PRB_002",
+    "AUD_STK_005",
+    "PAG_FUR_011",
+    "PUR_OUT_003",
+    "STR_FLW_005",
+    "STR_FLW_006",
+    "STR_STG_001",
+    "STR_STG_008",
+    "VOC_PRT_005",
+    "VOC_VOX_001"
+  ],
+  "n_core_values": 10,
+  "n_core_features": 10,
+  "value_signs": {
+    "AUD_PRB_002__ord": "human",
+    "AUD_STK_005__absent": "human",
+    "PAG_FUR_011__short_under_800_words": "human",
+    "PUR_OUT_003__title": "ai",
+    "STR_FLW_005__no": "human",
+    "STR_FLW_006__no": "human",
+    "STR_STG_001__summary_or_synthesis": "ai",
+    "STR_STG_008__restated_thesis_or_reframe": "ai",
+    "VOC_PRT_005__absent": "ai",
+    "VOC_VOX_001__editorial_explainer": "ai"
+  },
+  "value_gaps": {
+    "AUD_PRB_002__ord": 0.222,
+    "AUD_STK_005__absent": 0.362,
+    "PAG_FUR_011__short_under_800_words": 0.274,
+    "PUR_OUT_003__title": 0.624,
+    "STR_FLW_005__no": 0.497,
+    "STR_FLW_006__no": 0.419,
+    "STR_STG_001__summary_or_synthesis": 0.609,
+    "STR_STG_008__restated_thesis_or_reframe": 0.65,
+    "VOC_PRT_005__absent": 0.592,
+    "VOC_VOX_001__editorial_explainer": 0.308
+  },
+  "variants": {
+    "core_only": {
+      "n_features": 10,
+      "test": {
+        "macro_f1": 0.9348,
+        "auprc": 0.9962,
+        "accuracy": 0.9644
+      }
+    },
+    "core_fp": {
+      "n_features": 33,
+      "test": {
+        "macro_f1": 0.9593,
+        "auprc": 0.9991,
+        "accuracy": 0.9776
+      }
+    }
+  },
+  "core_attribution_share": {
+    "share": 0.2759,
+    "core_mean_abs_shap_sum": 9.2195,
+    "total_mean_abs_shap_sum": 33.4186,
+    "n_features_total": 187,
+    "basis": "per-feature bootstrap-mean |SHAP| of the structural (narrative_strict) model (B=50, prompt-resampled; the mean_shap block of the SHAP bootstrap output), summed over the 10 core features vs all 187 structural features; the paper's '27.6% of the full model's feature attributions'"
+  }
+}

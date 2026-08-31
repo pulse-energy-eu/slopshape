@@ -1,0 +1,102 @@
+{
+  "h1_prereg_package": {
+    "delta_point_pts": 9.9,
+    "prompt_ci_pts": [
+      7.6,
+      12.4
+    ],
+    "domain_cluster_ci_pts": [
+      6.0,
+      14.2
+    ],
+    "mcnemar_discordant": [
+      15,
+      97
+    ],
+    "mcnemar_two_sided_p": 7.12e-16,
+    "boot_two_sided_p_domain": 0.0,
+    "note": "domain-cluster CI primary per prereg; 10k resamples seed 202616"
+  },
+  "original_constants_sensitivity": {
+    "binary_test_macro_f1": 0.9781,
+    "binary_auprc": 0.9997,
+    "sixway_test_macro_f1": 0.7926,
+    "sixway_test_acc": 0.7948
+  },
+  "tfidf_original_spec": {
+    "max_features": 5000,
+    "config": {
+      "n_estimators": 210,
+      "max_depth": 4,
+      "reg_lambda": 1.0,
+      "scale_pos_weight": 7.5
+    },
+    "test_macro_f1": 0.9927,
+    "auprc": 1.0,
+    "final_fit": "train+val"
+  },
+  "stylometric_trainval": {
+    "config": {
+      "n_estimators": 210,
+      "max_depth": 4,
+      "reg_lambda": 1.0,
+      "scale_pos_weight": 1.0
+    },
+    "test_macro_f1": 1.0,
+    "auprc": 1.0,
+    "final_fit": "train+val"
+  },
+  "length_only_trainval": {
+    "test_macro_f1": 0.4545,
+    "auprc": 0.8706,
+    "final_fit": "train+val"
+  },
+  "memorization_exact": {
+    "pairs": 10750,
+    "flagged_13gram_pairs": 20,
+    "rate_13gram": 0.0019,
+    "per_model_13gram": {
+      "claude": {
+        "flagged": 3,
+        "rate": 0.0014
+      },
+      "deepseek": {
+        "flagged": 3,
+        "rate": 0.0014
+      },
+      "gemini": {
+        "flagged": 7,
+        "rate": 0.0033
+      },
+      "gpt": {
+        "flagged": 5,
+        "rate": 0.0023
+      },
+      "kimi": {
+        "flagged": 2,
+        "rate": 0.0009
+      }
+    },
+    "shuffled_control_rate": 0.0,
+    "near_verbatim_pairs": 0,
+    "prompts_excluded": 16,
+    "filtered_headline_macro_f1": 0.9792,
+    "note": "exact rules: all 13-grams (no stride sampling); near-verbatim = max-direction 8-gram coverage >=5% AND >=4 distinct 8-grams AND longest common span >=30 tokens"
+  },
+  "length_matched_faithful": {
+    "matched_n": 1545,
+    "median_words_human": 1003.5,
+    "median_words_ai": 1081.0,
+    "test_macro_f1": 0.9808,
+    "rarity_d": 1.87,
+    "corr_words_rarity": 0.088,
+    "per_model_matched_rarity_mean": {
+      "deepseek": 0.543,
+      "claude": 0.484,
+      "gemini": 0.468,
+      "kimi": 0.364,
+      "gpt": 0.329
+    },
+    "protocol": "faithful (frozen train+val headline evaluated on the decile-matched test subset; seed 202616)"
+  }
+}

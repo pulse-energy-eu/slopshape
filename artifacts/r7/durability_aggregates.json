@@ -1,0 +1,234 @@
+{
+  "description": "Aggregate results of the rewording-durability experiment (paper Sections 4.8, 5.5, Appendix J): the frozen feature-based classifiers evaluated on the test split with every AI post replaced by its self-rewritten version and the 290 human posts unchanged.",
+  "seed": 202616,
+  "n_boot": 10000,
+  "protocol": "faithful (finals refit deterministically on train+val with the committed hyperparameters; nothing retrained on rewritten text)",
+  "attacked_composition": "290 original human test posts + 1,450 LAMP-rewritten AI test posts (5 models x 290, symmetric self-rewrite)",
+  "parity_assertions": {
+    "structural": {
+      "n_features": 187,
+      "config": {
+        "n_estimators": 840,
+        "max_depth": 4,
+        "reg_lambda": 1.0,
+        "scale_pos_weight": 5.0
+      },
+      "original_test_macro_f1": 0.9803,
+      "expected": 0.9803,
+      "status": "PASS"
+    },
+    "style_only": {
+      "n_features": 27,
+      "config": {
+        "n_estimators": 210,
+        "max_depth": 4,
+        "reg_lambda": 4.0,
+        "scale_pos_weight": 2.5
+      },
+      "original_test_macro_f1": 0.8811,
+      "expected": 0.8811,
+      "status": "PASS"
+    },
+    "all_features": {
+      "n_features": 214,
+      "config": {
+        "n_estimators": 840,
+        "max_depth": 4,
+        "reg_lambda": 4.0,
+        "scale_pos_weight": 1.0
+      },
+      "original_test_macro_f1": 0.9812,
+      "expected": [
+        0.9807,
+        0.9813
+      ],
+      "status": "PASS"
+    }
+  },
+  "classifiers": {
+    "structural": {
+      "original_test": {
+        "macro_f1": 0.9803,
+        "auprc": 0.9998
+      },
+      "attacked_test": {
+        "macro_f1": 0.9813,
+        "auprc": 0.9997
+      },
+      "delta_macro_f1": 0.001
+    },
+    "style_only": {
+      "original_test": {
+        "macro_f1": 0.8811,
+        "auprc": 0.9944
+      },
+      "attacked_test": {
+        "macro_f1": 0.8705,
+        "auprc": 0.9914
+      },
+      "delta_macro_f1": -0.0106
+    },
+    "all_features": {
+      "original_test": {
+        "macro_f1": 0.9812,
+        "auprc": 0.9999
+      },
+      "attacked_test": {
+        "macro_f1": 0.9792,
+        "auprc": 0.9999
+      },
+      "delta_macro_f1": -0.002
+    }
+  },
+  "attacked_structural_bootstrap": {
+    "prompt": {
+      "ci95": [
+        0.9717,
+        0.9897
+      ],
+      "n_units": 290
+    },
+    "domain_cluster": {
+      "ci95": [
+        0.9698,
+        0.9914
+      ],
+      "n_units": 38
+    },
+    "note": "domain-cluster primary per prereg; 10k resamples seed 202616"
+  },
+  "flip_counts": {
+    "structural": {
+      "ai_posts": 1450,
+      "flipped_ai_to_human": 5,
+      "predicted_human_attacked": 8,
+      "predicted_human_original": 9
+    },
+    "style_only": {
+      "ai_posts": 1450,
+      "flipped_ai_to_human": 16,
+      "predicted_human_attacked": 19,
+      "predicted_human_original": 8
+    },
+    "all_features": {
+      "ai_posts": 1450,
+      "flipped_ai_to_human": 4,
+      "predicted_human_attacked": 8,
+      "predicted_human_original": 6
+    }
+  },
+  "per_ai_model_attacked_structural": {
+    "claude": {
+      "n": 580,
+      "structural_macro_f1": 0.981
+    },
+    "deepseek": {
+      "n": 580,
+      "structural_macro_f1": 0.981
+    },
+    "gemini": {
+      "n": 580,
+      "structural_macro_f1": 0.981
+    },
+    "gpt": {
+      "n": 580,
+      "structural_macro_f1": 0.981
+    },
+    "kimi": {
+      "n": 580,
+      "structural_macro_f1": 0.9759
+    }
+  },
+  "per_ai_model_note": "humans (290, unchanged) + that model's 290 self-rewritten posts; symmetric self-rewrite design (each model rewrote its own posts)",
+  "attack_magnitude": {
+    "surviving_13gram_share_per_model": {
+      "gpt": 0.175,
+      "claude": 0.535,
+      "gemini": 0.003,
+      "deepseek": 0.489,
+      "kimi": 0.141
+    },
+    "surviving_13gram_share_mean": 0.269,
+    "note_13gram": "share of a rewritten post's 13-word sequences that still appear verbatim in its source; mean 0.269 = ~73% of 13-grams replaced on average",
+    "length_ratio": {
+      "bounds": [
+        0.6,
+        1.4
+      ],
+      "mean": 0.922,
+      "p10": 0.774,
+      "median": 0.965,
+      "p90": 1.0,
+      "min": 0.607,
+      "max": 1.057
+    },
+    "length_ratio_per_model": {
+      "gpt": {
+        "ratio_mean": 0.993,
+        "ratio_min": 0.922,
+        "ratio_max": 1.05
+      },
+      "claude": {
+        "ratio_mean": 0.976,
+        "ratio_min": 0.891,
+        "ratio_max": 1.019
+      },
+      "gemini": {
+        "ratio_mean": 0.789,
+        "ratio_min": 0.607,
+        "ratio_max": 1.001
+      },
+      "deepseek": {
+        "ratio_mean": 0.963,
+        "ratio_min": 0.777,
+        "ratio_max": 1.057
+      },
+      "kimi": {
+        "ratio_mean": 0.891,
+        "ratio_min": 0.666,
+        "ratio_max": 1.055
+      }
+    },
+    "feature_answer_change_rate": 0.156,
+    "rescore_spot_agreement_mean": 0.844,
+    "note_answer_change": "20-doc seeded spot comparison of rewritten vs original stage-5 answers: mean per-doc agreement 0.844 (min 0.797, max 0.910), i.e. 15.6% of measured feature answers changed under the rewording"
+  },
+  "gates": {
+    "length_drift": {
+      "bounds": [
+        0.6,
+        1.4
+      ],
+      "violations": 0,
+      "note": "bound fixed in the harness before generation"
+    },
+    "trivial_copy": {
+      "threshold": 0.9,
+      "ngram": 13,
+      "flagged": 0
+    },
+    "refusals": 0,
+    "claim_preservation_census": {
+      "n_pairs": 1450,
+      "pre_qc_rate": 0.9034,
+      "post_qc_rate": 0.9821,
+      "regenerations": 192,
+      "regenerated_unique_docs": 140,
+      "residual_no_docs": 26,
+      "note": "full census of all 1,450 original-rewritten pairs; QC loop regenerated every 'no' doc (max 2 attempts); the 26 residuals are single-item specificity drops, disclosed and left in (artifacts/r7/GATES.md)"
+    }
+  },
+  "rescore": {
+    "answers": "15950/15950",
+    "unresolved_errors": 0,
+    "feature_cells_missing_rewritten": 9,
+    "feature_cells_missing_original_same_pairs": 4,
+    "off_option": {
+      "rewritten_mean": 0.00082,
+      "original_same_pairs_mean": 0.00089,
+      "rewritten_features_over_2pct": 3,
+      "original_features_over_2pct": 3,
+      "note": "scorer and prompts identical to stage 5 (byte-identity asserted); the 3 features over 2% are the same 3 in both runs"
+    }
+  }
+}

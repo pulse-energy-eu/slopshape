@@ -1,0 +1,31 @@
+{
+  "length_only_logistic": {
+    "test_macro_f1": 0.4545,
+    "test_auprc": 0.8706,
+    "test_acc": 0.8333
+  },
+  "stylometric_xgb": {
+    "test_macro_f1": 1.0,
+    "test_auprc": 1.0,
+    "test_acc": 1.0,
+    "note": "144-dim set per the original's spec (length/vocab/100 function words/punctuation/dialogue/readability)"
+  },
+  "tfidf_xgb": {
+    "test_macro_f1": 0.9927,
+    "test_auprc": 0.9999,
+    "test_acc": 0.996
+  },
+  "binoculars_style_small": {
+    "test_macro_f1": 0.7817,
+    "test_auprc": 0.9797,
+    "test_acc": 0.896,
+    "val_f1_at_threshold": 0.7938,
+    "note": "Binoculars-STYLE with Qwen2.5-0.5B base/instruct pair (disclosed substitute for the Falcon-7B pair); threshold on val"
+  },
+  "modernbert_base": {
+    "test_macro_f1": 1.0,
+    "test_auprc": 1.0,
+    "test_acc": 1.0,
+    "note": "ModernBERT-base, 3 epochs, 512-token truncation (original config), batch 8, single seed, checkpointed"
+  }
+}

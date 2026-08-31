@@ -1,0 +1,428 @@
+{
+  "seed": 202614,
+  "features": [
+    {
+      "id": "COM_CTA_005",
+      "name": "Bridge Location",
+      "question": "Where is the strongest problem-to-product bridge placed?",
+      "type": "categorical",
+      "values": [
+        "no_bridge",
+        "opening",
+        "early_body",
+        "middle_body",
+        "late_body",
+        "conclusion",
+        "repeated_across_article"
+      ],
+      "detection_method": "Identify the clearest bridge passage and record its principal article location; use repeated_across_article when multiple sections independently build the bridge.",
+      "dim": "brand_product_integration"
+    },
+    {
+      "id": "VOC_CRD_002",
+      "name": "Attribution Transparency",
+      "question": "How transparently does the article identify the origin of its factual or expert claims?",
+      "type": "ordinal",
+      "values": [
+        "1_unattributed_assertion_dominant",
+        "2_general_authority_invocation",
+        "3_named_source_without_locator",
+        "4_named_source_with_specific_report_or_case",
+        "5_linked_or_formally_cited_source_apparatus"
+      ],
+      "detection_method": "Assess citations, links, publication names, report titles, dates, DOI-style references, named datasets, and source locators.",
+      "dim": "voices_and_sources"
+    },
+    {
+      "id": "EVD_MIX_009",
+      "name": "Demonstrative Proof Presence",
+      "question": "Does the article provide a reproducible or inspectable demonstration of a claim?",
+      "type": "binary",
+      "values": [
+        "absent",
+        "present"
+      ],
+      "detection_method": "Look for executable code, a complete calculation, a benchmark setup, a documented test procedure, a table of raw comparison inputs, or another artifact that a reader could replicate.",
+      "dim": "evidence_and_proof"
+    },
+    {
+      "id": "ACT_CHK_023",
+      "name": "Success Verification Design",
+      "question": "How does the post tell the reader to verify that an action worked?",
+      "type": "categorical",
+      "values": [
+        "no_verification",
+        "subjective_self_assessment",
+        "observable_result",
+        "metric_or_threshold_check",
+        "formal_test_or_audit",
+        "ongoing_monitoring_dashboard"
+      ],
+      "detection_method": "Look for expected results, checks, before/after measures, audit criteria, test outputs, dashboards, monitoring, or review cycles.",
+      "dim": "actionability"
+    },
+    {
+      "id": "PUR_JOB_003",
+      "name": "Secondary Purpose Mix",
+      "question": "Which secondary purposes materially shape the post in addition to its main purpose?",
+      "type": "multi_select",
+      "values": [
+        "education",
+        "instruction",
+        "strategic persuasion",
+        "lead generation",
+        "product enablement",
+        "advocacy",
+        "reader reassurance",
+        "resource discovery",
+        "commercial conversion"
+      ],
+      "detection_method": "Select every purpose supported by a dedicated section, repeated framing, product bridge, CTA, or explicit reader invitation.",
+      "dim": "purpose_reader_payoff"
+    },
+    {
+      "id": "EXP_DEF_006",
+      "name": "Named Framework Use",
+      "question": "Does the article organize explanation around an explicitly named framework, model, protocol, or set of pillars?",
+      "type": "categorical",
+      "values": [
+        "none",
+        "single_lightweight_named_framework",
+        "single_central_named_framework",
+        "multiple_named_frameworks"
+      ],
+      "detection_method": "Identify named constructs such as protocols, matrices, pillars, maturity models, diagnostic systems, or branded conceptual labels.",
+      "dim": "explanation_depth"
+    },
+    {
+      "id": "STR_STG_009",
+      "name": "Editorial-to-CTA Separation",
+      "question": "How clearly is commercial or next-step material separated from editorial guidance?",
+      "type": "categorical",
+      "values": [
+        "no_cta_or_commercial_material",
+        "fully_blended_into_editorial_body",
+        "light_contextual_bridge",
+        "clearly_separated_final_section",
+        "standalone_landing_page_cta_module"
+      ],
+      "detection_method": "Inspect whether the article shifts visibly from advice to promotion, contact, download, demo, or purchase language.",
+      "dim": "structure_and_flow"
+    },
+    {
+      "id": "TIM_CUE_012",
+      "name": "Reader Lifecycle Stage",
+      "question": "At what reader or business stage is the timing advice primarily aimed?",
+      "type": "categorical",
+      "values": [
+        "not_stage_specific",
+        "before_starting_or_launching",
+        "during_initial_setup_or_onboarding",
+        "during_active_operation",
+        "at_growth_or_scaling_threshold",
+        "during_incident_or_crisis",
+        "before_renewal_or_expiry",
+        "during_transition_or_exit",
+        "after_completion_or_for_review"
+      ],
+      "detection_method": "Identify the lifecycle moment at which the article expects the reader to use its advice.",
+      "dim": "timeliness"
+    }
+  ],
+  "docs": [
+    {
+      "label": "DOC 1",
+      "doc_id": "c6a9cccc86372a9c",
+      "source": "human",
+      "title": "Create a Workplace Culture of Psychological Safety"
+    },
+    {
+      "label": "DOC 2",
+      "doc_id": "acdd2d58c24ab41d",
+      "source": "human",
+      "title": "Cloud automation services | Chatbots for CX | computersolutionseast"
+    },
+    {
+      "label": "DOC 3",
+      "doc_id": "da6ecf368a859fa1",
+      "source": "human",
+      "title": "Key Elements for the Perfect Cinco De Mayo Party"
+    },
+    {
+      "label": "DOC 4",
+      "doc_id": "c6a9cccc86372a9c",
+      "source": "claude",
+      "title": "(untitled)"
+    },
+    {
+      "label": "DOC 5",
+      "doc_id": "acdd2d58c24ab41d",
+      "source": "kimi",
+      "title": "(untitled)"
+    }
+  ],
+  "extractor": "google/gemini-3.6-flash",
+  "answers": [
+    {
+      "doc": "DOC 1",
+      "fid": "COM_CTA_005",
+      "answer": "conclusion",
+      "evidence": "To learn more watch our recent webinar, Better Together: Optimizing Differences to Build Strong Teams, hosted by HCI and featuring meQuilibrium Chief Science Officer and Co-founder Andrew J. Shatt\u00e9, P"
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "VOC_CRD_002",
+      "answer": [
+        "1_unattributed_assertion_dominant",
+        "2_general_authority_invocation",
+        "3_named_source_without_locator"
+      ],
+      "evidence": "\"Research shows that team members who are free to experiment...\" and \"In fact, a Gallup poll found that only two percent of employees...\""
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "EVD_MIX_009",
+      "answer": "absent",
+      "evidence": "The article provides general advice and references research, but contains no reproducible or inspectable code, data, or technical demonstration."
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "ACT_CHK_023",
+      "answer": "no_verification",
+      "evidence": "The post does not mention any method or instruction to verify if the suggested actions worked."
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "PUR_JOB_003",
+      "answer": [
+        "instruction",
+        "resource discovery"
+      ],
+      "evidence": "Actionable 'Here\u2019s how' and 'Try this' guides provide step-by-step instruction, while the closing prompt ('To learn more watch our recent webinar...') serves resource discovery."
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "EXP_DEF_006",
+      "answer": "none",
+      "evidence": "The article presents steps and key components for psychological safety without attributing them to an explicitly named framework, model, or protocol."
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "STR_STG_009",
+      "answer": "light_contextual_bridge",
+      "evidence": "To learn more watch our recent webinar, Better Together: Optimizing Differences to Build Strong Teams, hosted by HCI and featuring meQuilibrium Chief Science Officer and Co-founder Andrew J. Shatt\u00e9, P"
+    },
+    {
+      "doc": "DOC 1",
+      "fid": "TIM_CUE_012",
+      "answer": "not_stage_specific",
+      "evidence": "Psychological safety grows with regular, positive interactions and consistent effort."
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "COM_CTA_005",
+      "answer": "middle_body",
+      "evidence": "This is where chatbots can allow persona-based access to search and retrieve information quickly as a part of robust cloud service automation."
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "VOC_CRD_002",
+      "answer": "1_unattributed_assertion_dominant",
+      "evidence": "The entire blog post consists of generalized assertions and commentary regarding chatbots in manufacturing without referencing outside sources, studies, or external experts."
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "EVD_MIX_009",
+      "answer": "absent",
+      "evidence": ""
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "ACT_CHK_023",
+      "answer": "formal_test_or_audit",
+      "evidence": "Organizations have to conduct periodic customer sentiment to see if their chatbot strategy has any gaps or opportunities to improve"
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "PUR_JOB_003",
+      "answer": [
+        "education",
+        "strategic persuasion"
+      ],
+      "evidence": "To grow and gain a competitive advantage, personalizing the customer experience... COVID-19, however, has made companies take a re-look at their customer experience approach."
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "EXP_DEF_006",
+      "answer": "none",
+      "evidence": "The article discusses chatbot use cases and strategy in manufacturing without organizing its explanation around an explicitly named framework, model, protocol, or set of pillars."
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "STR_STG_009",
+      "answer": "no_cta_or_commercial_material",
+      "evidence": "The post provides general information and guidance on chatbot strategy without any call to action, contact prompt, or commercial pitch."
+    },
+    {
+      "doc": "DOC 2",
+      "fid": "TIM_CUE_012",
+      "answer": "not_stage_specific",
+      "evidence": "A key consideration when deciding on an enterprise chatbot approach is a clear understanding of business goals, target people, and how to drive continuity in dialogue with each other seamlessly"
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "COM_CTA_005",
+      "answer": "no_bridge",
+      "evidence": "The article offers general tips and ideas for hosting a Cinco de Mayo office party but does not mention or promote any specific product or service."
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "VOC_CRD_002",
+      "answer": "1_unattributed_assertion_dominant",
+      "evidence": "Just mentioning the popular avocado dip in an online dating profile increases incoming messages by 144%."
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "EVD_MIX_009",
+      "answer": "absent",
+      "evidence": "The article consists of event planning ideas and recipes, with no technical claims or reproducible demonstrations."
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "ACT_CHK_023",
+      "answer": "no_verification",
+      "evidence": "none"
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "PUR_JOB_003",
+      "answer": [
+        "education",
+        "instruction"
+      ],
+      "evidence": "This day commemorates the unlikely victory at the Battle of Puebla... Skip the tequila and mix equal parts lime, lemon, and orange juices with a splash of simple syrup."
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "EXP_DEF_006",
+      "answer": "none",
+      "evidence": "The post uses standard descriptive section headings (food, drink, decorations, activities) without introducing any explicitly named framework, model, protocol, or set of pillars."
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "STR_STG_009",
+      "answer": "no_cta_or_commercial_material",
+      "evidence": "The entire blog post consists of editorial party planning tips with no calls to action or commercial material."
+    },
+    {
+      "doc": "DOC 3",
+      "fid": "TIM_CUE_012",
+      "answer": "before_starting_or_launching",
+      "evidence": "Once you plan the food, drink, and d\u00e9cor, it\u2019s time to make your party come alive."
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "COM_CTA_005",
+      "answer": "no_bridge",
+      "evidence": "The article is purely informational and does not mention or pitch any product or service."
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "VOC_CRD_002",
+      "answer": "4_named_source_with_specific_report_or_case",
+      "evidence": "According to Google's landmark Project Aristotle study"
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "EVD_MIX_009",
+      "answer": "absent",
+      "evidence": "The article contains qualitative discussion and references external research (e.g., Google's Project Aristotle), but provides no inspectable data, interactive models, or reproducible demonstrations wi"
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "ACT_CHK_023",
+      "answer": "no_verification",
+      "evidence": "The post provides recommendations for building psychological safety but does not instruct the reader on how to verify that the actions worked."
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "PUR_JOB_003",
+      "answer": [
+        "education",
+        "instruction",
+        "strategic persuasion"
+      ],
+      "evidence": "Educates on research and concepts like groupthink and Project Aristotle; instructs managers with tactical steps under 'How Managers Can Build Psychological Safety'; and uses strategic persuasion to fr"
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "EXP_DEF_006",
+      "answer": "none",
+      "evidence": "Psychological safety is not a one-time initiative. It's a leadership practice built incrementally through consistent behavior."
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "STR_STG_009",
+      "answer": "no_cta_or_commercial_material",
+      "evidence": "The post contains no CTA, commercial pitch, or promotional material."
+    },
+    {
+      "doc": "DOC 4",
+      "fid": "TIM_CUE_012",
+      "answer": "not_stage_specific",
+      "evidence": "Psychological safety is not a one-time initiative. It's a leadership practice built incrementally through consistent behavior."
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "COM_CTA_005",
+      "answer": "opening",
+      "evidence": "This is where AI-powered chatbots, deployed through robust cloud automation frameworks, emerge not merely as customer service tools, but as strategic assets that enhance operational resilience"
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "VOC_CRD_002",
+      "answer": "1_unattributed_assertion_dominant",
+      "evidence": "The text makes general claims about the impact and technical implementation of AI chatbots in industrial ecosystems without citing any external sources, experts, reports, or data."
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "EVD_MIX_009",
+      "answer": "absent",
+      "evidence": ""
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "ACT_CHK_023",
+      "answer": "no_verification",
+      "evidence": "The post does not contain any instructions on how to verify that an action worked."
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "PUR_JOB_003",
+      "answer": [
+        "education",
+        "reader reassurance",
+        "strategic persuasion"
+      ],
+      "evidence": "The text educates readers on technical integration and use cases ('utilize API-first architectures', 'Field technicians benefit from conversational interfaces'), reassures them regarding integration r"
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "EXP_DEF_006",
+      "answer": "none",
+      "evidence": "The text discusses general concepts such as cloud automation frameworks and stakeholder use cases, but does not present or structure its explanation around an explicitly named framework, model, protoc"
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "STR_STG_009",
+      "answer": "no_cta_or_commercial_material",
+      "evidence": "The entire post is an educational discussion with no commercial call-to-action, promotional offers, or next-step marketing links."
+    },
+    {
+      "doc": "DOC 5",
+      "fid": "TIM_CUE_012",
+      "answer": "during_active_operation",
+      "evidence": "how to integrate conversational tools with existing cloud infrastructure without creating data silos or security vulnerabilities"
+    }
+  ]
+}

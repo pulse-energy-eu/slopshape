@@ -1,0 +1,7 @@
+{
+  "units": 15960,
+  "alpha_nominal": 0.8907,
+  "mean_pairwise_exact": 0.8929,
+  "gate": 0.8,
+  "passes": true
+}

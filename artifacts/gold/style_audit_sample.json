@@ -1,0 +1,206 @@
+{
+  "seed": 202620,
+  "n": 40,
+  "features": [
+    {
+      "id": "STR_ORD_002",
+      "dim": "structure_and_flow",
+      "is_style_model": false
+    },
+    {
+      "id": "STY_REG_014",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "STY_FIG_021",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "EVD_MIX_002",
+      "dim": "evidence_and_proof",
+      "is_style_model": false
+    },
+    {
+      "id": "STY_REG_007",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "PAG_FUR_011",
+      "dim": "page_format_navigation",
+      "is_style_model": false
+    },
+    {
+      "id": "EXP_KNW_010",
+      "dim": "explanation_depth",
+      "is_style_model": false
+    },
+    {
+      "id": "EVD_ATT_001",
+      "dim": "evidence_and_proof",
+      "is_style_model": false
+    },
+    {
+      "id": "TIM_CHG_006",
+      "dim": "timeliness",
+      "is_style_model": false
+    },
+    {
+      "id": "AUD_PRB_005",
+      "dim": "audience_problem_stakes",
+      "is_style_model": false
+    },
+    {
+      "id": "EXP_CAV_012",
+      "dim": "explanation_depth",
+      "is_style_model": false
+    },
+    {
+      "id": "STY_CPX_005",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "STY_REG_013",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "AUD_STK_004",
+      "dim": "audience_problem_stakes",
+      "is_style_model": false
+    },
+    {
+      "id": "COM_PRS_006",
+      "dim": "brand_product_integration",
+      "is_style_model": false
+    },
+    {
+      "id": "VOC_VOX_001",
+      "dim": "voices_and_sources",
+      "is_style_model": false
+    },
+    {
+      "id": "EVD_MTH_010",
+      "dim": "evidence_and_proof",
+      "is_style_model": false
+    },
+    {
+      "id": "PAG_NAV_007",
+      "dim": "page_format_navigation",
+      "is_style_model": false
+    },
+    {
+      "id": "STY_FIG_002",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "STY_REG_016",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "STY_CPX_002",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "EXP_KNW_002",
+      "dim": "explanation_depth",
+      "is_style_model": false
+    },
+    {
+      "id": "COM_ROL_010",
+      "dim": "brand_product_integration",
+      "is_style_model": false
+    },
+    {
+      "id": "VOC_CRD_001",
+      "dim": "voices_and_sources",
+      "is_style_model": false
+    },
+    {
+      "id": "TIM_SEN_004",
+      "dim": "timeliness",
+      "is_style_model": false
+    },
+    {
+      "id": "PAG_NAV_003",
+      "dim": "page_format_navigation",
+      "is_style_model": false
+    },
+    {
+      "id": "AUD_RDR_005",
+      "dim": "audience_problem_stakes",
+      "is_style_model": false
+    },
+    {
+      "id": "TIM_CUE_004",
+      "dim": "timeliness",
+      "is_style_model": false
+    },
+    {
+      "id": "EVD_NUM_004",
+      "dim": "evidence_and_proof",
+      "is_style_model": false
+    },
+    {
+      "id": "EVD_ATT_002",
+      "dim": "evidence_and_proof",
+      "is_style_model": false
+    },
+    {
+      "id": "AUD_PRB_006",
+      "dim": "audience_problem_stakes",
+      "is_style_model": false
+    },
+    {
+      "id": "VOC_CRD_004",
+      "dim": "voices_and_sources",
+      "is_style_model": false
+    },
+    {
+      "id": "ACT_CON_015",
+      "dim": "actionability",
+      "is_style_model": false
+    },
+    {
+      "id": "EXP_KNW_009",
+      "dim": "explanation_depth",
+      "is_style_model": false
+    },
+    {
+      "id": "STY_CPX_004",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "STY_EVL_026",
+      "dim": "writing_style",
+      "is_style_model": true
+    },
+    {
+      "id": "ACT_LVL_013",
+      "dim": "actionability",
+      "is_style_model": false
+    },
+    {
+      "id": "COM_ROL_007",
+      "dim": "brand_product_integration",
+      "is_style_model": false
+    },
+    {
+      "id": "TIM_CHG_003",
+      "dim": "timeliness",
+      "is_style_model": false
+    },
+    {
+      "id": "AUD_TRG_004",
+      "dim": "audience_problem_stakes",
+      "is_style_model": false
+    }
+  ]
+}

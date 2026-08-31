@@ -1,0 +1,536 @@
+domain,company,vertical,industry_raw,region,source,list_year
+100hires.com,100Hires,software_saas,Applicant Tracking Systems (ATS),,g2.com_wayback,2022
+verifone.com,2Checkout (now Verifone),ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+360learning.com,360Learning,edtech,Course Authoring,eu,g2.com_wayback,2022
+app.7taps.com,7taps Microlearning,edtech,Course Authoring,,g2.com_wayback,2022
+a2hosting.com,A2 Hosting,devtools,Continuous Integration,us,g2.com_wayback,2022
+absolute.com,Absolute,software_saas,Endpoint Protection Suites,other,g2.com_wayback,2022
+accelo.com,Accelo,software_saas,Project Management,us,g2.com_wayback,2022
+accelq.com,ACCELQ,devtools,Continuous Integration,,g2.com_wayback,2022
+activecampaign.com,ActiveCampaign,software_saas,CRM,us,g2.com_wayback,2022
+acumatica.com,Acumatica,fintech_insurance,Accounting,,g2.com_wayback,2022
+adobe.com,Adobe Acrobat DC,fintech_insurance,Billing,us,g2.com_wayback,2022
+adp.com,ADP Workforce Now,software_saas,Core HR,,g2.com_wayback,2022
+adverity.com,Adverity,software_saas,Data Visualization,eu,g2.com_wayback,2022
+getitc.com,Agency Matrix,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+agencyanalytics.com,AgencyAnalytics,software_saas,Data Visualization,other,g2.com_wayback,2022
+agencybloc.com,AgencyBloc,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+agencysmart.com,AgencySmart,fintech_insurance,Insurance Agency Management,,g2.com_wayback,2022
+agorapulse.com,Agorapulse,devtools,ETL Tools,eu,g2.com_wayback,2022
+aircall.io,Aircall,software_saas,Live Chat,us,g2.com_wayback,2022
+airtable.com,Airtable,software_saas,Project Management,,g2.com_wayback,2022
+aitrillion.com,AiTrillion,software_saas,Email Marketing,,g2.com_wayback,2022
+allego.com,Allego,software_saas,Project Management,us,g2.com_wayback,2022
+allscripts.com,Allscripts CareDirector,health,Patient Engagement,us,g2.com_wayback,2022
+amcharts.com,amCharts,software_saas,Data Visualization,eu,g2.com_wayback,2022
+vertafore.com,AMS360,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+americanwell.com,AmWell,health,Telemedicine,us,g2.com_wayback,2022
+anydesk.com,AnyDesk,software_saas,Core HR,eu,g2.com_wayback,2022
+appdynamics.com,AppDynamics,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+apple.com,Apple Pay for merchants,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+swipeclock.com,ApplicantStack,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+appliedsystems.com,Applied Epic,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+appypie.com,Appy Pie,software_saas,Live Chat,other,g2.com_wayback,2022
+apspayroll.com,APS Core HR Solution,software_saas,Core HR,us,g2.com_wayback,2022
+articulate.com,Articulate 360,edtech,Course Authoring,us,g2.com_wayback,2022
+asana.com,Asana,software_saas,Project Management,us,g2.com_wayback,2022
+atatus.com,Atatus,devtools,Application Performance Monitoring (APM),,g2.com_wayback,2022
+auth0.com,Auth0,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+authorize.net,Authorize.net,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+autorabit.com,AutoRABIT,devtools,Continuous Integration,us,g2.com_wayback,2022
+auzmor.com,Auzmor Learn,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+avast.com,Avast Endpoint Protection,software_saas,Endpoint Protection Suites,eu,g2.com_wayback,2022
+avatier.com,Avatier Identity Anywhere,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+avaza.com,Avaza,fintech_insurance,Billing,other,g2.com_wayback,2022
+avidxchange.com,AvidXchange,fintech_insurance,Billing,us,g2.com_wayback,2022
+aweber.com,AWeber,software_saas,Email Marketing,us,g2.com_wayback,2022
+aws.amazon.com,AWS CodePipeline,devtools,Continuous Integration,us,g2.com_wayback,2022
+axure.com,Axure RP,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+news.microsoft.com,Azure Data Factory,devtools,ETL Tools,us,g2.com_wayback,2022
+clarity.microsoft.com,Azure Pipelines,devtools,Continuous Delivery,us,g2.com_wayback,2022
+atlassian.com,Bamboo,devtools,Continuous Integration,other,g2.com_wayback,2022
+bamboohr.com,BambooHR,software_saas,Core HR,us,g2.com_wayback,2022
+basecamp.com,Basecamp,software_saas,Project Management,us,g2.com_wayback,2022
+bigcommerce.com,BigCommerce,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+bigtime.net,BigTime,fintech_insurance,Billing,us,g2.com_wayback,2022
+bill.com,Bill.com,fintech_insurance,Billing,us,g2.com_wayback,2022
+billsby.com,Billsby,fintech_insurance,Subscription Billing,other,g2.com_wayback,2022
+birdeye.com,Birdeye,software_saas,Live Chat,us,g2.com_wayback,2022
+bitdefender.com,Bitdefender GravityZone,software_saas,Endpoint Protection Suites,eu,g2.com_wayback,2022
+bitrise.io,Bitrise,devtools,Continuous Integration,eu,g2.com_wayback,2022
+blackboard.com,Blackboard Learn,edtech,Learning Management System (LMS),,g2.com_wayback,2021
+blackline.com,BlackLine,fintech_insurance,Accounting,us,g2.com_wayback,2022
+bloomreach.com,Bloomreach,software_saas,Marketing Automation,us,g2.com_wayback,2022
+bluecore.com,Bluecore,software_saas,Email Marketing,us,g2.com_wayback,2022
+home.bluesnap.com,BlueSnap,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+bolt.com,Bolt,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+braincert.com,BrainCert,edtech,Learning Management System (LMS),,g2.com_wayback,2021
+brainshark.com,Brainshark,software_saas,Project Management,us,g2.com_wayback,2022
+braze.com,Braze,software_saas,Marketing Automation,us,g2.com_wayback,2022
+breezy.hr,Breezy HR,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+brightgauge.com,BrightGauge,software_saas,Data Visualization,us,g2.com_wayback,2022
+brightmetrics.com,Brightmetrics,software_saas,Data Visualization,us,g2.com_wayback,2022
+buddy.works,Buddy,devtools,Continuous Integration,eu,g2.com_wayback,2022
+bullhorn.com,Bullhorn ATS & CRM,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+campaignmonitor.com,Campaign Monitor,software_saas,Email Marketing,,g2.com_wayback,2022
+canva.com,Canva for Enterprise,fintech_insurance,Payment Gateways,other,g2.com_wayback,2022
+cbtnuggets.com,CBT Nuggets,software_saas,Data Visualization,us,g2.com_wayback,2022
+ceipal.com,CEIPAL ATS,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+centra.com,Centra,ecommerce_retail,E-Commerce Platforms,,g2.com_wayback,2022
+centreon.com,Centreon,devtools,Application Performance Monitoring (APM),eu,g2.com_wayback,2022
+breathehr.com,Breathe,software_saas,Core HR,other,g2.com_wayback,2022
+ceridian.com,Ceridian Dayforce,software_saas,Core HR,us,g2.com_wayback,2022
+certintell.com,Certintell,health,Telemedicine,us,g2.com_wayback,2022
+chamilo.org,Chamilo LMS,edtech,Learning Management System (LMS),eu,g2.com_wayback,2021
+chargebee.com,Chargebee,fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+chargeover.com,ChargeOver,fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+charmhealth.com,ChARM Health,health,Telemedicine,us,g2.com_wayback,2022
+chartjs.org,Chart.Js,software_saas,Data Visualization,,g2.com_wayback,2022
+statusbrew.com,Statusbrew,devtools,ETL Tools,,g2.com_wayback,2022
+circleci.com,CircleCI,devtools,Continuous Integration,us,g2.com_wayback,2022
+cisco.com,Cisco AMP for Endpoints,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+cision.com,Cision Communications Cloud,software_saas,Marketing Automation,us,g2.com_wayback,2022
+citrix.com,Citrix Podio,software_saas,Project Management,us,g2.com_wayback,2022
+offers.clearcompany.com,ClearCompany,software_saas,Payroll,us,g2.com_wayback,2022
+clickup.com,ClickUp,software_saas,CRM,,g2.com_wayback,2022
+close.com,Close,software_saas,CRM,us,g2.com_wayback,2022
+cloudbees.com,CloudBees CI,devtools,Continuous Integration,us,g2.com_wayback,2022
+ingrammicrocloud.com,CloudBlue,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+cloudways.com,Cloudways,devtools,Continuous Integration,eu,g2.com_wayback,2022
+coassemble.com,Coassemble,edtech,Course Authoring,other,g2.com_wayback,2022
+codefresh.io,Codefresh,devtools,Continuous Integration,us,g2.com_wayback,2022
+commentsold.com,CommentSold,ecommerce_retail,E-Commerce Platforms,,g2.com_wayback,2022
+connectwise.com,ConnectWise Control,software_saas,Core HR,us,g2.com_wayback,2022
+constantcontact.com,Constant Contact,software_saas,Email Marketing,us,g2.com_wayback,2022
+convertkit.com,Convertkit,software_saas,Email Marketing,us,g2.com_wayback,2022
+copper.com,Copper,software_saas,CRM,us,g2.com_wayback,2022
+bqe.com,BQE CORE,fintech_insurance,Billing,us,g2.com_wayback,2022
+cornerstoneondemand.com,Cornerstone Learning,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+coviu.com,Coviu,health,Telemedicine,us,g2.com_wayback,2022
+creatio.com,Creatio,software_saas,CRM,,g2.com_wayback,2022
+crisp.chat,Crisp,software_saas,Help Desk,,g2.com_wayback,2022
+crowdstrike.com,CrowdStrike Falcon: Endpoint Protection,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+cyberark.com,CyberArk Identity (formerly Idaptive),software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+trajectdata.com,Cyfe,software_saas,Data Visualization,,g2.com_wayback,2022
+cylance.com,CylancePROTECT,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+d2l.com,D2L Brightspace,edtech,Learning Management System (LMS),,g2.com_wayback,2021
+dashthis.com,DashThis,software_saas,Data Visualization,other,g2.com_wayback,2022
+databox.com,Databox,software_saas,Data Visualization,us,g2.com_wayback,2022
+databricks.com,Databricks Lakehouse Platform,devtools,ETL Tools,us,g2.com_wayback,2022
+datadoghq.com,Datadog,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+demandbase.com,Demandbase ABM/ABX Cloud,health,Patient Engagement,us,g2.com_wayback,2022
+digitalriver.com,Digital River MyCommerce,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+digitalocean.com,DigitalOcean,devtools,Continuous Integration,us,g2.com_wayback,2022
+directmailmac.com,Direct Mail for Mac,software_saas,Email Marketing,,g2.com_wayback,2022
+dixa.com,Dixa,software_saas,Help Desk,eu,g2.com_wayback,2022
+docebo.com,Docebo,edtech,Learning Management System (LMS),other,g2.com_wayback,2021
+doctorlogic.com,DoctorLogic,health,Patient Engagement,,g2.com_wayback,2022
+docusign.com,DocuSign,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+doxy.me,Doxy.me,health,Telemedicine,us,g2.com_wayback,2022
+drchrono.com,DrChrono,health,Telemedicine,us,g2.com_wayback,2022
+drift.com,Drift,software_saas,Live Chat,us,g2.com_wayback,2022
+drip.com,Drip,software_saas,Marketing Automation,us,g2.com_wayback,2022
+dwolla.com,Dwolla,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+dynatrace.com,Dynatrace,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+ease.com,Ease,software_saas,Core HR,us,g2.com_wayback,2022
+easygenerator.com,Easygenerator,edtech,Course Authoring,eu,g2.com_wayback,2022
+centurybizsolutions.net,EBizCharge,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+eclincher.com,eclincher,devtools,ETL Tools,us,g2.com_wayback,2022
+eclinicalworks.com,eClinicalWorks,health,Patient Engagement,us,g2.com_wayback,2022
+ecwid.com,Ecwid,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+edapp.com,EdApp,edtech,Course Authoring,us,g2.com_wayback,2022
+edmodo.com,Edmodo,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+edrone.me,edrone,software_saas,CRM,,g2.com_wayback,2022
+edsby.com,Edsby,edtech,Learning Management System (LMS),other,g2.com_wayback,2021
+elucidat.com,Elucidat,edtech,Course Authoring,other,g2.com_wayback,2022
+emarsys.com,Emarsys,software_saas,Marketing Automation,eu,g2.com_wayback,2022
+enchant.com,Enchant,software_saas,Help Desk,us,g2.com_wayback,2022
+engagebay.com,EngageBay All-in-One Suite,software_saas,Marketing Automation,us,g2.com_wayback,2022
+epaysystems.com,EPAY HCM,software_saas,Payroll,us,g2.com_wayback,2022
+epsagon.com,Epsagon,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+eset.com,ESET PROTECT Advanced,software_saas,Endpoint Protection Suites,,g2.com_wayback,2022
+everlytic.com,Everlytic,software_saas,Email Marketing,,g2.com_wayback,2022
+exagoinc.com,Exago,software_saas,Data Visualization,us,g2.com_wayback,2022
+expeditecommerce.com,Expedite Commerce,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+ezlynx.com,EZLynx,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+fastspring.com,FastSpring,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+figma.com,Figma,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+financialforce.com,FinancialForce Financial Management ERP,fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+fingercheck.com,Fingercheck Payroll,software_saas,Payroll,us,g2.com_wayback,2022
+fireeye.com,FireEye Endpoint Security,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+five9.com,Five9,software_saas,Live Chat,us,g2.com_wayback,2022
+fivetran.com,Fivetran,devtools,ETL Tools,us,g2.com_wayback,2022
+float.com,Float,software_saas,Project Management,us,g2.com_wayback,2022
+flosum.com,Flosum,devtools,Continuous Integration,us,g2.com_wayback,2022
+flowgear.net,Flowgear,devtools,ETL Tools,,g2.com_wayback,2022
+forgerock.com,ForgeRock,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+fortinet.com,FortiClient,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+foxit.com,Foxit PDF Editor,fintech_insurance,Billing,us,g2.com_wayback,2022
+freeagent.com,FreeAgent,fintech_insurance,Accounting,,g2.com_wayback,2022
+freemius.com,Freemius,fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+freshbooks.com,FreshBooks,fintech_insurance,Billing,other,g2.com_wayback,2022
+freshworks.com,Freshdesk,software_saas,Help Desk,us,g2.com_wayback,2022
+frontapp.com,Front,software_saas,Help Desk,us,g2.com_wayback,2022
+frontegg.com,Frontegg,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+fusebill.com,Fusebill,fintech_insurance,Subscription Billing,other,g2.com_wayback,2022
+idera.com,FusionCharts,software_saas,Data Visualization,us,g2.com_wayback,2022
+intergral.com,FusionReactor APM,devtools,Application Performance Monitoring (APM),eu,g2.com_wayback,2022
+ganttpro.com,GanttPRO,software_saas,Project Management,other,g2.com_wayback,2022
+gearset.com,Gearset,devtools,Continuous Integration,,g2.com_wayback,2022
+geckoboard.com,Geckoboard,software_saas,Data Visualization,other,g2.com_wayback,2022
+genesys.com,Genesys Cloud CX,software_saas,Live Chat,us,g2.com_wayback,2022
+germainapm.com,Germain APM,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+getresponse.com,GetResponse,software_saas,Marketing Automation,eu,g2.com_wayback,2022
+github.com,GitHub,devtools,Continuous Integration,us,g2.com_wayback,2022
+about.gitlab.com,GitLab,devtools,Continuous Integration,,g2.com_wayback,2022
+gladly.com,Gladly,software_saas,Help Desk,,g2.com_wayback,2022
+gmass.co,GMass,software_saas,Email Marketing,us,g2.com_wayback,2022
+gmelius.com,Gmelius,software_saas,Help Desk,other,g2.com_wayback,2022
+gnowbe.com,Gnowbe,edtech,Course Authoring,us,g2.com_wayback,2022
+gocardless.com,GoCardless,fintech_insurance,Payment Gateways,other,g2.com_wayback,2022
+goco.io,GoCo,software_saas,Core HR,us,g2.com_wayback,2022
+edu.google.com,Google Classroom,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+datastudio.withgoogle.com,Google Data Studio,software_saas,Data Visualization,us,g2.com_wayback,2022
+gorgias.com,Gorgias,software_saas,Help Desk,us,g2.com_wayback,2022
+greenhouse.io,Greenhouse,software_saas,Payroll,us,g2.com_wayback,2022
+greenwayhealth.com,Intergy,health,Patient Engagement,us,g2.com_wayback,2022
+greythr.com,greytHR,software_saas,Core HR,,g2.com_wayback,2022
+grow.com,Grow.com,software_saas,Data Visualization,us,g2.com_wayback,2022
+guidecx.com,GUIDEcx,software_saas,Project Management,us,g2.com_wayback,2022
+gusto.com,Gusto,software_saas,Core HR,us,g2.com_wayback,2022
+harness.io,Harness,devtools,Continuous Delivery,,g2.com_wayback,2022
+hawksoft.com,HawkSoft,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+gethealthie.com,Healthie,health,Telemedicine,us,g2.com_wayback,2022
+heartland.us,Heartland Payroll,software_saas,Payroll,us,g2.com_wayback,2022
+tools4ever.com,HelloID,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+dropbox.com,HelloSign,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+helpscout.net,Help Scout,software_saas,Help Desk,us,g2.com_wayback,2022
+helpcrunch.com,HelpCrunch,software_saas,Help Desk,us,g2.com_wayback,2022
+helpshift.com,Helpshift,software_saas,Help Desk,us,g2.com_wayback,2022
+saaslabs.co,Helpwise,software_saas,Help Desk,us,g2.com_wayback,2022
+hevodata.com,Hevo Data,devtools,ETL Tools,,g2.com_wayback,2022
+hibob.com,Hibob HRIS,software_saas,Core HR,other,g2.com_wayback,2022
+highcharts.com,Highcharts,software_saas,Data Visualization,other,g2.com_wayback,2022
+hireology.com,Hireology,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+hive.com,Hive,software_saas,Project Management,us,g2.com_wayback,2022
+hiverhq.com,Hiver,software_saas,Help Desk,us,g2.com_wayback,2022
+honeybook.com,HoneyBook,fintech_insurance,Billing,us,g2.com_wayback,2022
+hootsuite.com,Hootsuite,devtools,ETL Tools,,g2.com_wayback,2022
+hostwinds.com,Hostwinds,devtools,Continuous Integration,us,g2.com_wayback,2022
+hubspot.com,HubSpot Marketing Hub,software_saas,Marketing Automation,us,g2.com_wayback,2022
+ibm.com,IBM Cloud Pak for Integration,devtools,ETL Tools,us,g2.com_wayback,2022
+icims.com,iCIMS Talent Cloud,software_saas,Payroll,us,g2.com_wayback,2022
+icontact.com,iContact,software_saas,Email Marketing,us,g2.com_wayback,2022
+incidentiq.com,Incident IQ,software_saas,Help Desk,us,g2.com_wayback,2022
+inetsoft.com,InetSoft Style Intelligence,software_saas,Data Visualization,us,g2.com_wayback,2022
+infinitecampus.com,Infinite Campus,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+checkpoint.com,Infinity Total Protection,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+prezi.com,Infogram,software_saas,Data Visualization,,g2.com_wayback,2022
+informatica.com,Informatica PowerCenter,devtools,ETL Tools,us,g2.com_wayback,2022
+inkling.com,Inkling,edtech,Course Authoring,us,g2.com_wayback,2022
+insightly.com,Insightly CRM,software_saas,CRM,us,g2.com_wayback,2022
+instabug.com,Instabug,devtools,Application Performance Monitoring (APM),,g2.com_wayback,2022
+instana.com,Instana,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+instantly.ai,Instantly,software_saas,Email Marketing,,g2.com_wayback,2022
+instasafe.com,Instasafe ZTAA,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+intakeq.com,IntakeQ,health,Telemedicine,other,g2.com_wayback,2022
+integrate.io,Integrate.io,devtools,ETL Tools,us,g2.com_wayback,2022
+intel.com,Intel VTune Amplifier,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+intellihr.co,intelliHR - Intelligent People Management,software_saas,Core HR,other,g2.com_wayback,2022
+intercom.com,Intercom,software_saas,Help Desk,us,g2.com_wayback,2022
+interseller.io,Interseller,software_saas,Email Marketing,us,g2.com_wayback,2022
+get.vitalsource.com,Intrepid by VitalSource,edtech,Course Authoring,us,g2.com_wayback,2022
+mailchimp.com,Intuit Mailchimp,software_saas,Email Marketing,us,g2.com_wayback,2022
+invisionapp.com,InVision,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+invoiced.com,Invoiced,fintech_insurance,Subscription Billing,,g2.com_wayback,2022
+ionicframework.com,Ionic,devtools,Continuous Integration,us,g2.com_wayback,2022
+iseazy.com,isEazy,edtech,Course Authoring,,g2.com_wayback,2022
+isolvedhcm.com,isolved,software_saas,Core HR,us,g2.com_wayback,2022
+ispringsolutions.com,iSpring Suite,edtech,Course Authoring,us,g2.com_wayback,2022
+iterable.com,Iterable,software_saas,Marketing Automation,us,g2.com_wayback,2022
+itslearning.com,itslearning,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+jazzhr.com,JazzHR,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+cd.foundation,Jenkins,devtools,Continuous Integration,us,g2.com_wayback,2022
+jfrog.com,JFrog Artifactory,devtools,Continuous Integration,us,g2.com_wayback,2022
+jobdiva.com,JobDiva,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+jobvite.com,Jobvite,software_saas,Payroll,,g2.com_wayback,2022
+jumpcloud.com,JumpCloud,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+justworks.com,Justworks,software_saas,Core HR,us,g2.com_wayback,2022
+corp.kaltura.com,Kaltura Video Cloud,edtech,Course Authoring,us,g2.com_wayback,2022
+kadenze.com,Kannu,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+kantata.com,Kantata Cloud for Professional Services (formerly Mavenlink + Kimble),software_saas,Project Management,us,g2.com_wayback,2022
+usa.kaspersky.com,Kaspersky Endpoint Security for Business,software_saas,Endpoint Protection Suites,other,g2.com_wayback,2022
+keap.com,Keap,software_saas,CRM,,g2.com_wayback,2022
+elastic.co,Kibana,software_saas,Data Visualization,us,g2.com_wayback,2022
+klara.com,Klara,health,Telemedicine,us,g2.com_wayback,2022
+klaviyo.com,Klaviyo,software_saas,Marketing Automation,us,g2.com_wayback,2022
+kustomer.com,Kustomer,software_saas,Help Desk,us,g2.com_wayback,2022
+launchdarkly.com,LaunchDarkly,devtools,Continuous Delivery,us,g2.com_wayback,2022
+learndash.com,LearnDash,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+learnupon.com,LearnUpon LMS,edtech,Course Authoring,eu,g2.com_wayback,2022
+learnworlds.com,LearnWorlds,edtech,Learning Management System (LMS),other,g2.com_wayback,2021
+legworkprm.com,Legwork,health,Patient Engagement,us,g2.com_wayback,2022
+lessannoyingcrm.com,Less Annoying CRM,software_saas,CRM,us,g2.com_wayback,2022
+lessonly.com,Lessonly by Seismic,edtech,Course Authoring,us,g2.com_wayback,2022
+letstalkinteractive.com,Let's Talk Telehealth Video Conferencing Office Suite,health,Telemedicine,,g2.com_wayback,2022
+salesforce.com,LevelJump,software_saas,Project Management,us,g2.com_wayback,2022
+lever.co,Lever,software_saas,Applicant Tracking Systems (ATS),,g2.com_wayback,2022
+levitate.ai,Levitate,software_saas,Email Marketing,,g2.com_wayback,2022
+business.linkedin.com,LinkedIn Talent Hub,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+liquibase.com,Liquibase,devtools,Continuous Integration,,g2.com_wayback,2022
+listrak.com,Listrak,software_saas,Marketing Automation,us,g2.com_wayback,2022
+litmus.com,Litmus,software_saas,Email Marketing,us,g2.com_wayback,2022
+qualityunit.com,LiveAgent,software_saas,Help Desk,eu,g2.com_wayback,2022
+livechatinc.com,LiveChat,software_saas,Help Desk,eu,g2.com_wayback,2022
+livezilla.net,LiveZilla,software_saas,Help Desk,,g2.com_wayback,2022
+logicmonitor.com,LogicMonitor,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+logrocket.com,LogRocket,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+logz.io,Logz.io,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+charlesthayne.com,Lucidpress,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+lumahealth.io,Luma Health,health,Patient Engagement,us,g2.com_wayback,2022
+lumigo.io,Lumigo,devtools,Application Performance Monitoring (APM),,g2.com_wayback,2022
+lyftron.com,lyftrondata,devtools,ETL Tools,us,g2.com_wayback,2022
+malwarebytes.com,Malwarebytes for Business,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+manageengine.com,ManageEngine Applications Manager,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+manatal.com,Manatal,software_saas,Applicant Tracking Systems (ATS),,g2.com_wayback,2022
+manychat.com,ManyChat,software_saas,Marketing Automation,us,g2.com_wayback,2022
+matillion.com,Matillion ETL,devtools,ETL Tools,,g2.com_wayback,2022
+meltwater.com,Meltwater,software_saas,Marketing Automation,us,g2.com_wayback,2022
+mendfamily.com,Mend,health,Telemedicine,,g2.com_wayback,2022
+microsoft.com,Microsoft Dynamics 365 Business Central,fintech_insurance,Accounting,us,g2.com_wayback,2022
+miva.com,Miva,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+mobatek.net,MobaXTerm,software_saas,Core HR,eu,g2.com_wayback,2022
+mobilemonkey.com,MobileMonkey,software_saas,Live Chat,us,g2.com_wayback,2022
+modento.io,"Modento, by Dental Intelligence",health,Patient Engagement,,g2.com_wayback,2022
+moengage.com,MoEngage,software_saas,Marketing Automation,us,g2.com_wayback,2022
+monday.com,monday.com,software_saas,Project Management,other,g2.com_wayback,2022
+moneris.com,Moneris Gateway,fintech_insurance,Payment Gateways,,g2.com_wayback,2022
+moodle.com,Moodle,edtech,Learning Management System (LMS),other,g2.com_wayback,2021
+getfishtank.ca,Moosend,software_saas,Email Marketing,us,g2.com_wayback,2022
+mozartdata.com,Mozart Data,devtools,ETL Tools,,g2.com_wayback,2022
+mcafee.com,MVISION Endpoint Security,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+epic.com,MyChart,health,Patient Engagement,us,g2.com_wayback,2022
+elavon.com,MyVirtualMerchant,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+cypherlearning.com,NEO LMS,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+optimalpayments.com,NETELLER,fintech_insurance,Payment Gateways,other,g2.com_wayback,2022
+nethunt.com,NetHunt CRM,software_saas,Email Marketing,other,g2.com_wayback,2022
+oracle.com,NetSuite,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+newrelic.com,New Relic One,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+nexhealth.com,NexHealth,health,Patient Engagement,us,g2.com_wayback,2022
+nextgen.com,NextGen Healthcare EHR,health,Telemedicine,us,g2.com_wayback,2022
+nextiva.com,Nextiva,software_saas,CRM,us,g2.com_wayback,2022
+nextthought.com,NextThought,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+niceincontact.com,NICE CXone,software_saas,Live Chat,us,g2.com_wayback,2022
+nicereply.com,Nicereply,fintech_insurance,Accounting,eu,g2.com_wayback,2022
+niftypm.com,Nifty,software_saas,Project Management,us,g2.com_wayback,2022
+ninjacat.io,NinjaCat,software_saas,Data Visualization,us,g2.com_wayback,2022
+gonitro.com,Nitro PDF Productivity,fintech_insurance,Billing,us,g2.com_wayback,2022
+nopcommerce.com,nopCommerce,ecommerce_retail,E-Commerce Platforms,other,g2.com_wayback,2022
+notion.so,Notion,software_saas,Project Management,,g2.com_wayback,2022
+nutshell.com,Nutshell,software_saas,CRM,,g2.com_wayback,2022
+octopus.com,Octopus Deploy,devtools,Continuous Integration,other,g2.com_wayback,2022
+odoo.com,Odoo ERP,fintech_insurance,Accounting,eu,g2.com_wayback,2022
+ohmd.com,OhMD,health,Telemedicine,us,g2.com_wayback,2022
+okta.com,Okta,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+omnisend.com,Omnisend,software_saas,Marketing Automation,other,g2.com_wayback,2022
+oncallhealth.com,OnCall Health,health,Telemedicine,other,g2.com_wayback,2022
+onelogin.com,OneLogin,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+onesignal.com,OneSignal,software_saas,Marketing Automation,us,g2.com_wayback,2022
+onespan.com,OneSpan Sign,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+onpay.com,OnPay,software_saas,Payroll,us,g2.com_wayback,2022
+oorwin.com,Oorwin,software_saas,Applicant Tracking Systems (ATS),,g2.com_wayback,2022
+openlms.net,Open LMS,edtech,Learning Management System (LMS),,g2.com_wayback,2021
+openmoves.com,OpenMoves OM3,software_saas,Email Marketing,us,g2.com_wayback,2022
+tremolosecurity.com,OpenUnison,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+optimove.com,Optimove,software_saas,Marketing Automation,us,g2.com_wayback,2022
+ordwaylabs.com,Ordway,fintech_insurance,Subscription Billing,,g2.com_wayback,2022
+ortto.com,Ortto,software_saas,Data Visualization,other,g2.com_wayback,2022
+paddle.com,Paddle,fintech_insurance,Subscription Billing,other,g2.com_wayback,2022
+paloaltonetworks.com,Cortex XDR,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+panoply.io,Panoply,devtools,ETL Tools,us,g2.com_wayback,2022
+pantheon.io,Pantheon,devtools,Continuous Integration,us,g2.com_wayback,2022
+idagent.com,Passly,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+patientpop.com,PatientPop,health,Patient Engagement,,g2.com_wayback,2022
+patriotsoftware.com,Patriot Payroll,software_saas,Payroll,us,g2.com_wayback,2022
+paychex.com,Paychex Flex,software_saas,Core HR,us,g2.com_wayback,2022
+paycom.com,Paycom,software_saas,Core HR,us,g2.com_wayback,2022
+paycor.com,Paycor,software_saas,Core HR,us,g2.com_wayback,2022
+paylocity.com,Paylocity,software_saas,Core HR,us,g2.com_wayback,2022
+paymoapp.com,Paymo,fintech_insurance,Billing,eu,g2.com_wayback,2022
+paymotion.com,PayMotion,fintech_insurance,Payment Gateways,other,g2.com_wayback,2022
+payoneer.com,Payoneer,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+paypal.com,PayPal Invoicing,fintech_insurance,Billing,us,g2.com_wayback,2022
+payproglobal.com,PayPro Global,ecommerce_retail,E-Commerce Platforms,,g2.com_wayback,2022
+paysimple.com,PaySimple,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+paytm.com,Paytm Business,fintech_insurance,Payment Gateways,other,g2.com_wayback,2022
+payu.com,PayU,fintech_insurance,Payment Gateways,,g2.com_wayback,2022
+cybersource.com,Payworks,fintech_insurance,Payment Gateways,eu,g2.com_wayback,2022
+pixcut.wondershare.com,PDFelement,fintech_insurance,Billing,other,g2.com_wayback,2022
+airslate.com,pdfFiller by airSlate,fintech_insurance,Billing,,g2.com_wayback,2022
+personio.com,Personio,software_saas,Core HR,,g2.com_wayback,2022
+phreesia.com,Phreesia,health,Patient Engagement,us,g2.com_wayback,2022
+pingidentity.com,Ping Identity,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+pipedrive.com,Pipedrive,software_saas,CRM,us,g2.com_wayback,2022
+pipelinersales.com,Pipeliner CRM,software_saas,CRM,us,g2.com_wayback,2022
+platform.sh,Platform.sh,devtools,Continuous Delivery,eu,g2.com_wayback,2022
+plesk.com,Plesk,devtools,Continuous Delivery,other,g2.com_wayback,2022
+myclasscampus.com,Pocket Study,edtech,Learning Management System (LMS),,g2.com_wayback,2021
+podium.com,Podium,fintech_insurance,Accounting,us,g2.com_wayback,2022
+joinportal.com,Portal,fintech_insurance,Billing,us,g2.com_wayback,2022
+powtoon.com,Powtoon,edtech,Course Authoring,other,g2.com_wayback,2022
+prestashop.com,PrestaShop,ecommerce_retail,E-Commerce Platforms,eu,g2.com_wayback,2022
+privy.com,Privy,software_saas,Email Marketing,us,g2.com_wayback,2022
+prognocis.com,PrognoCIS,health,Telemedicine,,g2.com_wayback,2022
+progress.com,Progress WhatsUp Gold,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+proliant.com,Proliant,software_saas,Core HR,us,g2.com_wayback,2022
+proprofs.com,ProProfs Training Maker,edtech,Learning Management System (LMS),us,g2.com_wayback,2021
+provartesting.com,Provar,devtools,Continuous Integration,,g2.com_wayback,2022
+paessler.com,PRTG Network Monitor,devtools,Application Performance Monitoring (APM),eu,g2.com_wayback,2022
+pulsesecure.net,Pulse Secure Virtual Traffic Manager,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+pure360.com,Pure360,software_saas,Email Marketing,other,g2.com_wayback,2022
+displayr.com,Q Research Software by Displayr,software_saas,Data Visualization,other,g2.com_wayback,2022
+qlik.com,Qlik Replicate,devtools,ETL Tools,us,g2.com_wayback,2022
+qualified.com,Qualified,software_saas,Live Chat,us,g2.com_wayback,2022
+questback.com,Questback,fintech_insurance,Insurance Suites,other,g2.com_wayback,2022
+intuit.com,QuickBooks Desktop Enterprise,fintech_insurance,Accounting,us,g2.com_wayback,2022
+rasa.io,rasa.io,software_saas,Email Marketing,us,g2.com_wayback,2022
+razorpay.com,Razorpay,fintech_insurance,Payment Gateways,,g2.com_wayback,2022
+rdstation.com.br,RD Station,software_saas,Marketing Automation,us,g2.com_wayback,2022
+reamaze.com,Re:amaze,software_saas,Help Desk,us,g2.com_wayback,2022
+recruitee.com,Recruitee,software_saas,Applicant Tracking Systems (ATS),eu,g2.com_wayback,2022
+recurly.com,Recurly,fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+redhat.com,Red Hat Ansible Automation Platform,devtools,Continuous Delivery,us,g2.com_wayback,2022
+relatient.net,Relatient,health,Patient Engagement,us,g2.com_wayback,2022
+goto.com,Rescue,software_saas,Help Desk,us,g2.com_wayback,2022
+revenuewell.com,RevenueWell,health,Telemedicine,us,g2.com_wayback,2022
+rhinogram.com,Rhinogram,health,Telemedicine,,g2.com_wayback,2022
+rippling.com,Rippling,software_saas,Core HR,us,g2.com_wayback,2022
+rivery.io,Rivery,devtools,ETL Tools,us,g2.com_wayback,2022
+robly.com,Robly,software_saas,Email Marketing,us,g2.com_wayback,2022
+rocketlane.com,Rocketlane,software_saas,Project Management,us,g2.com_wayback,2022
+rollbar.com,Rollbar,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+rollworks.com,RollWorks Account-Based Platform,health,Patient Engagement,,g2.com_wayback,2022
+runrun.it,Runrun.it,software_saas,Project Management,other,g2.com_wayback,2022
+saasoptics.com,"SaaSOptics, Becoming Maxio",fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+sage.com,Sage 50cloud Accounting,fintech_insurance,Accounting,other,g2.com_wayback,2022
+sailpoint.com,SailPoint,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+salesflare.com,Salesflare,software_saas,CRM,eu,g2.com_wayback,2022
+saleshood.com,SalesHood,software_saas,Project Management,us,g2.com_wayback,2022
+samcart.com,SamCart,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+sana-commerce.com,Sana Commerce Cloud,ecommerce_retail,E-Commerce Platforms,eu,g2.com_wayback,2022
+sap.com,SAP Business ByDesign,fintech_insurance,Accounting,eu,g2.com_wayback,2022
+sapstore.com,SAP Business One,fintech_insurance,Accounting,eu,g2.com_wayback,2022
+schoology.com,Schoology,software_saas,Data Visualization,us,g2.com_wayback,2022
+scoro.com,Scoro,software_saas,Project Management,other,g2.com_wayback,2022
+scoutapm.com,Scout APM,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+scribus.net,Scribus,fintech_insurance,Payment Gateways,,g2.com_wayback,2022
+scriptpro.com,ScriptPro Telepharmacy,health,Telemedicine,us,g2.com_wayback,2022
+secureauth.com,SecureAuth Identity Platform,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+semaphoreci.com,Semaphore,devtools,Continuous Integration,other,g2.com_wayback,2022
+sendinblue.com,Sendinblue,software_saas,Marketing Automation,eu,g2.com_wayback,2022
+sendowl.com,SendOwl,ecommerce_retail,E-Commerce Platforms,,g2.com_wayback,2022
+sendpulse.com,SendPulse,software_saas,Email Marketing,us,g2.com_wayback,2022
+sentinelone.com,SentinelOne Singularity,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+document360.io,Serverless360,devtools,Application Performance Monitoring (APM),other,g2.com_wayback,2022
+shopify.com,Shopify,ecommerce_retail,E-Commerce Platforms,,g2.com_wayback,2022
+en.shopware.com,Shopware,ecommerce_retail,E-Commerce Platforms,eu,g2.com_wayback,2022
+shopwired.co.uk,ShopWired,ecommerce_retail,E-Commerce Platforms,,g2.com_wayback,2022
+showbie.com,Showbie,edtech,Learning Management System (LMS),other,g2.com_wayback,2021
+showpad.com,Showpad Coach,software_saas,Project Management,eu,g2.com_wayback,2022
+silverfort.io,Silverfort,software_saas,Identity and Access Management (IAM),other,g2.com_wayback,2022
+simplepractice.com,SimplePractice,health,Telemedicine,us,g2.com_wayback,2022
+singular.net,Singular,devtools,ETL Tools,,g2.com_wayback,2022
+skyprep.com,SkyPrep,edtech,Course Authoring,other,g2.com_wayback,2022
+devart.com,Skyvia,devtools,ETL Tools,eu,g2.com_wayback,2022
+smartrecruiters.com,SmartRecruiters,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+smartsheet.com,Smartsheet,software_saas,Project Management,us,g2.com_wayback,2022
+snov.io,Snovio,software_saas,Email Marketing,other,g2.com_wayback,2022
+swellcx.com,Swell,fintech_insurance,Accounting,us,g2.com_wayback,2022
+solarwinds.com,SolarWinds Server & Application Monitor,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+solutionreach.com,Solutionreach,health,Patient Engagement,us,g2.com_wayback,2022
+sophos.com,Sophos Intercept X: Next-Gen Endpoint,software_saas,Endpoint Protection Suites,other,g2.com_wayback,2022
+splunk.com,Splunk APM,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+spreedly.com,Spreedly,fintech_insurance,Payment Gateways,,g2.com_wayback,2022
+sprinklr.com,Sprinklr Modern Care,software_saas,Help Desk,us,g2.com_wayback,2022
+sprucehealth.com,Spruce,health,Telemedicine,,g2.com_wayback,2022
+squareup.com,Square E-Commerce (formerly Weebly),ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+stampli.com,Stampli,fintech_insurance,Billing,,g2.com_wayback,2022
+stripe.com,Stripe Billing,fintech_insurance,Subscription Billing,us,g2.com_wayback,2022
+strongdm.com,strongDM,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+sumologic.com,Sumo Logic,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+supermetrics.com,Supermetrics,devtools,ETL Tools,,g2.com_wayback,2022
+surepayroll.com,SurePayroll,software_saas,Payroll,us,g2.com_wayback,2022
+swit.io,Swit,software_saas,Project Management,,g2.com_wayback,2022
+broadcom.com,Symantec End-user Endpoint Security,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+us.syspro.com,SYSPRO,fintech_insurance,Accounting,us,g2.com_wayback,2022
+talend.com,Talend Cloud Data Integration,devtools,ETL Tools,us,g2.com_wayback,2022
+epignosishq.com,TalentLMS,software_saas,Data Visualization,,g2.com_wayback,2022
+talkdesk.com,Talkdesk,software_saas,Live Chat,us,g2.com_wayback,2022
+tallysolutions.com,TallyPrime,fintech_insurance,Billing,,g2.com_wayback,2022
+tawk.to,tawk.to,software_saas,Live Chat,other,g2.com_wayback,2022
+jetbrains.com,TeamCity,devtools,Continuous Integration,eu,g2.com_wayback,2022
+teamgantt.com,TeamGantt,software_saas,Project Management,us,g2.com_wayback,2022
+teamsupport.com,TeamSupport,software_saas,Help Desk,us,g2.com_wayback,2022
+teamviewer.com,TeamViewer,software_saas,Core HR,eu,g2.com_wayback,2022
+teamwork.com,Teamwork,software_saas,Project Management,eu,g2.com_wayback,2022
+teladoc.com,Teladoc,health,Telemedicine,us,g2.com_wayback,2022
+terminus.com,Terminus ABM Platform,health,Patient Engagement,us,g2.com_wayback,2022
+thalesesecurity.com,Thales SafeNet Trusted Access,software_saas,Identity and Access Management (IAM),,g2.com_wayback,2022
+software.theranow.com,TheraNow,health,Telemedicine,,g2.com_wayback,2022
+threatlocker.com,ThreatLocker,software_saas,Endpoint Protection Suites,,g2.com_wayback,2022
+thryv.com,Thryv,software_saas,CRM,us,g2.com_wayback,2022
+tidio.com,Tidio,software_saas,Live Chat,eu,g2.com_wayback,2022
+tipalti.com,Tipalti,fintech_insurance,Billing,us,g2.com_wayback,2022
+esotech.com,TLDCRM,fintech_insurance,Insurance Agency Management,us,g2.com_wayback,2022
+toph.at,Top Hat,edtech,Course Authoring,other,g2.com_wayback,2022
+tovutilms.com,Tovuti LMS,edtech,Learning Management System (LMS),,g2.com_wayback,2021
+travis-ci.com,Travis CI,devtools,Continuous Integration,eu,g2.com_wayback,2022
+tray.io,Tray.io,devtools,ETL Tools,us,g2.com_wayback,2022
+trendmicro.com,Trend Micro Apex One,software_saas,Endpoint Protection Suites,other,g2.com_wayback,2022
+tridenstechnology.com,Tridens Monetization,fintech_insurance,Subscription Billing,eu,g2.com_wayback,2022
+trifacta.com,Trifacta,devtools,ETL Tools,us,g2.com_wayback,2022
+trinet.com,TriNet,software_saas,Core HR,us,g2.com_wayback,2022
+tsys.com,TSYS,fintech_insurance,Payment Gateways,,g2.com_wayback,2022
+twilio.com,Twilio SendGrid Email Marketing Campaigns,software_saas,Email Marketing,us,g2.com_wayback,2022
+ujet.co,UJET,software_saas,Live Chat,us,g2.com_wayback,2022
+ukg.com,UKG Pro,software_saas,Core HR,us,g2.com_wayback,2022
+unanet.com,Unanet GovCon,fintech_insurance,Accounting,us,g2.com_wayback,2022
+updox.com,Updox,health,Telemedicine,,g2.com_wayback,2022
+userlike.com,Userlike,software_saas,Live Chat,eu,g2.com_wayback,2022
+usertesting.com,UserTesting,fintech_insurance,Accounting,us,g2.com_wayback,2022
+vbout.com,VBOUT,software_saas,Marketing Automation,us,g2.com_wayback,2022
+veeam.com,Veeam ONE,devtools,Application Performance Monitoring (APM),us,g2.com_wayback,2022
+vendasta.com,Vendasta,software_saas,CRM,other,g2.com_wayback,2022
+verloop.io,Verloop.io,software_saas,Live Chat,other,g2.com_wayback,2022
+vidgrid.com,VidGrid,edtech,Course Authoring,,g2.com_wayback,2022
+vipre.com,VIPRE Endpoint Security for Business,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+visme.co,Visme,software_saas,Data Visualization,us,g2.com_wayback,2022
+realvnc.com,VNC Connect,software_saas,Core HR,other,g2.com_wayback,2022
+vmware.com,vRealize Automation,devtools,Continuous Integration,us,g2.com_wayback,2022
+waveapps.com,Wave,fintech_insurance,Billing,other,g2.com_wayback,2022
+getweave.com,Weave,health,Patient Engagement,us,g2.com_wayback,2022
+webengage.com,WebEngage,software_saas,Marketing Automation,other,g2.com_wayback,2022
+webroot.com,Webroot Business Endpoint Protection,software_saas,Endpoint Protection Suites,us,g2.com_wayback,2022
+wellapp.com,WELL,health,Patient Engagement,us,g2.com_wayback,2022
+jpmorganchase.com,WePay,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+whatagraph.com,Whatagraph,software_saas,Data Visualization,eu,g2.com_wayback,2022
+where.by,Whereby,health,Telemedicine,other,g2.com_wayback,2022
+wiziq.com,WizIQ,edtech,Learning Management System (LMS),other,g2.com_wayback,2021
+automattic.com,WooCommerce,ecommerce_retail,E-Commerce Platforms,us,g2.com_wayback,2022
+workable.com,Workable,software_saas,Payroll,,g2.com_wayback,2022
+workato.com,Workato,devtools,ETL Tools,,g2.com_wayback,2022
+workday.com,Workday Financial Management,fintech_insurance,Billing,us,g2.com_wayback,2022
+wrike.com,Wrike,software_saas,CRM,,g2.com_wayback,2022
+wso2.com,WSO2 Identity Server,software_saas,Identity and Access Management (IAM),us,g2.com_wayback,2022
+wunderkind.co,Wunderkind,software_saas,Email Marketing,us,g2.com_wayback,2022
+xero.com,Xero,fintech_insurance,Accounting,other,g2.com_wayback,2022
+xtremepush.com,Xtremepush,software_saas,Email Marketing,eu,g2.com_wayback,2022
+zendesk.com,Zendesk Sell,software_saas,CRM,us,g2.com_wayback,2022
+zenefits.com,Zenefits,software_saas,Core HR,us,g2.com_wayback,2022
+zipbooks.com,ZipBooks,fintech_insurance,Billing,us,g2.com_wayback,2022
+zoho.com,Zoho Books,fintech_insurance,Billing,us,g2.com_wayback,2022
+zohocorp.com,Zoho Checkout,fintech_insurance,Payment Gateways,us,g2.com_wayback,2022
+zoho.to,Zoho Recruit,software_saas,Applicant Tracking Systems (ATS),us,g2.com_wayback,2022
+zoom.com,Zoom,software_saas,Data Visualization,us,g2.com_wayback,2022
+zoominfo.com,ZoomInfo SalesOS,health,Patient Engagement,us,g2.com_wayback,2022
+zuora.com,Zuora Billing,fintech_insurance,Subscription Billing,,g2.com_wayback,2022

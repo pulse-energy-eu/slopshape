@@ -1,0 +1,304 @@
+{
+  "draw": 1,
+  "seed": 202617,
+  "features": [
+    {
+      "id": "VOC_CRD_002",
+      "dim": "voices_and_sources",
+      "question": "How transparently does the article identify the origin of its factual or expert claims?",
+      "values": [
+        "1_unattributed_assertion_dominant",
+        "2_general_authority_invocation",
+        "3_named_source_without_locator",
+        "4_named_source_with_specific_report_or_case",
+        "5_linked_or_formally_cited_source_apparatus"
+      ]
+    },
+    {
+      "id": "TIM_CHG_001",
+      "dim": "timeliness",
+      "question": "What kind of change does the post primarily describe?",
+      "values": [
+        "stable_condition",
+        "emerging_trend",
+        "disruption",
+        "before_after_transition",
+        "anticipated_development"
+      ]
+    },
+    {
+      "id": "STY_FIG_001",
+      "dim": "writing_style",
+      "question": "How dense is nonliteral figurative language in the article body?",
+      "values": [
+        "1_literal",
+        "2_sparse",
+        "3_moderate",
+        "4_dense",
+        "5_pervasive"
+      ]
+    },
+    {
+      "id": "STY_CPX_005",
+      "dim": "writing_style",
+      "question": "How frequently does the prose use sentence fragments outside headings, quotations, or lists?",
+      "values": [
+        "none",
+        "isolated",
+        "occasional_emphatic",
+        "frequent_stylistic"
+      ]
+    },
+    {
+      "id": "ACT_CON_016",
+      "dim": "actionability",
+      "question": "What level of tool specificity appears in the instructions?",
+      "values": [
+        "no_tools_named",
+        "generic_tool_category",
+        "named_tool_or_platform",
+        "named_feature_or_setting",
+        "exact_command_code_or_interface_path"
+      ]
+    },
+    {
+      "id": "ACT_CON_017",
+      "dim": "actionability",
+      "question": "What forms of quantification are used in actionable instructions?",
+      "values": [
+        "none",
+        "counts_or_quantities",
+        "percentages_or_ratios",
+        "currency_or_cost",
+        "time_duration_or_cadence",
+        "volume_or_scale",
+        "technical_threshold_or_tolerance",
+        "health_or_safety_dose"
+      ]
+    },
+    {
+      "id": "STY_REG_010",
+      "dim": "writing_style",
+      "question": "What is the dominant register of the prose?",
+      "values": [
+        "very casual",
+        "conversational-professional",
+        "neutral professional",
+        "formal professional",
+        "formal technical"
+      ]
+    },
+    {
+      "id": "STR_BLK_006",
+      "dim": "structure_and_flow",
+      "question": "How are examples used structurally in the article?",
+      "values": [
+        "examples_absent_or_incidental",
+        "examples_support_sections",
+        "repeated_hypothetical_scenarios",
+        "repeated_named_cases",
+        "worked_examples_or_calculations",
+        "expert_quotes_or_testimony_drive_units"
+      ]
+    },
+    {
+      "id": "EXP_CAV_003",
+      "dim": "explanation_depth",
+      "question": "How specifically does the post state who should not follow a recommendation or when an action should stop?",
+      "values": [
+        "no_contraindications",
+        "generic_seek_advice_warning",
+        "broad_user_or_context_exclusions",
+        "specific_symptom_condition_or_threshold_stop_rules",
+        "multiple_specific_stop_and_escalation_rules"
+      ]
+    },
+    {
+      "id": "PUR_SEC_004",
+      "dim": "purpose_reader_payoff",
+      "question": "Does the post require readers to verify, measure, test, monitor, or reassess the result of its recommended action?",
+      "values": [
+        "absent",
+        "present"
+      ]
+    },
+    {
+      "id": "EVD_NUM_005",
+      "dim": "evidence_and_proof",
+      "question": "Does the post turn one or more numeric values into an action trigger, eligibility rule, threshold, or decision boundary?",
+      "values": [
+        "absent",
+        "present"
+      ]
+    },
+    {
+      "id": "TIM_CUE_007",
+      "dim": "timeliness",
+      "question": "How is seasonality used in the article?",
+      "values": [
+        "not_used",
+        "incidental_context",
+        "market_or_behavior_explanation",
+        "action_planning_trigger",
+        "core_publishability_hook"
+      ]
+    },
+    {
+      "id": "COM_ROL_007",
+      "dim": "brand_product_integration",
+      "question": "How does the article connect the reader's problem to the publisher offering?",
+      "values": [
+        "no_bridge",
+        "implied_fit",
+        "explicit_feature_to_problem_claim",
+        "outcome_to_problem_claim",
+        "worked_demonstration",
+        "diagnostic_then_solution_bridge",
+        "legacy_or_incumbent_failure_bridge"
+      ]
+    },
+    {
+      "id": "STR_ORD_007",
+      "dim": "structure_and_flow",
+      "question": "How are alternatives, options, or competing approaches organized?",
+      "values": [
+        "no_substantive_comparison",
+        "single_preferred_solution_after_problem",
+        "parallel_option_profiles",
+        "pros_cons_or_tradeoff_comparison",
+        "legacy_vs_modern_binary",
+        "fit_based_recommendation_matrix",
+        "ranked_or_prioritized_options",
+        "case_comparison"
+      ]
+    },
+    {
+      "id": "AUD_RDR_006",
+      "dim": "audience_problem_stakes",
+      "question": "Does the opening reflect the reader's likely lived situation before presenting advice?",
+      "values": [
+        "present",
+        "absent"
+      ]
+    },
+    {
+      "id": "PAG_NAV_004",
+      "dim": "page_format_navigation",
+      "question": "Do headings visibly encode a sequence, process, or staged reader journey?",
+      "values": [
+        "absent",
+        "present"
+      ]
+    },
+    {
+      "id": "AUD_STK_003",
+      "dim": "audience_problem_stakes",
+      "question": "How concretely are consequences rendered?",
+      "values": [
+        "1_absent_or_generic",
+        "2_general_qualitative_consequences",
+        "3_named_operational_or_personal_outcomes",
+        "4_specific_scenarios_or_examples",
+        "5_quantified_or_threshold_based_consequences"
+      ]
+    },
+    {
+      "id": "EVD_MIX_006",
+      "dim": "evidence_and_proof",
+      "question": "What first-party proof does the publisher use, if any?",
+      "values": [
+        "none",
+        "claimed operational experience",
+        "proprietary dataset or analytics",
+        "customer result or case study",
+        "product performance metric",
+        "internal benchmark or experiment",
+        "employee or founder testimony",
+        "named product workflow or demonstration"
+      ]
+    },
+    {
+      "id": "EXP_KNW_003",
+      "dim": "explanation_depth",
+      "question": "How does the article handle specialized terminology and acronyms?",
+      "values": [
+        "all_or_nearly_all_terms_defined",
+        "most_terms_glossed_at_first_use",
+        "some_terms_glossed_selectively",
+        "terms_used_bare"
+      ]
+    },
+    {
+      "id": "ACT_CHK_018",
+      "dim": "actionability",
+      "question": "Does the post provide explicit conditions for choosing among actions?",
+      "values": [
+        "absent",
+        "present"
+      ]
+    }
+  ],
+  "docs": [
+    {
+      "label": "POST 1",
+      "doc_id": "9dc77cd17ce4b90d",
+      "source": "human"
+    },
+    {
+      "label": "POST 2",
+      "doc_id": "b59708d673dd6762",
+      "source": "gpt"
+    },
+    {
+      "label": "POST 3",
+      "doc_id": "b3714d1a85d66b33",
+      "source": "gemini"
+    },
+    {
+      "label": "POST 4",
+      "doc_id": "deb819336705585c",
+      "source": "human"
+    },
+    {
+      "label": "POST 5",
+      "doc_id": "8eace0f72084f198",
+      "source": "kimi"
+    },
+    {
+      "label": "POST 6",
+      "doc_id": "563f08969be83d88",
+      "source": "human"
+    },
+    {
+      "label": "POST 7",
+      "doc_id": "1a8c612c23556125",
+      "source": "human"
+    },
+    {
+      "label": "POST 8",
+      "doc_id": "7b137015e8c7b94f",
+      "source": "gemini"
+    },
+    {
+      "label": "POST 9",
+      "doc_id": "151a26cc4ca29c8e",
+      "source": "claude"
+    },
+    {
+      "label": "POST 10",
+      "doc_id": "b777ea1b6e701c4a",
+      "source": "human"
+    },
+    {
+      "label": "POST 11",
+      "doc_id": "d63d4d9328472153",
+      "source": "human"
+    },
+    {
+      "label": "POST 12",
+      "doc_id": "885ca50a279a5651",
+      "source": "kimi"
+    }
+  ],
+  "protocol": "independent annotation; unclear-flag channel; problems -> documented re-draw, never patching"
+}

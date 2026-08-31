@@ -1,0 +1,56 @@
+{
+  "note": "CORRECTED 2026-08-19: supersedes the earlier scoring which ran on placeholder data",
+  "answer_validation": {
+    "items_total": 240,
+    "items_scored": 236,
+    "unclear_flags": 4,
+    "human_human": {
+      "agreement_pct": 93.22,
+      "kappa": 0.9278
+    },
+    "annotatorA_model": {
+      "agreement_pct": 94.49,
+      "kappa": 0.9414
+    },
+    "annotatorB_model": {
+      "agreement_pct": 95.34,
+      "kappa": 0.9502
+    },
+    "mean_human_model_kappa": 0.9458,
+    "bars_filed": {
+      "human_human": 0.6,
+      "extractor_vs_consensus": 0.6
+    },
+    "original": {
+      "a1_model": [
+        91.67,
+        0.9056
+      ],
+      "a2_model": [
+        79.86,
+        0.7724
+      ],
+      "mean_hm_kappa": 0.839,
+      "human_human": [
+        76.85,
+        0.739
+      ]
+    }
+  },
+  "style_boundary_audit": {
+    "items": 40,
+    "bar": 0.75,
+    "annotatorA_model": {
+      "agreement_pct": 90.0,
+      "kappa": 0.7647
+    },
+    "annotatorB_model": {
+      "agreement_pct": 97.5,
+      "kappa": 0.9355
+    },
+    "human_human": {
+      "agreement_pct": 92.5,
+      "kappa": 0.8266
+    }
+  }
+}

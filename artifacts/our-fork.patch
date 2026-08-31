@@ -1,0 +1,391 @@
+diff --git a/config/models.yaml b/config/models.yaml
+index b6c94a5..dcfc8b6 100644
+--- a/config/models.yaml
++++ b/config/models.yaml
+@@ -1,46 +1,38 @@
+-# StoryScope model configuration
+-#
+-# Each pipeline stage can use any supported provider. Set the corresponding
+-# API key environment variable before running:
+-#   - OPENAI_API_KEY      (for OpenAI models)
+-#   - ANTHROPIC_API_KEY   (for Claude models)
+-#   - GOOGLE_CLOUD_PROJECT + gcloud auth (for Vertex AI / Gemini)
+-#   - No key needed for local HuggingFace models
+-#
+-# To use a local model, set provider: huggingface and model: to a HuggingFace
+-# model ID (e.g., meta-llama/Llama-3-8B-Instruct).
+-
+ providers:
+   openai:
+     api_key_env: OPENAI_API_KEY
+   anthropic:
+     api_key_env: ANTHROPIC_API_KEY
+   vertex:
+-    project: null          # set to your GCP project ID
++    project: null
+     location: us-central1
++    api_key_env: GEMINI_KEYS
+   huggingface:
+-    device: auto           # auto, cuda, cpu
+-
+-# Default model for each pipeline stage.
+-# Override at runtime with --provider and --model flags.
++    device: auto
++  gateway:
++    api_key_env: AI_GATEWAY_API_KEY
++    base_url: https://ai-gateway.vercel.sh/v1
+ pipeline:
+   story_generation:
+     provider: openai
+     model: gpt-5.4-2026-03-05
+     max_tokens: 128000
+   template_extraction:
+-    provider: openai
+-    model: gpt-5.4-2026-03-05
++    provider: gateway
++    model: openai/gpt-5.4
+     max_tokens: 128000
+   cross_source_comparison:
+-    provider: openai
+-    model: gpt-5.4-2026-03-05
++    provider: gateway
++    model: openai/gpt-5.6-terra
+     max_tokens: 128000
++    reasoning_effort: high
+   feature_discovery:
+-    provider: openai
+-    model: gpt-5.4-2026-03-05
++    provider: gateway
++    model: openai/gpt-5.6-terra
+     max_tokens: 128000
++    reasoning_effort: high
+   feature_application:
+     provider: vertex
+     model: gemini-3-flash-preview
+     max_tokens: 65536
++    thinking_budget: 0
+diff --git a/storyscope/2_template_extraction/extract_templates.py b/storyscope/2_template_extraction/extract_templates.py
+index 64f54d2..9f2eb73 100644
+--- a/storyscope/2_template_extraction/extract_templates.py
++++ b/storyscope/2_template_extraction/extract_templates.py
+@@ -44,12 +44,13 @@ logger = logging.getLogger(__name__)
+ 
+ # Source column mapping for CSV/parquet input
+ SOURCE_COLUMNS = {
+-    "human": ["human_story"],
+     "gpt": ["story_gpt", "response_gpt_5_4", "response_gpt_5.1"],
+     "claude": ["story_claude", "response_claude_sonnet_4_6", "response_claude_opus_4_5_20251101"],
+     "deepseek": ["story_deepseek", "response_deepseek_v3_2", "response_deepseek_ai_DeepSeek_V3"],
+     "kimi": ["story_kimi", "response_kimi_k2_5", "response_moonshotai_Kimi_K2_Instruct"],
+     "gemini": ["story_gemini", "response_gemini"],
++    "sitefire": ["story_sitefire"],
++    "human": ["story_human", "human_story"],
+ }
+ 
+ 
+diff --git a/storyscope/5_feature_application/apply_features.py b/storyscope/5_feature_application/apply_features.py
+index 4038b42..7a864eb 100644
+--- a/storyscope/5_feature_application/apply_features.py
++++ b/storyscope/5_feature_application/apply_features.py
+@@ -41,7 +41,8 @@ logger = logging.getLogger(__name__)
+ 
+ # Source column mapping for CSV/parquet input
+ SOURCE_COLUMNS = {
+-    "human": ["human_story"],
++    "human": ["story_human", "human_story"],
++    "sitefire": ["story_sitefire"],
+     "gpt": ["story_gpt", "response_gpt_5_4", "response_gpt_5.1"],
+     "claude": ["story_claude", "response_claude_sonnet_4_6"],
+     "deepseek": ["story_deepseek", "response_deepseek_v3_2"],
+diff --git a/storyscope/prompts/cross_source_comparison.md b/storyscope/prompts/cross_source_comparison.md
+index 06340d5..09b3b12 100644
+--- a/storyscope/prompts/cross_source_comparison.md
++++ b/storyscope/prompts/cross_source_comparison.md
+@@ -1,33 +1,41 @@
+-You are an expert narrative analyst. I will provide you with two narrative analysis templates for the story: "{story_title}".
++You are an expert discourse analyst. Below you are given several structured analysis templates. Each template describes a DIFFERENT text, but all of those texts were written from the SAME original prompt shown below. Each template is attributed to an anonymized author label (Author A, Author B, ...).
+ 
+-{original_prompt_section}IMPORTANT CONTEXT:
+-- These templates analyze TWO DIFFERENT STORIES
+-- Both stories were created based on the SAME ORIGINAL PROMPT (shown above)
+-- Each template analyzes its respective story (Group A template analyzes one story, Group B template analyzes the other story)
+-- The templates only need to be faithful to the original prompt, NOT to each other (since they are analyzing different stories)
++Your task is NOT to judge which template is better written, and NOT to assess extraction quality. Your task is to identify **systematic differences in the compositional choices** the authors made when writing from the same prompt.
+ 
+-Your task is to:
+-1. Compare the quality, depth, and accuracy of the two analyses in how well they extract narrative elements from their respective stories
+-2. Assess how faithfully each template captures the elements required by the original prompt
+-3. Identify specific differences in how each template handles:
+-   - Character analysis (agents, roles, trajectories)
+-   - Social networks and relationships
+-   - Event sequences
+-   - Plot analysis (themes, conflicts, obstacles)
+-   - Setting descriptions
+-   - Narrative techniques (discourse, temporal structure)
+-   - Narrative style and perspective
+-4. Evaluate which template demonstrates better extraction quality, comprehensiveness, and insightfulness for its respective story
+-5. Note any strengths or weaknesses in each approach
+-6. Provide specific examples from the templates to support your analysis
++## Instructions
+ 
+-Remember: The templates are analyzing different stories, so differences in content are expected. Focus on the QUALITY of the analysis and how well each template extracts and structures narrative information from its story.
++1. Treat each template as evidence about the choices its author made. Differences in content are expected and are exactly what you must characterize.
++2. Work dimension by dimension across the material present in the templates: agents/characters, social network and relationships, events and causal chains, plot (themes, conflict, resolution), setting, temporal structure, revelation and information release, perspective and focalization, discourse and style, and situatedness (references to real works, brands, places, audience address).
++3. For each dimension, note concretely how EACH author handled it, then state where the authors diverge.
++4. Prefer specific, checkable observations ("Author C resolves via the protagonist's own decision; Authors A and E resolve via an external event") over evaluative statements ("Author C is more sophisticated").
++5. Identify patterns that RECUR across this batch - choices that cluster among some authors and are absent in others. These recurring patterns are the most valuable output.
++6. Do not speculate about which author is human or machine, and do not treat author labels as evidence of anything beyond the text.
+ 
+-## Group A Template (analyzes one story):
+-{group_a_json}
++## Output
+ 
+-## Group B Template (analyzes the other story):
+-{group_b_json}
+-
+-Please provide a detailed comparative analysis of these two templates, focusing on quality differences, depth of analysis, and how well each faithfully extracts narrative elements from its respective story based on the original prompt.
++Return ONLY a JSON object with this schema:
+ 
++{
++  "per_source_dimension_notes": {
++    "<Author label>": {
++      "<dimension name>": "(string) how this author handled this dimension, concretely"
++    }
++  },
++  "cross_source_divergences": [
++    {
++      "dimension": "(string) dimension in which authors diverge",
++      "axis_of_variation": "(string) the specific compositional choice that varies",
++      "by_author": {"<Author label>": "(string) where this author falls on that axis"},
++      "notes": "(string) optional detail"
++    }
++  ],
++  "recurring_patterns": [
++    {
++      "pattern": "(string) a choice that recurs across this batch",
++      "authors_exhibiting": ["<Author label>"],
++      "authors_not_exhibiting": ["<Author label>"],
++      "why_it_matters": "(string) what compositional decision this reflects"
++    }
++  ],
++  "executive_summary": "(string) the most systematic differences observed across this batch"
++}
+diff --git a/storyscope/providers/base.py b/storyscope/providers/base.py
+index 497671b..048eef6 100644
+--- a/storyscope/providers/base.py
++++ b/storyscope/providers/base.py
+@@ -86,15 +86,21 @@ def get_provider(
+ 
+     # Merge provider-level config
+     provider_config = config.get("providers", {}).get(pname, {})
++    # stage_config keys already resolved above must not be passed twice
++    stage_config = {k: v for k, v in stage_config.items()
++                    if k not in ("provider", "model", "max_tokens")}
+ 
+-    if pname == "openai":
++    if pname in ("openai", "gateway"):
+         from storyscope.providers.openai_provider import OpenAIProvider
+ 
+-        api_key = os.environ.get(provider_config.get("api_key_env", "OPENAI_API_KEY"), "")
++        default_env = "AI_GATEWAY_API_KEY" if pname == "gateway" else "OPENAI_API_KEY"
++        api_key = os.environ.get(provider_config.get("api_key_env", default_env), "")
++        base_url = provider_config.get("base_url")
+         return OpenAIProvider(
+             model=mname,
+             max_tokens=max_tokens,
+             api_key=api_key,
++            base_url=base_url,
+             **{**stage_config, **overrides},
+         )
+     elif pname == "anthropic":
+@@ -110,11 +116,15 @@ def get_provider(
+     elif pname == "vertex":
+         from storyscope.providers.vertex_provider import VertexProvider
+ 
++        api_key = ""
++        if provider_config.get("api_key_env"):
++            api_key = os.environ.get(provider_config["api_key_env"], "")
+         return VertexProvider(
+             model=mname,
+             max_tokens=max_tokens,
+             project=provider_config.get("project"),
+             location=provider_config.get("location", "us-central1"),
++            api_key=api_key,
+             **{**stage_config, **overrides},
+         )
+     elif pname == "huggingface":
+@@ -127,4 +137,4 @@ def get_provider(
+             **{**stage_config, **overrides},
+         )
+     else:
+-        raise ValueError(f"Unknown provider: {pname}. Use: openai, anthropic, vertex, huggingface")
++        raise ValueError(f"Unknown provider: {pname}. Use: openai, gateway, anthropic, vertex, huggingface")
+diff --git a/storyscope/providers/openai_provider.py b/storyscope/providers/openai_provider.py
+index 9925ed2..38ee578 100644
+--- a/storyscope/providers/openai_provider.py
++++ b/storyscope/providers/openai_provider.py
+@@ -3,6 +3,7 @@
+ from __future__ import annotations
+ 
+ import json
++import re
+ import logging
+ import time
+ 
+@@ -14,13 +15,14 @@ logger = logging.getLogger(__name__)
+ class OpenAIProvider(LLMProvider):
+     """Provider using the OpenAI API (GPT models)."""
+ 
+-    def __init__(self, model: str, max_tokens: int = 4096, api_key: str = "", **kwargs):
++    def __init__(self, model: str, max_tokens: int = 4096, api_key: str = "",
++                 base_url: str = "", **kwargs):
+         super().__init__(model=model, max_tokens=max_tokens, **kwargs)
+         from openai import OpenAI
+ 
+         if not api_key:
+             raise ValueError("OPENAI_API_KEY not set. Export it or set it in config/models.yaml.")
+-        self.client = OpenAI(api_key=api_key)
++        self.client = OpenAI(api_key=api_key, base_url=base_url or None)
+         self.reasoning_effort = kwargs.get("reasoning_effort")
+ 
+     def generate(self, prompt: str, system: str = "", retries: int = 3, **kwargs) -> str:
+@@ -74,7 +76,17 @@ class OpenAIProvider(LLMProvider):
+             model=self.model,
+             messages=messages,
+             max_tokens=max_tokens,
+-            response_format={"type": "json_object"},
++            **({} if self.client.base_url and "ai-gateway" in str(self.client.base_url)
++                else {"response_format": {"type": "json_object"}}),
+         )
+-        text = response.choices[0].message.content
+-        return json.loads(text)
++        text = response.choices[0].message.content or ""
++        try:
++            return json.loads(text)
++        except json.JSONDecodeError:
++            m = re.search(r"```(?:json)?\s*\n(.*?)\n```", text, re.DOTALL)
++            if m:
++                return json.loads(m.group(1))
++            m = re.search(r"\{.*\}", text, re.DOTALL)
++            if m:
++                return json.loads(m.group(0))
++            raise
+diff --git a/storyscope/providers/vertex_provider.py b/storyscope/providers/vertex_provider.py
+index c02e6e6..db663f7 100644
+--- a/storyscope/providers/vertex_provider.py
++++ b/storyscope/providers/vertex_provider.py
+@@ -2,6 +2,9 @@
+ 
+ from __future__ import annotations
+ 
++import itertools
++import threading
++
+ import json
+ import logging
+ import time
+@@ -23,25 +26,35 @@ class VertexProvider(LLMProvider):
+         location: str = "us-central1",
+         **kwargs,
+     ):
++        api_key = kwargs.pop("api_key", "")
+         super().__init__(model=model, max_tokens=max_tokens, **kwargs)
+         from google import genai
+         from google.genai.types import HttpOptions
+ 
+-        if not project:
+-            import os
+-            project = os.environ.get("GOOGLE_CLOUD_PROJECT", "")
++        if api_key:
++            # AI Studio API-key auth (same Gemini models, no GCP project).
++            # api_key may be a comma-separated list: AI Studio quota is
++            # per-key, and stage 5 issues ~137k calls, so we round-robin.
++            keys = [k.strip() for k in str(api_key).split(",") if k.strip()]
++            self._clients = [genai.Client(api_key=k) for k in keys]
++            self._rr = itertools.cycle(range(len(self._clients)))
++            self._rr_lock = threading.Lock()
++            self.client = self._clients[0]
++        else:
+             if not project:
+-                raise ValueError(
+-                    "Vertex AI project not set. Set 'project' in config/models.yaml "
+-                    "or export GOOGLE_CLOUD_PROJECT."
+-                )
+-
+-        self.client = genai.Client(
+-            vertexai=True,
+-            project=project,
+-            location=location,
+-            http_options=HttpOptions(api_version="v1"),
+-        )
++                import os
++                project = os.environ.get("GOOGLE_CLOUD_PROJECT", "")
++                if not project:
++                    raise ValueError(
++                        "Vertex AI project not set. Set 'project' in config/models.yaml "
++                        "or export GOOGLE_CLOUD_PROJECT."
++                    )
++            self.client = genai.Client(
++                vertexai=True,
++                project=project,
++                location=location,
++                http_options=HttpOptions(api_version="v1"),
++            )
+ 
+     def _safety_settings(self):
+         from google.genai.types import SafetySetting
+@@ -62,10 +75,13 @@ class VertexProvider(LLMProvider):
+         max_tokens = kwargs.get("max_tokens", self.max_tokens)
+         temperature = kwargs.get("temperature", 0.2)
+ 
++        from google.genai.types import ThinkingConfig
+         config = GenerateContentConfig(
+             max_output_tokens=max_tokens,
+             temperature=temperature,
+             safety_settings=self._safety_settings(),
++            thinking_config=ThinkingConfig(
++                thinking_budget=int(self.kwargs.get("thinking_budget", 0))),
+         )
+         if system:
+             config.system_instruction = system
+@@ -73,7 +89,11 @@ class VertexProvider(LLMProvider):
+         last_error = None
+         for attempt in range(retries):
+             try:
+-                response = self.client.models.generate_content(
++                client = self.client
++                if len(getattr(self, "_clients", [])) > 1:
++                    with self._rr_lock:
++                        client = self._clients[next(self._rr)]
++                response = client.models.generate_content(
+                     model=self.model,
+                     contents=prompt,
+                     config=config,
+@@ -99,7 +119,7 @@ class VertexProvider(LLMProvider):
+         raise last_error
+ 
+     def generate_json(self, prompt: str, system: str = "", **kwargs) -> dict:
+-        from google.genai.types import GenerateContentConfig
++        from google.genai.types import GenerateContentConfig, ThinkingConfig
+ 
+         max_tokens = kwargs.get("max_tokens", self.max_tokens)
+         temperature = kwargs.get("temperature", 0.1)
+@@ -109,11 +129,17 @@ class VertexProvider(LLMProvider):
+             temperature=temperature,
+             response_mime_type="application/json",
+             safety_settings=self._safety_settings(),
++            thinking_config=ThinkingConfig(
++                thinking_budget=int(self.kwargs.get('thinking_budget', 0))),
+         )
+         if system:
+             config.system_instruction = system
+ 
+-        response = self.client.models.generate_content(
++        client = self.client
++        if len(getattr(self, "_clients", [])) > 1:
++            with self._rr_lock:
++                client = self._clients[next(self._rr)]
++        response = client.models.generate_content(
+             model=self.model,
+             contents=prompt,
+             config=config,

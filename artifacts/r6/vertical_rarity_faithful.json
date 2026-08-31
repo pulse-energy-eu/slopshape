@@ -1,0 +1,153 @@
+{
+  "vertical_faithful": {
+    "protocol": "faithful (final refit on train+val, parity config)",
+    "headline_reproduced": 0.9803,
+    "kruskal_wallis": {
+      "H": 8.997,
+      "p": 0.1092,
+      "n_groups": 6
+    },
+    "per_vertical": {
+      "devtools": {
+        "n_test_docs": 108,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      "ecommerce_retail": {
+        "n_test_docs": 444,
+        "macro_f1": 0.9724,
+        "accuracy": 0.9842
+      },
+      "fintech_insurance": {
+        "n_test_docs": 450,
+        "macro_f1": 0.9755,
+        "accuracy": 0.9867
+      },
+      "health": {
+        "n_test_docs": 30,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      },
+      "services_other": {
+        "n_test_docs": 312,
+        "macro_f1": 0.9648,
+        "accuracy": 0.9808
+      },
+      "software_saas": {
+        "n_test_docs": 390,
+        "macro_f1": 1.0,
+        "accuracy": 1.0
+      }
+    },
+    "f1_range": [
+      0.9648,
+      1.0
+    ]
+  },
+  "rarity_tails": {
+    "reference": "train+val percentile basis (rarity_trainval)",
+    "note": "full_corpus matches the frozen headline rarity stats' basis; test_only mirrors the original Table 12's basis",
+    "full_corpus": {
+      "n_docs": 12900,
+      "rarest_1pct": {
+        "counts_by_source": {
+          "human": 149,
+          "deepseek": 3,
+          "claude": 0,
+          "gemini": 1,
+          "kimi": 0,
+          "gpt": 0
+        },
+        "tail_n": 153,
+        "human_share_of_tail": 0.9739,
+        "human_vs_ai_counts": [
+          149,
+          4
+        ]
+      },
+      "rarest_5pct": {
+        "counts_by_source": {
+          "human": 592,
+          "deepseek": 43,
+          "claude": 14,
+          "gemini": 6,
+          "kimi": 15,
+          "gpt": 2
+        },
+        "tail_n": 672,
+        "human_share_of_tail": 0.881,
+        "human_vs_ai_counts": [
+          592,
+          80
+        ]
+      },
+      "rarest_10pct": {
+        "counts_by_source": {
+          "human": 1026,
+          "deepseek": 139,
+          "claude": 62,
+          "gemini": 36,
+          "kimi": 49,
+          "gpt": 19
+        },
+        "tail_n": 1331,
+        "human_share_of_tail": 0.7708,
+        "human_vs_ai_counts": [
+          1026,
+          305
+        ]
+      }
+    },
+    "test_only": {
+      "n_docs": 1740,
+      "rarest_1pct": {
+        "counts_by_source": {
+          "human": 40,
+          "deepseek": 1,
+          "claude": 0,
+          "gemini": 0,
+          "kimi": 0,
+          "gpt": 0
+        },
+        "tail_n": 41,
+        "human_share_of_tail": 0.9756,
+        "human_vs_ai_counts": [
+          40,
+          1
+        ]
+      },
+      "rarest_5pct": {
+        "counts_by_source": {
+          "human": 98,
+          "deepseek": 7,
+          "claude": 4,
+          "gemini": 1,
+          "kimi": 3,
+          "gpt": 0
+        },
+        "tail_n": 113,
+        "human_share_of_tail": 0.8673,
+        "human_vs_ai_counts": [
+          98,
+          15
+        ]
+      },
+      "rarest_10pct": {
+        "counts_by_source": {
+          "human": 152,
+          "deepseek": 22,
+          "claude": 15,
+          "gemini": 8,
+          "kimi": 13,
+          "gpt": 4
+        },
+        "tail_n": 214,
+        "human_share_of_tail": 0.7103,
+        "human_vs_ai_counts": [
+          152,
+          62
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "t811_template_vs_direct": {
+    "template_runs_features": {
+      "run1": 353,
+      "union_3runs": 457
+    },
+    "raw_text_run_features": 354,
+    "dimension_coverage": {
+      "by_id_prefix": {
+        "template_union": {
+          "ACT": 55,
+          "AUD": 49,
+          "COM": 34,
+          "EVD": 33,
+          "EXP": 45,
+          "PAG": 37,
+          "PUR": 33,
+          "STR": 41,
+          "STY": 59,
+          "TIM": 33,
+          "VOC": 38
+        },
+        "raw": {
+          "ACT": 26,
+          "AUD": 35,
+          "COM": 32,
+          "EVD": 37,
+          "EXP": 34,
+          "PAG": 37,
+          "PUR": 36,
+          "STR": 33,
+          "STY": 28,
+          "TIM": 25,
+          "VOC": 31
+        }
+      },
+      "prefixes_missing_in_raw": [],
+      "prefixes_missing_in_template": []
+    },
+    "semantic_overlap_at_0.85": {
+      "raw_features_covered_by_template_set": 0.237,
+      "template_features_covered_by_raw_set": 0.223
+    },
+    "option_structure": {
+      "template_union": {
+        "mean_options": 5.69,
+        "share_ge2_options": 1.0
+      },
+      "raw": {
+        "mean_options": 5.61,
+        "share_ge2_options": 1.0
+      }
+    }
+  },
+  "t812_dedup_sweep": {
+    "method": "single-linkage cosine over F2LLM-4B embeddings of the 282 screened features (label-blind)",
+    "preregistered_threshold": 0.85,
+    "sweep": [
+      {
+        "threshold": 0.7,
+        "features_after": 200,
+        "merged": 82,
+        "silhouette": 0.1816
+      },
+      {
+        "threshold": 0.75,
+        "features_after": 233,
+        "merged": 49,
+        "silhouette": 0.1388
+      },
+      {
+        "threshold": 0.8,
+        "features_after": 251,
+        "merged": 31,
+        "silhouette": 0.1047
+      },
+      {
+        "threshold": 0.85,
+        "features_after": 266,
+        "merged": 16,
+        "silhouette": 0.0647
+      },
+      {
+        "threshold": 0.9,
+        "features_after": 277,
+        "merged": 5,
+        "silhouette": 0.0229
+      },
+      {
+        "threshold": 0.95,
+        "features_after": 282,
+        "merged": 0,
+        "silhouette": null
+      }
+    ]
+  }
+}
