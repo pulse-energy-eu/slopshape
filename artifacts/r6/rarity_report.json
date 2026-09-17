@@ -1,0 +1,38 @@
+{
+  "trainval": {
+    "human_mean": 0.8376,
+    "ai_mean": 0.4352,
+    "cohens_d": 1.8317,
+    "rarest_decile_human_share": 0.4772,
+    "rarest_decile_ai_share": 0.0284,
+    "human_rarest_of_prompt": 0.8549,
+    "paper": {
+      "human_mean": 0.71,
+      "ai_mean": 0.49,
+      "d": 0.83,
+      "decile": [
+        0.247,
+        0.071
+      ],
+      "human_rarest": 0.578
+    }
+  },
+  "all": {
+    "human_mean": 0.8352,
+    "ai_mean": 0.433,
+    "cohens_d": 1.841,
+    "rarest_decile_human_share": 0.4707,
+    "rarest_decile_ai_share": 0.026,
+    "human_rarest_of_prompt": 0.8535,
+    "paper": {
+      "human_mean": 0.71,
+      "ai_mean": 0.49,
+      "d": 0.83,
+      "decile": [
+        0.247,
+        0.071
+      ],
+      "human_rarest": 0.578
+    }
+  }
+}

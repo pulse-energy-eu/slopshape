@@ -1,0 +1,101 @@
+{
+  "h1_direction": {
+    "narrative_minus_style_delta": 0.0994,
+    "ci95": [
+      0.0766,
+      0.1235
+    ],
+    "confirmed_direction": true,
+    "original_delta": "93.2 - 85.8 = 7.4 (CI 2.09-3.54 on their scale)"
+  },
+  "h1_tost_vs_original": {
+    "our_headline_pct": 98.03,
+    "ci95": [
+      97.09,
+      98.86
+    ],
+    "equivalence_band": [
+      91.2,
+      95.2
+    ],
+    "equivalent": false,
+    "reading": "stronger (CI above band)"
+  },
+  "p2_core_fingerprint": {
+    "core_n": 0,
+    "core": [],
+    "fingerprint_counts": {
+      "claude": 1,
+      "deepseek": 2,
+      "gemini": 2,
+      "gpt": 6,
+      "human": 17,
+      "kimi": 2
+    },
+    "fingerprints": {
+      "human": [
+        "ACT_CHK_025",
+        "ACT_STP_006",
+        "AUD_PRB_005",
+        "AUD_STK_005",
+        "EVD_MIX_005",
+        "EVD_MIX_007",
+        "EXP_KNW_007",
+        "PAG_FUR_002",
+        "PUR_OUT_003",
+        "STR_BLK_001",
+        "STR_FLW_005",
+        "STR_FLW_006",
+        "STR_STG_008",
+        "VOC_CRD_001",
+        "VOC_CRD_002",
+        "VOC_PRT_005",
+        "VOC_VOX_007"
+      ],
+      "gpt": [
+        "ACT_CON_015",
+        "EVD_MTH_002",
+        "EVD_NUM_001",
+        "EVD_NUM_004",
+        "EVD_NUM_006",
+        "PAG_FUR_011"
+      ],
+      "claude": [
+        "ACT_STP_004"
+      ],
+      "gemini": [
+        "COM_ROL_005",
+        "EXP_KNW_009"
+      ],
+      "deepseek": [
+        "EVD_NUM_005",
+        "PUR_JOB_004"
+      ],
+      "kimi": [
+        "VOC_CRD_005",
+        "VOC_PRT_003"
+      ]
+    },
+    "sixway_config": {
+      "n_estimators": 250,
+      "max_depth": 5,
+      "reg_lambda": 1.0
+    },
+    "sixway_val_f1": 0.7699,
+    "sixway_test_perclass_f1": {
+      "claude": 0.83,
+      "deepseek": 0.654,
+      "gemini": 0.698,
+      "gpt": 0.855,
+      "human": 0.966,
+      "kimi": 0.747
+    },
+    "sixway_test_macro_f1": 0.7917
+  },
+  "p6_rarity_auc": 0.901,
+  "p6_length_tertiles_f1": {
+    "short": 0.9717,
+    "mid": 0.9819,
+    "long": 0.9914
+  }
+}

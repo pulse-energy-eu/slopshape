@@ -1,0 +1,139 @@
+{
+  "format_audit_columns": {
+    "EVD_MIX_005__interview or q&a led by named expert": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.017000000923871994,
+      "kimi": 0.0
+    },
+    "EXP_KNW_007__multi_voice_interview_or_q_and_a": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.00800000037997961,
+      "kimi": 0.0
+    },
+    "PAG_FUR_002__named_expert_or_interviewee_framing": {
+      "claude": 0.0010000000474974513,
+      "deepseek": 0.003000000026077032,
+      "gemini": 0.0020000000949949026,
+      "gpt": 0.0020000000949949026,
+      "human": 0.04600000008940697,
+      "kimi": 0.0020000000949949026
+    },
+    "PAG_TYP_003__truncated_or_excerpted": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.0020000000949949026,
+      "kimi": 0.0
+    },
+    "PUR_JOB_001__interview": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.01600000075995922,
+      "kimi": 0.0
+    },
+    "STR_BLK_001__transcript_turn": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.003000000026077032,
+      "kimi": 0.0
+    },
+    "STR_STG_009__standalone_landing_page_cta_module": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.007000000216066837,
+      "kimi": 0.0
+    },
+    "VOC_QUO_003__transcript_turn": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.013000000268220901,
+      "kimi": 0.0
+    },
+    "VOC_VOX_001__interviewer_or_host": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.01600000075995922,
+      "kimi": 0.0
+    },
+    "VOC_VOX_008__edited_transcript": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.004999999888241291,
+      "kimi": 0.0
+    },
+    "VOC_VOX_008__interview_or_qa": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.013000000268220901,
+      "kimi": 0.0
+    },
+    "VOC_VOX_010__transcript_turns": {
+      "claude": 0.0,
+      "deepseek": 0.0,
+      "gemini": 0.0,
+      "gpt": 0.0,
+      "human": 0.013000000268220901,
+      "kimi": 0.0
+    }
+  },
+  "pool_domain_overlap": {
+    "pool_domains": 82,
+    "test_domains": 38,
+    "overlap": 11,
+    "overlap_list": [
+      "communityphone.org",
+      "compliancequest.com",
+      "computersolutionseast.com",
+      "drinksupercoffee.com",
+      "foster.co",
+      "humaans.io",
+      "iconicit.com",
+      "lendingworks.co.uk",
+      "pfleet.com",
+      "rocketrip.com",
+      "truelinkfinancial.com"
+    ],
+    "sensitivity_test_f1_excl": 0.9697
+  },
+  "geometry": {
+    "centroid_distance": 11.655,
+    "dispersion_human": 35.057,
+    "dispersion_ai": 24.73,
+    "dispersion_ratio": 1.418
+  },
+  "mirror_length_adherence_10pct": {
+    "gpt": 0.066,
+    "claude": 0.656,
+    "gemini": 0.407,
+    "deepseek": 0.162,
+    "kimi": 0.47
+  },
+  "format_matched_headline": {
+    "native_article_human_docs": 1859,
+    "share_of_humans": 0.865,
+    "test_macro_f1": 0.9745,
+    "test_n": 1536,
+    "column": "PAG_TYP_003__fully_self_contained"
+  }
+}

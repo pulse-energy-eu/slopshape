@@ -1,0 +1,17 @@
+{
+  "date": "2026-08-14",
+  "scorer": "PI (Jochen)",
+  "result": "PASSED",
+  "ok": 39,
+  "ambiguous": 1,
+  "wrong": 0,
+  "ambiguous_rows": [
+    {
+      "doc": "DOC 1",
+      "fid": "EXP_DEF_006",
+      "note": "named-framework judgment call; 1/5 docs - below tightening threshold, logged"
+    }
+  ],
+  "consequence": "no rewrite rounds; R5 cleared. R5 application prompt gains CHOOSE-EXACTLY-ONE forcing for single-select/ordinal features (finding from VOC_CRD_002 DOC1 multi-pick in the draft answers, corrected before scoring)",
+  "sheet": "annotation sheet embeds full document texts; available on request (gated tier, MANIFEST.md)"
+}

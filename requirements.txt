@@ -1,0 +1,25 @@
+# Pinned to the environment that produced the paper's numbers.
+# Python 3.12 (3.14 breaks the shap/numba resolution). Install into a
+# fresh virtualenv via setup.sh, or: pip install -r requirements.txt
+#
+# Deterministic-refit note: the faithful-protocol scripts assert the
+# published headline (0.9803) on refit; exact reproduction depends on
+# these versions (xgboost/shap/scikit-learn above all).
+numpy==2.5.2
+pandas==3.0.5
+pyarrow==25.0.1
+PyYAML==6.0.3
+scipy==1.18.1
+scikit-learn==1.9.0
+xgboost==3.4.1
+numba==0.67.0
+llvmlite==0.49.0
+shap==0.52.0
+matplotlib==3.11.1
+trafilatura==2.2.0
+requests==2.34.2
+tqdm==4.70.0
+# API clients (generation, screening, scoring stages only)
+openai==3.6.0
+anthropic==1.2.0
+google-genai==2.20.0
