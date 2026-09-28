@@ -1,7 +1,8 @@
 {
-  "units": 15960,
-  "alpha_nominal": 0.8907,
-  "mean_pairwise_exact": 0.8929,
+  "units": 15300,
+  "alpha_nominal": 0.8891,
+  "mean_pairwise_exact": 0.8912,
   "gate": 0.8,
-  "passes": true
+  "passes": true,
+  "features_excluded": 11
 }

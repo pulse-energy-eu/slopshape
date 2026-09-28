@@ -1,27 +1,27 @@
 {
   "h1_package": {
-    "delta_point_pts": 9.9,
+    "delta_point_pts": 8.8,
     "prompt_ci_pts": [
-      7.6,
-      12.4
+      6.5,
+      11.3
     ],
     "domain_cluster_ci_pts": [
-      6.0,
-      14.2
+      4.9,
+      13.2
     ],
     "mcnemar_discordant": [
-      15,
-      97
+      20,
+      92
     ],
-    "mcnemar_two_sided_p": 7.12e-16,
+    "mcnemar_two_sided_p": 3.19e-12,
     "boot_two_sided_p_domain": 0.0,
     "note": "domain-cluster CI primary, fixed in the freeze manifest; 10k resamples seed 202616"
   },
   "original_constants_sensitivity": {
-    "binary_test_macro_f1": 0.9781,
-    "binary_auprc": 0.9997,
-    "sixway_test_macro_f1": 0.7926,
-    "sixway_test_acc": 0.7948
+    "binary_test_macro_f1": 0.9656,
+    "binary_auprc": 0.9994,
+    "sixway_test_macro_f1": 0.686,
+    "sixway_test_acc": 0.6908
   },
   "tfidf_original_spec": {
     "max_features": 5000,
@@ -80,22 +80,22 @@
     "shuffled_control_rate": 0.0,
     "near_verbatim_pairs": 0,
     "prompts_excluded": 16,
-    "filtered_headline_macro_f1": 0.9792,
+    "filtered_headline_macro_f1": 0.9725,
     "note": "exact rules: all 13-grams (no stride sampling); near-verbatim = max-direction 8-gram coverage >=5% AND >=4 distinct 8-grams AND longest common span >=30 tokens"
   },
   "length_matched_faithful": {
     "matched_n": 1545,
     "median_words_human": 1003.5,
     "median_words_ai": 1081.0,
-    "test_macro_f1": 0.9808,
-    "rarity_d": 1.87,
-    "corr_words_rarity": 0.088,
+    "test_macro_f1": 0.9688,
+    "rarity_d": 1.83,
+    "corr_words_rarity": 0.08,
     "per_model_matched_rarity_mean": {
-      "deepseek": 0.543,
-      "claude": 0.484,
-      "gemini": 0.468,
-      "kimi": 0.364,
-      "gpt": 0.329
+      "deepseek": 0.546,
+      "claude": 0.492,
+      "gemini": 0.467,
+      "kimi": 0.373,
+      "gpt": 0.333
     },
     "protocol": "faithful (frozen train+val headline evaluated on the decile-matched test subset; seed 202616)"
   }

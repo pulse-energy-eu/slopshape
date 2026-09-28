@@ -45,9 +45,9 @@ their own released data with our environment (M1 fidelity check):
 | Binary human-vs-AI macro-F1 (narrative+style) | 96.0 | **96.17** on their data |
 | Binary AUPRC | 0.982 | **0.983** on their data |
 | 6-way attribution macro-F1 | 77.3 | **77.55** on their data |
-| Narrative-only binary macro-F1 | 93.2 | 98.0 on our corpus - the study's headline (artifacts/r6/variant_results_parity.json) |
-| Rarity: human mean / AI mean | 0.71 / 0.49 | 0.746 / 0.457 on their data (pattern replicates; our corpus d = 1.83) |
-| Feature-assignment repeatability | Krippendorff alpha 0.90 | 0.891 on our corpus (artifacts/r5_gate/repeatability_report.json) |
+| Narrative-only binary macro-F1 | 93.2 | 97.0 on our corpus - the study's headline (artifacts/r6/variant_results_parity.json) |
+| Rarity: human mean / AI mean | 0.71 / 0.49 | 0.746 / 0.457 on their data (pattern replicates; our corpus d = 1.80) |
+| Feature-assignment repeatability | Krippendorff alpha 0.90 | 0.889 on our corpus (artifacts/r5_gate/repeatability_report.json) |
 
 ## Length-confound protocol (their appendix; replicated in full)
 

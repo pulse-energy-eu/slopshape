@@ -34,8 +34,10 @@ artifacts/REPLICATION_CONTRACT.md).
 | Dedup 0.85 | study_b/r3_dedup.py | instrument/condensed_taxonomy_0.85.json |
 | Style audit (3 runs) | study_b/r4_style_audit.py | instrument/style_excluded_features.json, artifacts/r5_gate/style_audit_summary.json |
 | Stage 5 application (148,500 scoring calls) | study_b/r5_apply.py | gated; sanity stats in artifacts/r5_gate/feature_sanity_report.json |
-| Repeatability (5x60) | study_b/compare_repeatability.py | artifacts/r5_gate/repeatability_report.json |
+| Repeatability (5x60) | study_b/r5_qa.py alpha (over every scored feature except the format-sensitive ones) | artifacts/r5_gate/repeatability_report.json |
 | Encode + splits + freeze manifest | study_b/r6_build.py | artifacts/r6/splits.json, artifacts/FREEZE_MANIFEST.md |
+| Format-sensitivity probe (3 x 250 train+val posts rescored with only the format changed; test-split confirmation) | study_b/r8_title_probe.py (build, score, screen, eval) | gated answers; screen evidence in instrument/format_exclusions.json |
+| Format-sensitivity filter -> final variant sets | study_b/r6_format_exclusions.py | instrument/format_exclusions.json, artifacts/r6/variant_sets.json |
 | Grid + training + variants + SHAP + CIs | study_b/r6_parity_fixes.py (faithful protocol: final models retrained on train+val, the paper's numbers) | artifacts/r6/variant_results_parity.json, parity_fixes.json |
 | Core/fingerprint selection (value granularity) | study_b/r6_core_values.py | artifacts/r6/core_values_selection.json |
 | Rarity | study_b/r6_rarity.py | artifacts/r6/rarity_report.json |
@@ -43,6 +45,7 @@ artifacts/REPLICATION_CONTRACT.md).
 | Six-way (faithful) + review batteries | study_b/r6_review_batch.py, study_b/r6_review2_fixes.py | artifacts/r6/review_batch.json, review2_fixes.json |
 | Vertical heterogeneity + rarity tails (faithful) | study_b/r6_vertical_rarity.py | artifacts/r6/vertical_rarity_faithful.json |
 | S9 reruns (direction-hypothesis package, exact memorization, baseline protocol fixes, length matching) | study_b/r6_s9_fixes.py | artifacts/r6/s9_fixes.json |
+| Gold-session scoring (draw features in the final instrument) | study_b/gold_score.py | artifacts/gold/GOLD_RESULTS.json |
 | Paper tables T6/T13-T16 | study_b/r6_paper_tables.py | artifacts/r6/PAPER_TABLES.md |
 | Final figures | study_b/r6_figures_final.py | artifacts/figures/ |
 | Rewording attack (1,450 self-rewrites) | study_b/r7_lamp_rewrite.py (copy: code/r7_lamp_rewrite.py; prompt: prompts/lamp_rewrite.md) | gated; gate record artifacts/r7/GATES.md |
@@ -62,5 +65,5 @@ scripts are the run record.
 All paper numbers are from the FAITHFUL protocol (final models retrained on
 train+val per the original; grids as recorded in
 faithful numbers (r6_parity_fixes.py, r6_s9_fixes.py, r6_vertical_rarity.py,
-r6_figures_final.py) assert the 0.9803 headline on refit; a diverging rebuild
+r6_figures_final.py) assert the 0.9695 headline on refit; a diverging rebuild
 fails loudly instead of silently producing different numbers.

@@ -1,0 +1,223 @@
+{
+ "source": "outputs/study_b/r8_trainval_probe/screen.json",
+ "rule": {
+  "statistic": "TVD of per-feature answer distributions, original scoring vs arm, fully scored posts",
+  "noise": "95th percentile over 40 draws of 250 full-vs-repeat pairs (train+val docs), random.Random(0)",
+  "flag": "TVD > 2.0 x noise95 + 0.05 in any of ['A1', 'A2', 'H1']",
+  "full_score_share": 0.95
+ },
+ "n_per_arm": {
+  "A1": 250,
+  "A2": 250,
+  "H1": 250
+ },
+ "excluded": [
+  "ACT_STP_004",
+  "AUD_PRB_002",
+  "COM_PLC_002",
+  "PAG_FUR_002",
+  "PAG_NAV_003",
+  "PAG_NAV_004",
+  "PAG_NAV_005",
+  "PAG_NAV_007",
+  "PAG_NAV_008",
+  "PUR_OUT_003",
+  "STR_UNI_004"
+ ],
+ "n_excluded": 11,
+ "n_structural_excluded": 11,
+ "n_style_excluded": 0,
+ "evidence": {
+  "PUR_OUT_003": {
+   "style": false,
+   "noise95": 0.02,
+   "threshold": 0.09,
+   "tvd": {
+    "A1": 0.012,
+    "A2": 0.908,
+    "H1": 0.672
+   },
+   "flag_arms": [
+    "A2",
+    "H1"
+   ]
+  },
+  "AUD_PRB_002": {
+   "style": false,
+   "noise95": 0.04,
+   "threshold": 0.13,
+   "tvd": {
+    "A1": 0.02,
+    "A2": 0.488,
+    "H1": 0.268
+   },
+   "flag_arms": [
+    "A2",
+    "H1"
+   ]
+  },
+  "PAG_NAV_003": {
+   "style": false,
+   "noise95": 0.028,
+   "threshold": 0.106,
+   "tvd": {
+    "A1": 0.348,
+    "A2": 0.384,
+    "H1": 0.084
+   },
+   "flag_arms": [
+    "A1",
+    "A2"
+   ]
+  },
+  "PAG_NAV_005": {
+   "style": false,
+   "noise95": 0.04,
+   "threshold": 0.13,
+   "tvd": {
+    "A1": 0.104,
+    "A2": 0.372,
+    "H1": 0.116
+   },
+   "flag_arms": [
+    "A2"
+   ]
+  },
+  "COM_PLC_002": {
+   "style": false,
+   "noise95": 0.0,
+   "threshold": 0.05,
+   "tvd": {
+    "A1": 0.004,
+    "A2": 0.068,
+    "H1": 0.18
+   },
+   "flag_arms": [
+    "A2",
+    "H1"
+   ]
+  },
+  "PAG_NAV_008": {
+   "style": false,
+   "noise95": 0.004,
+   "threshold": 0.058,
+   "tvd": {
+    "A1": 0.156,
+    "A2": 0.16,
+    "H1": 0.0
+   },
+   "flag_arms": [
+    "A1",
+    "A2"
+   ]
+  },
+  "PAG_NAV_007": {
+   "style": false,
+   "noise95": 0.004,
+   "threshold": 0.058,
+   "tvd": {
+    "A1": 0.104,
+    "A2": 0.104,
+    "H1": 0.028
+   },
+   "flag_arms": [
+    "A1",
+    "A2"
+   ]
+  },
+  "ACT_STP_004": {
+   "style": false,
+   "noise95": 0.028,
+   "threshold": 0.106,
+   "tvd": {
+    "A1": 0.124,
+    "A2": 0.116,
+    "H1": 0.024
+   },
+   "flag_arms": [
+    "A1",
+    "A2"
+   ]
+  },
+  "PAG_NAV_004": {
+   "style": false,
+   "noise95": 0.012,
+   "threshold": 0.074,
+   "tvd": {
+    "A1": 0.044,
+    "A2": 0.092,
+    "H1": 0.016
+   },
+   "flag_arms": [
+    "A2"
+   ]
+  },
+  "PAG_FUR_002": {
+   "style": false,
+   "noise95": 0.016,
+   "threshold": 0.082,
+   "tvd": {
+    "A1": 0.032,
+    "A2": 0.024,
+    "H1": 0.088
+   },
+   "flag_arms": [
+    "H1"
+   ]
+  },
+  "STR_UNI_004": {
+   "style": false,
+   "noise95": 0.024,
+   "threshold": 0.098,
+   "tvd": {
+    "A1": 0.1,
+    "A2": 0.096,
+    "H1": 0.012
+   },
+   "flag_arms": [
+    "A1"
+   ]
+  }
+ },
+ "variant_counts": {
+  "narrative_strict": 176,
+  "style_only": 27,
+  "all_features": 203
+ },
+ "test_confirmation": {
+  "source": "outputs/study_b/r8_trainval_probe/test_confirmation.json",
+  "n_per_arm": {
+   "A1": 250,
+   "A2": 250,
+   "H1": 235
+  },
+  "flagged_test": [
+   "AUD_PRB_002",
+   "COM_PLC_002",
+   "PAG_FUR_002",
+   "PAG_NAV_003",
+   "PAG_NAV_004",
+   "PAG_NAV_005",
+   "PAG_NAV_007",
+   "PAG_NAV_008",
+   "PUR_OUT_003"
+  ],
+  "both": [
+   "AUD_PRB_002",
+   "COM_PLC_002",
+   "PAG_FUR_002",
+   "PAG_NAV_003",
+   "PAG_NAV_004",
+   "PAG_NAV_005",
+   "PAG_NAV_007",
+   "PAG_NAV_008",
+   "PUR_OUT_003"
+  ],
+  "trainval_only": [
+   "ACT_STP_004",
+   "STR_UNI_004"
+  ],
+  "test_only": [],
+  "note": "confirmation only; never changes the exclusion set"
+ }
+}

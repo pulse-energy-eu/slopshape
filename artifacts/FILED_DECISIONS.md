@@ -1,6 +1,6 @@
 # Filed decision records
 
-Two decisions were written down with a date before the data they govern
+Three decisions were written down with a date before the data they govern
 existed. Dates are commit dates in the author's working repository. All other
 analysis constants were frozen in artifacts/FREEZE_MANIFEST.md (2026-08-16)
 before any classifier was trained.
