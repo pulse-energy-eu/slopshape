@@ -149,8 +149,8 @@ are additionally copied verbatim into code/.
 
 | File | Purpose | Bytes | sha256 |
 |---|---|---|---|
-| r6_format_exclusions.py | Format-sensitivity filter: flagged set from the train+val probe screen -> final variant sets | 3287 | c36e57c956d7e042606fb796b445cffa5d8d4794dfdc3e01bddff2734aeb01f8 |
-| r8_title_probe.py | Format-sensitivity probe: arm build, rescoring with the frozen scorer, the filed screen rule, classifier check on the test arms | 19264 | eab786b99c9b4258120263928a30663a66487fd34df3909b19385401be50023b |
+| r6_format_exclusions.py | Format-sensitivity filter: flagged set from the train+val probe screen -> final variant sets | 3390 | 827fe8c675d5b489e970e5f43c7961170b37cd9b4f5373d971052bdade7d37c1 |
+| r8_title_probe.py | Format-sensitivity probe: arm build, rescoring with the frozen scorer, the filed screen rule, classifier check on the test arms | 19315 | 408b9d691b23a997d46c89227759d5ebe21f19afc4ff85c1bcdf8ab9b0dfb9b3 |
 | gold_score.py | Gold-session scoring over the draw features in the final instrument (paper Table 9) | 3121 | cafa14ae4aa6c443bb66625b2771a8d6c82fc29cdd5e17991ecd93dd06be1601 |
 | __init__.py | Package marker (scripts run as study_b modules) | 0 | e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 |
 | answerability_screen.py | Instrument answerability screen (gpt-5.6-terra, strict 2-vote) with embedded prompt | 6839 | 6603c06c6d6edefe217e6d5c9ac7a5dd0f93dac436eecb2a367fb20683cae8a5 |

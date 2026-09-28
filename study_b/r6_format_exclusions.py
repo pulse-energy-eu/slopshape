@@ -7,8 +7,9 @@ scored as produced, with a title line and markdown. The train+val probe
 artifacts/FILED_DECISIONS.md of the release package) flags the features whose
 answers move with that format difference. This step removes them from every
 variant set written by study_b/r6_build.py and records the evidence. The
-test-split screen, when present, is recorded as confirmation and never
-changes the set.
+test-split screen (r8_title_probe.py screen --split test --out
+outputs/study_b/r8_trainval_probe/test_confirmation.json), when present, is
+recorded as confirmation and never changes the set.
 
 Outputs (outputs/study_b/r6/):
   format_exclusions.json  excluded ids with per-feature evidence (noise95,

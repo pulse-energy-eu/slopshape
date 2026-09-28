@@ -34,7 +34,8 @@ is format-sensitive if its TVD exceeds 2 x noise95 + 0.05 in any arm.
   python -m study_b.r8_title_probe build  --split trainval
   python -m study_b.r8_title_probe score  --split trainval [--max-usd 60]
   python -m study_b.r8_title_probe screen --split trainval
-  python -m study_b.r8_title_probe screen --split test      # confirmation
+  python -m study_b.r8_title_probe screen --split test \
+      --out outputs/study_b/r8_trainval_probe/test_confirmation.json
   python -m study_b.r8_title_probe eval   --split test
 """
 import argparse
