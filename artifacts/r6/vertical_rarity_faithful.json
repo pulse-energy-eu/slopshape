@@ -1,27 +1,27 @@
 {
   "vertical_faithful": {
     "protocol": "faithful (final refit on train+val, parity config)",
-    "headline_reproduced": 0.9803,
+    "headline_reproduced": 0.9695,
     "kruskal_wallis": {
-      "H": 8.997,
-      "p": 0.1092,
+      "H": 9.047,
+      "p": 0.1072,
       "n_groups": 6
     },
     "per_vertical": {
       "devtools": {
         "n_test_docs": 108,
-        "macro_f1": 1.0,
-        "accuracy": 1.0
+        "macro_f1": 0.983,
+        "accuracy": 0.9907
       },
       "ecommerce_retail": {
         "n_test_docs": 444,
-        "macro_f1": 0.9724,
-        "accuracy": 0.9842
+        "macro_f1": 0.9633,
+        "accuracy": 0.9797
       },
       "fintech_insurance": {
         "n_test_docs": 450,
-        "macro_f1": 0.9755,
-        "accuracy": 0.9867
+        "macro_f1": 0.9626,
+        "accuracy": 0.98
       },
       "health": {
         "n_test_docs": 30,
@@ -30,17 +30,17 @@
       },
       "services_other": {
         "n_test_docs": 312,
-        "macro_f1": 0.9648,
-        "accuracy": 0.9808
+        "macro_f1": 0.9477,
+        "accuracy": 0.9712
       },
       "software_saas": {
         "n_test_docs": 390,
-        "macro_f1": 1.0,
-        "accuracy": 1.0
+        "macro_f1": 0.9954,
+        "accuracy": 0.9974
       }
     },
     "f1_range": [
-      0.9648,
+      0.9477,
       1.0
     ]
   },
@@ -51,50 +51,50 @@
       "n_docs": 12900,
       "rarest_1pct": {
         "counts_by_source": {
-          "human": 149,
-          "deepseek": 3,
+          "human": 146,
+          "deepseek": 2,
           "claude": 0,
-          "gemini": 1,
+          "gemini": 0,
           "kimi": 0,
           "gpt": 0
         },
-        "tail_n": 153,
-        "human_share_of_tail": 0.9739,
+        "tail_n": 148,
+        "human_share_of_tail": 0.9865,
         "human_vs_ai_counts": [
-          149,
-          4
+          146,
+          2
         ]
       },
       "rarest_5pct": {
         "counts_by_source": {
-          "human": 592,
+          "human": 586,
           "deepseek": 43,
-          "claude": 14,
-          "gemini": 6,
-          "kimi": 15,
-          "gpt": 2
+          "claude": 20,
+          "gemini": 5,
+          "kimi": 13,
+          "gpt": 4
         },
-        "tail_n": 672,
-        "human_share_of_tail": 0.881,
+        "tail_n": 671,
+        "human_share_of_tail": 0.8733,
         "human_vs_ai_counts": [
-          592,
-          80
+          586,
+          85
         ]
       },
       "rarest_10pct": {
         "counts_by_source": {
-          "human": 1026,
-          "deepseek": 139,
-          "claude": 62,
-          "gemini": 36,
-          "kimi": 49,
-          "gpt": 19
+          "human": 1016,
+          "deepseek": 145,
+          "claude": 67,
+          "gemini": 38,
+          "kimi": 51,
+          "gpt": 18
         },
-        "tail_n": 1331,
-        "human_share_of_tail": 0.7708,
+        "tail_n": 1335,
+        "human_share_of_tail": 0.761,
         "human_vs_ai_counts": [
-          1026,
-          305
+          1016,
+          319
         ]
       }
     },
@@ -102,50 +102,50 @@
       "n_docs": 1740,
       "rarest_1pct": {
         "counts_by_source": {
-          "human": 40,
-          "deepseek": 1,
+          "human": 36,
+          "deepseek": 0,
           "claude": 0,
           "gemini": 0,
           "kimi": 0,
           "gpt": 0
         },
-        "tail_n": 41,
-        "human_share_of_tail": 0.9756,
+        "tail_n": 36,
+        "human_share_of_tail": 1.0,
         "human_vs_ai_counts": [
-          40,
-          1
+          36,
+          0
         ]
       },
       "rarest_5pct": {
         "counts_by_source": {
-          "human": 98,
+          "human": 95,
           "deepseek": 7,
-          "claude": 4,
+          "claude": 5,
           "gemini": 1,
           "kimi": 3,
-          "gpt": 0
+          "gpt": 1
         },
-        "tail_n": 113,
-        "human_share_of_tail": 0.8673,
+        "tail_n": 112,
+        "human_share_of_tail": 0.8482,
         "human_vs_ai_counts": [
-          98,
-          15
+          95,
+          17
         ]
       },
       "rarest_10pct": {
         "counts_by_source": {
-          "human": 152,
-          "deepseek": 22,
-          "claude": 15,
-          "gemini": 8,
+          "human": 154,
+          "deepseek": 23,
+          "claude": 16,
+          "gemini": 9,
           "kimi": 13,
-          "gpt": 4
+          "gpt": 3
         },
-        "tail_n": 214,
-        "human_share_of_tail": 0.7103,
+        "tail_n": 218,
+        "human_share_of_tail": 0.7064,
         "human_vs_ai_counts": [
-          152,
-          62
+          154,
+          64
         ]
       }
     }

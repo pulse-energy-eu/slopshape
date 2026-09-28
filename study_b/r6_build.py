@@ -12,6 +12,8 @@ exclusions). Variant sets derived from the R4 style audit:
   narrative_strict (HEADLINE) = surviving minus style-excluded
   style_only                  = surviving  intersect style-excluded
   all_features                = all 214
+The format-sensitivity filter (study_b/r6_format_exclusions.py) then removes
+the format-sensitive features from every variant set.
 
 Splits: domain-disjoint at paper ratios (72.6/13.8/13.6), discovery-pool docs
 excluded from everything, seed committed.

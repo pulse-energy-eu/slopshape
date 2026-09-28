@@ -107,7 +107,6 @@ def main() -> int:
     # attribution share of the core features within the full structural
     # model: per-FEATURE bootstrap-mean |SHAP| from the SHAP bootstrap
     # output (mean_shap), summed over the core features vs all features
-    # (the paper's "27.6% of the full model's feature attributions")
     ms = json.load(open(OUT / "shap_core_selection.json"))["mean_shap"]
     total_ms = sum(ms.values())
     core_ms = sum(ms[f] for f in core_features if f in ms)
@@ -119,9 +118,8 @@ def main() -> int:
         "basis": ("per-feature bootstrap-mean |SHAP| of the structural "
                   "(narrative_strict) model (B=50, prompt-resampled; the "
                   "mean_shap block of the SHAP bootstrap output), summed "
-                  "over the 10 core features vs all 187 structural "
-                  "features; the paper's '27.6% of the full model's "
-                  "feature attributions'")}
+                  f"over the {len(core_features)} core features vs all "
+                  f"{len(ms)} structural features")}
     print("core attribution share:", attribution["share"], flush=True)
 
     out = {"core_values": core_values, "core_features": core_features,

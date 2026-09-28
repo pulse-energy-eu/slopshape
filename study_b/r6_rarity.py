@@ -64,6 +64,10 @@ def main() -> int:
             "rarest_decile_human_share": round(float((hum >= 0.9).mean()), 4),
             "rarest_decile_ai_share": round(float((ai >= 0.9).mean()), 4),
             "human_rarest_of_prompt": round(float(byq.mean()), 4),
+            "per_source_mean": {
+                s_: round(float(pct[(df.source == s_).to_numpy()].mean()), 4)
+                for s_ in ("human", "deepseek", "claude", "gemini", "kimi",
+                           "gpt")},
             "paper": {"human_mean": 0.71, "ai_mean": 0.49, "d": 0.83,
                       "decile": [0.247, 0.071], "human_rarest": 0.578},
         }

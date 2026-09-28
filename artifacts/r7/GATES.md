@@ -79,7 +79,7 @@ the stage-5 code); only the input texts differ.
 |---|---|
 | Full matrix | PASS - 15,950/15,950 answers (1,450 docs x 11 dimensions), 0 unresolved errors; 9 of 385,700 feature cells NaN-filled (0.002%) vs 4 in the original scoring of the same pairs |
 | Off-option rates | PASS - mean 0.082% vs the original run's 0.089% on the same pairs; 3 features over 2% in both runs, and they are the same 3 features (a property of those features' option lists, not of the run) |
-| 20-doc spot comparison | PASS - every sampled doc fully scored on-instrument; per-doc agreement with the pre-rewrite answers mean 0.844 (min 0.797, max 0.910) - agreement below 1.0 is expected, the rewrite changed the text |
+| 20-doc spot comparison | PASS - every sampled doc fully scored on-instrument; per-doc agreement with the pre-rewrite answers over every scored feature except the format-sensitive ones mean 0.840 (min 0.792, max 0.906) - agreement below 1.0 is expected, the rewrite changed the text |
 
 Encoding: 1,450 rows x the frozen 868-column layout, asserted equal
 (ordered) to the committed matrix layout; matrix sha256 prefix
@@ -89,5 +89,5 @@ Encoding: 1,450 rows x the frozen 868-column layout, asserted equal
 
 Before any durability number was computed, each frozen classifier was
 required to reproduce its recorded macro-F1 on the untouched original test
-split: structural 0.9803, style-only 0.8811, all-features 0.9812 - all
+split: structural 0.9695, style-only 0.8811, all-features 0.9800 - all
 PASS (recorded in durability_aggregates.json under parity_assertions).

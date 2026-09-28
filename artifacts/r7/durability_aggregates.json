@@ -6,15 +6,15 @@
   "attacked_composition": "290 original human test posts + 1,450 LAMP-rewritten AI test posts (5 models x 290, symmetric self-rewrite)",
   "parity_assertions": {
     "structural": {
-      "n_features": 187,
+      "n_features": 176,
       "config": {
-        "n_estimators": 840,
+        "n_estimators": 420,
         "max_depth": 4,
-        "reg_lambda": 1.0,
-        "scale_pos_weight": 5.0
+        "reg_lambda": 2.0,
+        "scale_pos_weight": 7.5
       },
-      "original_test_macro_f1": 0.9803,
-      "expected": 0.9803,
+      "original_test_macro_f1": 0.9695,
+      "expected": 0.9695,
       "status": "PASS"
     },
     "style_only": {
@@ -30,32 +30,29 @@
       "status": "PASS"
     },
     "all_features": {
-      "n_features": 214,
+      "n_features": 203,
       "config": {
         "n_estimators": 840,
         "max_depth": 4,
-        "reg_lambda": 4.0,
-        "scale_pos_weight": 1.0
+        "reg_lambda": 1.0,
+        "scale_pos_weight": 7.5
       },
-      "original_test_macro_f1": 0.9812,
-      "expected": [
-        0.9807,
-        0.9813
-      ],
+      "original_test_macro_f1": 0.98,
+      "expected": 0.98,
       "status": "PASS"
     }
   },
   "classifiers": {
     "structural": {
       "original_test": {
-        "macro_f1": 0.9803,
-        "auprc": 0.9998
+        "macro_f1": 0.9695,
+        "auprc": 0.9996
       },
       "attacked_test": {
-        "macro_f1": 0.9813,
-        "auprc": 0.9997
+        "macro_f1": 0.9606,
+        "auprc": 0.9994
       },
-      "delta_macro_f1": 0.001
+      "delta_macro_f1": -0.009
     },
     "style_only": {
       "original_test": {
@@ -70,28 +67,28 @@
     },
     "all_features": {
       "original_test": {
-        "macro_f1": 0.9812,
-        "auprc": 0.9999
+        "macro_f1": 0.98,
+        "auprc": 0.9998
       },
       "attacked_test": {
-        "macro_f1": 0.9792,
-        "auprc": 0.9999
+        "macro_f1": 0.9729,
+        "auprc": 0.9997
       },
-      "delta_macro_f1": -0.002
+      "delta_macro_f1": -0.0071
     }
   },
   "attacked_structural_bootstrap": {
     "prompt": {
       "ci95": [
-        0.9717,
-        0.9897
+        0.9464,
+        0.974
       ],
       "n_units": 290
     },
     "domain_cluster": {
       "ci95": [
-        0.9698,
-        0.9914
+        0.9426,
+        0.9763
       ],
       "n_units": 38
     },
@@ -100,8 +97,8 @@
   "flip_counts": {
     "structural": {
       "ai_posts": 1450,
-      "flipped_ai_to_human": 5,
-      "predicted_human_attacked": 8,
+      "flipped_ai_to_human": 13,
+      "predicted_human_attacked": 18,
       "predicted_human_original": 9
     },
     "style_only": {
@@ -112,31 +109,31 @@
     },
     "all_features": {
       "ai_posts": 1450,
-      "flipped_ai_to_human": 4,
-      "predicted_human_attacked": 8,
-      "predicted_human_original": 6
+      "flipped_ai_to_human": 8,
+      "predicted_human_attacked": 10,
+      "predicted_human_original": 3
     }
   },
   "per_ai_model_attacked_structural": {
     "claude": {
       "n": 580,
-      "structural_macro_f1": 0.981
+      "structural_macro_f1": 0.9534
     },
     "deepseek": {
       "n": 580,
-      "structural_macro_f1": 0.981
+      "structural_macro_f1": 0.9586
     },
     "gemini": {
       "n": 580,
-      "structural_macro_f1": 0.981
+      "structural_macro_f1": 0.9586
     },
     "gpt": {
       "n": 580,
-      "structural_macro_f1": 0.981
+      "structural_macro_f1": 0.9655
     },
     "kimi": {
       "n": 580,
-      "structural_macro_f1": 0.9759
+      "structural_macro_f1": 0.9603
     }
   },
   "per_ai_model_note": "humans (290, unchanged) + that model's 290 self-rewritten posts; symmetric self-rewrite design (each model rewrote its own posts)",
@@ -189,9 +186,9 @@
         "ratio_max": 1.055
       }
     },
-    "feature_answer_change_rate": 0.156,
-    "rescore_spot_agreement_mean": 0.844,
-    "note_answer_change": "20-doc seeded spot comparison of rewritten vs original stage-5 answers: mean per-doc agreement 0.844 (min 0.797, max 0.910), i.e. 15.6% of measured feature answers changed under the rewording"
+    "feature_answer_change_rate": 0.16,
+    "rescore_spot_agreement_mean": 0.84,
+    "note_answer_change": "20-doc seeded spot comparison of rewritten vs original stage-5 answers over every scored feature except the format-sensitive ones: mean per-doc agreement 0.840 (min 0.792, max 0.906)"
   },
   "gates": {
     "length_drift": {

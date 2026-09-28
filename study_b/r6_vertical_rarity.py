@@ -6,7 +6,7 @@ faithful protocol + T10 rarity tail composition.
 only and never saved per-vertical values. This recomputes it under the
 faithful protocol (final refit on train+val, parity config from
 variant_results_parity.json) and writes the per-vertical macro-F1 table.
-The refit must reproduce the committed headline (0.9803) exactly or the
+The refit must reproduce the committed headline (0.9695) exactly or the
 script aborts - no new number is derived from a model that does not match
 the frozen record.
 
@@ -28,7 +28,7 @@ from study_b.r6_train import load, cols_for  # noqa: E402
 
 OUT = Path("outputs/study_b/r6/results")
 SEED = 202616
-HEADLINE_F1 = 0.9803  # committed faithful headline; refit must reproduce it
+HEADLINE_F1 = 0.9695  # committed faithful headline; refit must reproduce it
 
 
 def fit(X, y, cfg):

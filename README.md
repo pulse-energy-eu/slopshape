@@ -25,19 +25,19 @@ stories occupying rarer regions of structural space. We replicate the full
 pipeline on a domain with none of fiction's machinery: 2,250 pre-ChatGPT
 human B2B blog posts (268 company domains, Wayback Machine snapshots) paired
 with 11,250 AI mirrors from the same five generator models, measured with a
-B2B-native 214-feature structural instrument frozen before analysis.
+B2B-native 203-feature structural instrument frozen before analysis.
 
-Findings: structural features alone reach 98.0 test macro-F1 (95%
-domain-cluster CI 96.7-99.2) on domain-disjoint splits; the structural and
-style instruments fail on nearly disjoint documents (19 vs 101 test errors, 4
+Findings: structural features alone reach 97.0 test macro-F1 (95%
+domain-cluster CI 95.5-98.2) on domain-disjoint splits; the structural and
+style instruments fail on nearly disjoint documents (29 vs 101 test errors, 9
 shared); every secondary phenomenon replicates, consistent in direction and
-larger in magnitude - variant ordering (98.1 > 98.0 > 88.1), a 10-feature
-core at 93.5, six-way source attribution at 79.2 (chance 16.7), and an
-amplified human rarity gap (Cohen's d 1.83 vs the original's 0.83). The
-structural signal survives rewording: with every AI test post rewritten by
-its own model, structural detection is unchanged (98.0 -> 98.1 macro-F1).
-A human gold session validates the LLM-run instrument (human-human kappa
-0.928, human-model 0.946). Claims are scoped to single-pass generation
+at least as large in magnitude - variant ordering (98.0 > 97.0 > 88.1), a
+9-feature core at 90.1, six-way source attribution at 68.2 macro-F1 (chance
+16.7), and an amplified human rarity gap (Cohen's d 1.80 vs the original's
+0.83). The structural signal survives rewording: with every AI test post
+rewritten by its own model, structural detection is nearly unchanged
+(97.0 -> 96.1 macro-F1). A human gold session validates the LLM-run
+instrument (human-human kappa 0.939, human-model 0.951). Claims are scoped to single-pass generation
 from the five studied AI models, both as generated and after rewording.
 
 ## What is in this package
@@ -47,7 +47,7 @@ from the five studied AI models, both as generated and after rewording.
 | MANIFEST.md | Complete file inventory with sha256 checksums and the gated-items list |
 | VERIFICATION.md | Number-by-number map from every paper exhibit to its artifact and regeneration script |
 | artifacts/ | Canonical methodology and results record, freeze manifest, filed decision records, template schema with NarraBench mapping, deviation register, replication contract, fork patch, all aggregate result JSONs (incl. the rewording-durability aggregates and gate record under artifacts/r7/), gold-session results, instrument QA records, rendered figures |
-| instrument/ | The 214-feature instrument in full: candidate union (457), both answerability-screen outputs with per-feature rejection reasons, deduped taxonomy (266, with definitions and answer menus), style-boundary and instrument-floor exclusion records |
+| instrument/ | The 203-feature instrument in full: candidate union (457), both answerability-screen outputs with per-feature rejection reasons, deduped taxonomy (266, with definitions and answer menus), style-boundary, instrument-floor, and format-sensitivity exclusion records |
 | prompts/ | The complete prompt set: the stage-5 scoring prompt, the stage-4 discovery prompts, the stage-3 comparison prompt, the rewording-attack prompt with its iteration log, and a map to every prompt embedded in the released scripts |
 | fetch/ | Corpus reconstruction: the full sampling ledger (URLs, Wayback snapshot ids, per-document filter outcomes) and every funnel decision file, steps 1-5 |
 | study_b/ | The analysis pipeline: every regeneration script named in VERIFICATION.md and code/README.md, from corpus funnel to durability evaluation |
@@ -79,7 +79,7 @@ a non-commercial research agreement.
 
 1. Look up any paper number in VERIFICATION.md; open the named artifact file.
 2. Check integrity: every data file's sha256 is in MANIFEST.md, and the pre-training freeze manifest's hash chain (taxonomy, exclusions, style boundary, splits) is verifiable in-package - commands in instrument/README.md.
-3. To recompute rather than read: the regeneration script named in VERIFICATION.md rebuilds the artifact; the faithful-protocol scripts assert the 0.9803 headline on refit and fail loudly on divergence. Recomputation of classifier numbers requires the gated encoded matrix or a full rebuild (below).
+3. To recompute rather than read: the regeneration script named in VERIFICATION.md rebuilds the artifact; the faithful-protocol scripts assert the 0.9695 headline on refit and fail loudly on divergence. Recomputation of classifier numbers requires the gated encoded matrix or a full rebuild (below).
 
 ## How to rebuild from scratch
 

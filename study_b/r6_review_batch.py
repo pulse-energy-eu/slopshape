@@ -43,7 +43,10 @@ def main() -> int:
     R["format_audit_columns"] = fmt_summary
     # native-article human subset: humans whose page_type one-hot for native
     # article is 1 (find the column)
-    native_cols = [c for c in df.columns if re.search(r"native.?article", c, re.I)]
+    # the native-article marker column was floor-excluded from the frozen
+    # matrix; the self-contained-page value of the page-type feature stands in
+    native_cols = ([c for c in df.columns if re.search(r"native.?article", c, re.I)]
+                   or ["PAG_TYP_003__fully_self_contained"])
     if native_cols:
         nc = native_cols[0]
         native_docs = set(df[(df.source == "human") & (df[nc] == 1.0)].doc_id)
@@ -54,7 +57,8 @@ def main() -> int:
         R["format_matched_headline"] = {
             "native_article_human_docs": len(native_docs),
             "share_of_humans": round(len(native_docs) / df[df.source == "human"].doc_id.nunique(), 3),
-            "test_macro_f1": round(float(f1), 4), "test_n": len(te)}
+            "test_macro_f1": round(float(f1), 4), "test_n": len(te),
+            "column": nc}
     print("C3:", json.dumps(R.get("format_matched_headline", fmt_summary)), flush=True)
 
     # ---------- C6: discovery-pool domains vs holdout ------------------------

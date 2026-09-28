@@ -1,4 +1,4 @@
-# The 214-feature instrument
+# The 203-feature instrument
 
 The frozen measurement instrument of the study, in reviewable form: every
 feature with its definition, question, answer menu, and detection method, plus
@@ -6,7 +6,7 @@ every exclusion record from candidate to frozen instrument.
 
 ## Derivation chain
 
-457 candidates -> 282 screened -> 266 deduped -> 214 frozen (187 narrative-strict + 27 style)
+457 candidates -> 282 screened -> 266 deduped -> 214 after the instrument floor -> 203 final (176 narrative-strict + 27 style)
 
 | Step | File | Count |
 |---|---|---|
@@ -16,13 +16,17 @@ every exclusion record from candidate to frozen instrument.
 | Embedding dedup, single-linkage 0.85 (F2LLM-4B) | condensed_taxonomy_0.85.json | 266 features |
 | Style-audit boundary: 34 features excluded from the narrative-strict variant (all in writing_style) | style_excluded_features.json | 34 ids |
 | Outcome-blind instrument floor: 52 features excluded with reasons (11 degenerate, 3 off-menu-prone, 38 unstable) | feature_exclusions.json | 52 records |
-| Frozen instrument = 266 minus the 52 floor exclusions | (derived) | 214 features |
+| After the instrument floor = 266 minus the 52 floor exclusions | (derived) | 214 features |
+| Format-sensitivity filter: 11 structural features excluded, with per-feature evidence (train+val format probe; rule in artifacts/FILED_DECISIONS.md) | format_exclusions.json | 11 records |
+| Final instrument = 214 minus the 11 format-sensitive features | ../artifacts/r6/variant_sets.json | 203 features |
 
 The style-audit exclusions define the narrative-strict variant boundary, not a
 removal from the instrument: the 27 surviving style features form the
 style-only variant. Per-feature answer distributions, off-menu rates, and
 stability values are in artifacts/r5_gate/feature_sanity_report.json; the
-3-run style-audit ratings are in artifacts/r5_gate/ratings.jsonl.
+3-run style-audit ratings are in artifacts/r5_gate/ratings.jsonl. The
+format-sensitivity filter removes features from the variant sets; the
+encoded matrix covers the 214 floor-surviving features.
 
 ## Hash verification against the freeze manifest
 

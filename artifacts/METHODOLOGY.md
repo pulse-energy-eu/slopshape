@@ -6,10 +6,10 @@ in its methodological context; VERIFICATION.md maps each paper exhibit to the
 released artifact that carries it and the script that regenerates it.
 
 CONVENTIONS: this file records classification metrics as four-decimal
-proportions (0.9803); the paper displays one-decimal percents (98.0). This
-file numbers the validation batteries 8.1-8.21 in repository order (gaps are
-prose exhibits); the paper presents eight numbered robustness checks
-(its Table 7) plus prose exhibits - the mapping is in VERIFICATION.md. This
+proportions (0.9695); the paper displays one-decimal percents (97.0). This
+file numbers the validation batteries 8.1-8.22 in repository order (gaps are
+prose exhibits); the paper presents nine numbered robustness checks
+(its Table 8) plus prose exhibits - the mapping is in VERIFICATION.md. This
 file keeps the working vocabulary (battery, freeze manifest, frozen); the
 paper says check, committed/fixed/final. All classification numbers are from
 the FAITHFUL protocol (final models retrained on train+val, per the
@@ -36,15 +36,16 @@ Claims we make (scoped per R1/R2):
    (combined > structure > style), a small feature core carrying the signal,
    per-model structural fingerprints, and humans occupying rarer regions of
    structural feature space.
-3. Effects are larger than the original's. WORDING RULE (R2): "consistent in
-   direction, larger in magnitude, plausibly schema-fit-driven" - we do not
-   claim the domain is intrinsically more separable.
+3. Effects are at least as large as the original's. WORDING RULE (R2):
+   "consistent in direction, at least as large in magnitude, plausibly
+   schema-fit-driven" - we do not claim the domain is intrinsically more
+   separable.
 4. (DURABILITY) The structural signal's behavior under a LAMP-parity
    rewording attack is MEASURED, not assumed: frozen classifiers,
    self-reworded test mirrors, humans unchanged. Headline durability deltas
-   (unattacked -> attacked macro-F1): structural 0.9803 -> 0.9813 (+0.0010),
-   style 0.8811 -> 0.8705 (-0.0106), all-features 0.9812 -> 0.9792
-   (-0.0020). Section 6.5.
+   (unattacked -> attacked macro-F1): structural 0.9695 -> 0.9606 (-0.0090),
+   style 0.8811 -> 0.8705 (-0.0106), all-features 0.9800 -> 0.9729
+   (-0.0071). Section 6.5.
 
 Claims we do NOT make: detection of edited/human-in-the-loop AI content (R1)
 BEYOND the LAMP-parity rewording attack measured in section 6.5;
@@ -91,8 +92,8 @@ Composition (final; reported transparently, R5):
 | Years | 2008-17: 8.5, 2018-19: 16.0, 2020-21: 41.9, 2022: 33.6 |
 
 YC share passed its pre-set dilution gate (<58%) at the bar; defense = the
-subset sensitivity (battery 8.6): headline holds within YC (0.993) and
-non-YC (0.971) separately.
+subset sensitivity (battery 8.6): headline holds within YC (0.988) and
+non-YC (0.956) separately.
 
 ### 2.2 Brief reverse-engineering (their "mirror" mechanism, D2/D3)
 
@@ -165,8 +166,8 @@ aspect-based (one call per text x dimension), single-select forcing.
 **148,500 scoring calls (13,500 texts x 11 dims), zero failures, full matrix
 verified.** Gates passed before scale-up: aspect-vs-single coverage 99.97%
 vs 99.75% (8.8); mini-validation 39 OK / 1 AMBIGUOUS / **0 WRONG** on a
-seeded 8x5 sheet; repeatability alpha 0.891 (5 runs x 60 texts; gate 0.8;
-theirs 0.90).
+seeded 8x5 sheet; repeatability alpha 0.889 (5 runs x 60 texts over every
+scored feature except the format-sensitive ones; gate 0.8; theirs 0.90).
 
 **Style audit (strict boundary, R4).** GPT-5.4 rates all 266 features for
 style dependence in 3 independent runs (exact 3-run agreement 0.989; rating
@@ -178,8 +179,27 @@ human endorsement of the boundary: gold-session audit check, 8.2).
 **Instrument floor (outcome-blind, pre-freeze).** Before any label-aware
 analysis: 52 features excluded - 11 degenerate (>=98% one value; page chrome
 unmeasurable in extracted text), 3 off-menu-prone (>2%), 38 unstable
-(per-feature alpha < 0.6, the pre-set floor). **Final instrument: 214
-features** (187 narrative-strict + 27 style; theirs: 304 = 257 + 47).
+(per-feature alpha < 0.6, the pre-set floor), leaving 214.
+
+**Format-sensitivity filter (outcome-blind).** Human posts are scored as
+extracted and normalized (the extracted text keeps the page title for some
+posts only); AI posts are scored as generated, with a title line and
+mostly markdown. A probe rescored three train+val samples with only the
+format changed (study_b/r8_title_probe.py): 250 AI posts (50 per model)
+through the corpus normalizer with the title kept as a plain first line
+(A1), the same posts without the title line (A2), and 250 human posts whose
+scored text has no title, with the stored title prepended (H1). A feature is
+format-sensitive if the total variation distance between its original and
+rescored answer distributions exceeds 2 x noise95 + 0.05 in any arm, where
+noise95 is the 95th-percentile TVD between the full run and the repeat runs
+(40 draws of 250 pairs, train+val docs). The rule was filed before the probe
+was scored (artifacts/FILED_DECISIONS.md). It flags 11 structural features
+and no style feature: PUR_OUT_003, AUD_PRB_002, COM_PLC_002, PAG_FUR_002,
+PAG_NAV_003, PAG_NAV_004, PAG_NAV_005, PAG_NAV_007, PAG_NAV_008, ACT_STP_004,
+STR_UNI_004 (evidence per feature: instrument/format_exclusions.json).
+The same screen on the test split (confirmation only) flags 9, all among
+the 11. **Final instrument: 203 features** (176 narrative-strict + 27 style;
+theirs: 304 = 257 + 47).
 
 **Stage 6 (DURABILITY): LAMP-parity rewording attack.** Adapts the
 original's durability test (Chakrabarty et al. 2025 span-level rewriting;
@@ -221,8 +241,8 @@ to commercial blog posts.
   stage 5: 15,950/15,950 answers, 0 unresolved failures, off-option mean
   0.082% (original 0.089%), same 3 features >2% in both runs; encoding
   layout hard-asserted equal to the frozen 868-column matrix.
-- EVALUATION: frozen structural (187), style-only (27), and all-features
-  (214) classifiers on (unchanged humans + rewritten mirrors); macro-F1
+- EVALUATION: frozen structural (176), style-only (27), and all-features
+  (203) classifiers on (unchanged humans + rewritten mirrors); macro-F1
   deltas overall and per generator model. Results: section 6.5; battery row
   8.21. Aggregates: artifacts/r7/durability_aggregates.json.
 
@@ -230,8 +250,10 @@ to commercial blog posts.
 
 One-hot nominal/binary, multi-hot multi-select, ordinal position integers,
 NaN missing (XGBoost-native). Matrix: **12,900 texts x 868 encoded columns**
-(discovery pool excluded). Variants: narrative-strict (HEADLINE, 187),
-style-only (27), all-features (214), core-only (10), core+fingerprint (33).
+for the 214 floor-surviving features (discovery pool excluded); the 203-feature
+final instrument uses 840 of them. Variants: narrative-strict (HEADLINE,
+176), style-only (27), all-features (203), core-only (9),
+core+fingerprint (30).
 
 ## 5. Experimental protocol
 
@@ -255,28 +277,28 @@ per metric-parity: binary macro-F1 + AUPRC; 6-way macro-F1 + accuracy. CIs:
 
 | Variant | n feat | Test macro-F1 | AUPRC | Original analogue |
 |---|---|---|---|---|
-| **Narrative-strict (headline)** | 187 | **0.9803** (cluster CI 0.967-0.992; prompt CI 0.971-0.989) | 0.9998 | 93.2 |
+| **Narrative-strict (headline)** | 176 | **0.9695** (cluster CI 0.955-0.983; prompt CI 0.957-0.981) | 0.9996 | 93.2 |
 | Style-only | 27 | 0.8811 | 0.9944 | 85.8 |
-| All features | 214 | 0.9812 | 0.9999 | 96.0 |
-| Core-only | **10** | 0.9348 | 0.9962 | 30 feat -> 84.8 |
-| Core+fingerprint | 33 | 0.9593 | 0.9991 | 101 -> 91.1 |
+| All features | 203 | 0.9800 | 0.9998 | 96.0 |
+| Core-only | **9** | 0.9010 | 0.9967 | 30 feat -> 84.8 |
+| Core+fingerprint | 30 | 0.9367 | 0.9978 | 101 -> 91.1 |
 
 **Direction-hypothesis outcome:** the hypothesis predicted style-strict >
 narrative-strict. The result is a SIGNIFICANT REVERSAL: narrative minus
-style +9.9 pts - the hypothesis is REJECTED. Full
+style +8.8 pts - the hypothesis is REJECTED. Full
 primary basis (artifacts/r6/s9_fixes.json, supersedes the prompt-only
-CI [7.7, 12.4] of parity_fixes.json): domain-cluster CI [6.0, 14.2] (PRIMARY,
-fixed in the freeze manifest), prompt CI [7.6, 12.4], document-level McNemar 15 vs 97
-discordant (p = 7.1e-16), bootstrap two-sided p < 0.0001. The ORIGINAL
+CI [6.5, 11.4] of parity_fixes.json): domain-cluster CI [4.9, 13.2] (PRIMARY,
+fixed in the freeze manifest), prompt CI [6.5, 11.3], document-level McNemar 20 vs 92
+discordant (p = 3.2e-12), bootstrap two-sided p < 0.0001. The ORIGINAL
 study's direction (structure > style) replicates, amplified (theirs +7.4).
 The registered wording rule anticipated no significant reversal; that gap is
 disclosed rather than papered over, and the paper never writes "confirmed"
 against the registered direction. The TOST vs their 93.2 (band 91.2-95.2) is
-DESCRIPTIVE: our CI [97.1, 98.9] lies above the band -
+DESCRIPTIVE: our CI [95.8, 98.1] lies above the band -
 reported with the pre-committed R2 wording tier. Error-overlap diagnostic
 (attached to the direction hypothesis): on the 1,740 test texts the structural model errs
-19 times, the style model 101; only 4 errors are shared (Jaccard 0.03, kappa
-0.05; binomial p < 0.001 on the asymmetric split) - the two instruments fail
+29 times, the style model 101; only 9 errors are shared (Jaccard 0.07, kappa
+0.12; binomial p < 0.001 on the asymmetric split) - the two instruments fail
 on nearly disjoint documents, evidence they measure different signals.
 
 Ordering combined > structure > style replicates exactly - CAVEAT (C4): our
@@ -301,7 +323,7 @@ TF-IDF at the original's 5,000-feature spec (an earlier committed run used
 50,000 features, fixed config, train-only; superseded, same 0.9927 to 4 dp).
 ModernBERT and Binoculars-style remain train-only, disclosed in the paper.
 Hyperparameter sensitivity: the original's published constants untuned give
-binary 0.9781 / AUPRC 0.9997 and six-way 0.7926 / acc 0.7948 - within 0.002
+binary 0.9656 / AUPRC 0.9994 and six-way 0.6860 / acc 0.6908 - within 0.004
 of the tuned configs.
 
 Reading: unedited single-pass generation is near-perfectly detectable from
@@ -309,12 +331,9 @@ surface signals in this corpus (stylometrics AND ModernBERT saturate at 1.0,
 mirroring the original's 99.9/99.8; the stylometric set includes
 formatting-sensitive counts, so part of that ceiling is formatting tells).
 The replication-relevant statistic mirrors the original: structural features
-RETAIN 98.0% of the surface ceiling (faithful headline 0.9803 / 1.0000;
-theirs: 93.2 vs near-ceiling raw-text baselines). DISCLOSED FRAGILITY: the
-top wording-tier boundary (98.0) is passed by only 0.03 F1 points,
-and under the superseded train-only protocol (0.9725) the same rule lands
-one tier lower - both tiers support the paper's claim that structure carries
-almost all detectable signal. Length alone fails. The Binoculars-style score
+RETAIN 97.0% of the surface ceiling (faithful headline 0.9695 / 1.0000;
+theirs: 93.2 vs near-ceiling raw-text baselines); the superseded train-only
+protocol reads 0.9643. Length alone fails. The Binoculars-style score
 is a disclosed small-pair substitute (Qwen2.5-0.5B base/instruct vs their
 Falcon-7B pair) and is not a parity point: it lands at 0.78 where their true
 Binoculars failed at 55.9, so we report it as zero-shot-detector context
@@ -322,10 +341,10 @@ only, not as a replicated anchor.
 
 ### 6.2 Six-way attribution (theirs: Table 3)
 
-Test macro-F1 0.7917, accuracy 0.7931 (own grid per Amendment 2; chance
-16.7%). Per-class F1 (Table-11 parity): human .966, gpt .855, claude .830,
-kimi .747, gemini .698, **deepseek .654** (hardest - consistent with
-deepseek's rarity proximity, 6.3).
+Test macro-F1 0.6820, accuracy 0.6856 (own grid per Amendment 2; chance
+16.7%; on par with the original's 68.4%). Per-class F1 (Table-11 parity):
+human .944, gpt .793, gemini .624, deepseek .615, kimi .579, **claude .537**
+(hardest).
 
 ### 6.3 Rarity (theirs: the violin figure)
 
@@ -333,30 +352,30 @@ Reference train+val, k=25, z-scored narrative-strict space:
 
 | Statistic | Ours | Original |
 |---|---|---|
-| Human mean percentile | 0.838 | 0.71 |
-| AI mean percentile | 0.435 | 0.49 |
-| Cohen's d | **1.83** | 0.83 |
-| Rarity AUC | 0.901 | 0.73 |
-| Human rarest-of-prompt | 85.5% | 57.8% |
-| Rarest decile (human/AI) | 47.7% / 2.8% | 24.7% / 7.1% |
+| Human mean percentile | 0.835 | 0.71 |
+| AI mean percentile | 0.436 | 0.49 |
+| Cohen's d | **1.80** | 0.83 |
+| Rarity AUC | 0.898 | 0.73 |
+| Human rarest-of-prompt | 85.6% | 57.8% |
+| Rarest decile (human/AI) | 47.3% / 3.0% | 24.7% / 7.1% |
 
-Per-model AI means: deepseek 0.547 > claude 0.483 > gemini 0.461 > kimi
-0.356 > gpt 0.329. Robust to reference=all (d 1.84).
+Per-model AI means: deepseek 0.543 > claude 0.489 > gemini 0.456 > kimi
+0.363 > gpt 0.330. Robust to reference=all (d 1.81).
 
 Tail composition (their Table 12; artifact
 artifacts/r6/vertical_rarity_faithful.json). Full-corpus basis (the basis of
-the stats above): rarest 1% = 149 human vs 4 AI documents (97.4% human;
-theirs, test basis: 42 vs 41); rarest 5% = 592 vs 80 (88.1%); rarest 10% =
-1,026 vs 305 (77.1%). Test-only basis (the original's Table-12 basis, in the
-same artifact): rarest 1% = 40 human vs 1 AI; 5% = 98 vs 15; 10% = 152 vs
-62. BASIS NOTE (disclosed): our rarity statistics are computed over all
+the stats above): rarest 1% = 146 human vs 2 AI documents (98.7% human;
+theirs, test basis: 42 vs 41); rarest 5% = 586 vs 85 (87.3%); rarest 10% =
+1,016 vs 319 (76.1%). Test-only basis (the original's Table-12 basis, in the
+same artifact): rarest 1% = 36 human vs 0 AI; 5% = 95 vs 17; 10% = 154 vs
+64. BASIS NOTE (disclosed): our rarity statistics are computed over all
 12,900 documents with the train+val percentile reference, not the original's
 test-only basis; the test-only tails above show the gap is not a basis
 artifact.
 
 ### 6.4 Top signal carriers (SHAP, 50-bootstrap)
 
-Argument-structure stages, purpose/outcome framing, reader-address and
+Argument-structure stages, reader-address, temporal-framing and
 sourcing-transparency features dominate; full top-20 in the released figure
 f4_shap_top20 (artifacts/figures/).
 
@@ -370,29 +389,29 @@ Gemini-only arm).
 
 | Classifier | Unattacked test | Reworded test | Delta |
 |---|---|---|---|
-| Structural (narrative-strict, 187) | 0.9803 | 0.9813 | +0.0010 |
+| Structural (narrative-strict, 176) | 0.9695 | 0.9606 | -0.0090 |
 | Style-only (27) | 0.8811 | 0.8705 | -0.0106 |
-| All features (214) | 0.9812 | 0.9792 | -0.0020 |
+| All features (203) | 0.9800 | 0.9729 | -0.0071 |
 
-Attacked structural macro-F1 95% CI: domain-cluster [0.9698, 0.9914]
-(primary), prompt-level [0.9717, 0.9897] (10k resamples, seed 202616).
-Flips AI->human of 1,450 attacked posts: structural 5, style-only 16,
-all-features 4. Called human after rewording: structural 8 (9 before),
-style-only 19 (8 before), all-features 8 (6 before).
+Attacked structural macro-F1 95% CI: domain-cluster [0.9426, 0.9763]
+(primary), prompt-level [0.9464, 0.9740] (10k resamples, seed 202616).
+Flips AI->human of 1,450 attacked posts: structural 13, style-only 16,
+all-features 8. Called human after rewording: structural 18 (9 before),
+style-only 19 (8 before), all-features 10 (3 before).
 
 Attack magnitude: surface phrasing largely replaced - mean surviving
 13-gram share 0.269 across models (claude 0.535, deepseek 0.489, gpt 0.175,
 kimi 0.141, gemini 0.003), i.e. ~73% of 13-word sequences no longer appear
-verbatim; mean length ratio 0.922; and in a 20-post spot check 15.6% of all
-measured feature answers changed (mean agreement 0.844; two scorings of the
-same text differ on about 10.7%) - yet the
-structural classifier's macro-F1 is unchanged. Self-rewrite rationale: each
+verbatim; mean length ratio 0.922; and in a 20-post spot check 16.0% of all
+measured feature answers changed (mean agreement 0.840; two scorings of the
+same text differ on about 10.9%) - yet the
+structural classifier's macro-F1 drops by less than one point. Self-rewrite rationale: each
 model rewrote its own posts because that is the realistic production pattern
 (a publisher polishing a draft uses the same model) and it removes the
 original's single-model asymmetry.
 
 Per-model structural macro-F1 on the reworded split (self-rewrite arm each):
-gpt 0.9810, claude 0.9810, gemini 0.9810, deepseek 0.9810, kimi 0.9759.
+gpt 0.9655, claude 0.9534, gemini 0.9586, deepseek 0.9586, kimi 0.9603.
 
 Gate outcomes (stage-6 verification gates; full record
 artifacts/r7/GATES.md): length drift 0 violations (bound [0.6, 1.4], fixed
@@ -400,12 +419,12 @@ in the harness before generation); claim-preservation census (all 1,450
 pairs) post-QC 0.9821 (pre-QC 0.9034); refusals 0/1,450. Rescore coverage
 15,950/15,950 answers.
 
-Interpretation: structural detection is unmoved under the rewording attack
-(+0.0010, CI containing the unattacked value) although the attack replaced
-~73% of surface phrasing and changed 15.6% of the measured feature answers
+Interpretation: structural detection moves little under the rewording attack
+(-0.0090, CI containing the unattacked value) although the attack replaced
+~73% of surface phrasing and changed 16.0% of the measured feature answers
 in a 20-post spot check.
-This matches and strengthens the original's finding for its narrative
-features (their -1.6 points, Gemini-only arm; ours +0.1 across all five
+This matches the original's finding for its narrative
+features (their -1.6 points, Gemini-only arm; ours -0.9 across all five
 models, symmetric). Claims about paraphrase and humanizer attacks (which
 optimize against detectors) remain scoped as future work, consistent with
 the cited literature.
@@ -416,44 +435,48 @@ Faithful procedure: B=50 prompt-resampled bootstrap SHAP at encoded-VALUE
 granularity; criteria = top-quartile mean|SHAP| AND stability >= 0.55 AND
 top25 >= 0.60 AND permutation-null exceedance (5 label-shuffles, 95th pct)
 AND raw |human-AI value-mean gap| >= 0.20 AND cross-model AI spread <= 0.35.
-Yields **10 core values = 10 core features** (theirs 33 values / 30
-features) which ALONE test at **0.9348 macro-F1** (theirs: 30 features ->
-84.8) - the small-core phenomenon replicates, sharper. Fingerprints from
-6-way per-class SHAP concentration (share >= 0.5 + null exceedance): 30
-features (human 17, gpt 6, deepseek 2, gemini 2, kimi 2, claude 1); core+fp
-(33) tests at 0.9593.
+Yields **10 core values on 9 core features** (theirs 33 values / 30
+features) which ALONE test at **0.9010 macro-F1** (theirs: 30 features ->
+84.8) and carry 25.6% of the structural model's attribution - the
+small-core phenomenon replicates, sharper. Fingerprints from 6-way
+per-class SHAP concentration (share >= 0.5 + null exceedance): 28 features
+(human 17, gemini 4, gpt 3, deepseek 2, kimi 2, claude 0); core+fp (30)
+tests at 0.9367.
 
 Signed core directions (the paper's interpretive centerpiece): AI-leaning =
-summary-or-synthesis closing stage, restated-thesis endings,
-editorial-explainer voice, payoff promised in the title; human-leaning = no
-announced section flow, absent stakes framing, short (<800-word) pieces.
-AI writes the tidy self-announcing essay; humans just write the thing.
+summary-or-synthesis closing stage, restated-thesis endings, no reader
+participation pathway, modern or next-generation framing, confident
+institutional explanation, mechanism-explanation stage; human-leaning = no
+thesis before the first unit, no legacy-versus-modern contrast, historical
+dates or periods, short (<800-word) pieces. AI writes the tidy
+self-announcing essay; humans just write the thing.
 
 ## 8. Validation batteries and ablations
 
 | # | Battery | Result | Status |
 |---|---|---|---|
-| 8.1 | Extractor repeatability | alpha 0.891 (gate 0.8; theirs 0.90); mean pairwise Cohen kappa 0.890 (theirs 0.89); pairwise exact agreement 0.893 | DONE |
-| 8.2 | Human validation (gold set) | Corrected scoring on final annotations: human-human kappa 0.928 (orig 0.739), mean human-model kappa 0.946 (orig 0.839), 4/240 unclear flags (1.7%); style-boundary audit 90.0/97.5% vs model (bar 0.75; kappas 0.765/0.936), human-human 92.5%/0.827. ALL pre-filed bars passed | DONE |
+| 8.1 | Extractor repeatability | Over every scored feature except the 11 format-sensitive ones: alpha 0.889 (gate 0.8; theirs 0.90); mean pairwise Cohen kappa 0.888 (theirs 0.89); pairwise exact agreement 0.891 | DONE |
+| 8.2 | Human validation (gold set) | Scoring on final annotations over the 19 draw features in the final instrument: human-human kappa 0.939 (orig 0.739), mean human-model kappa 0.951 (orig 0.839), 4/228 unclear flags (1.8%); style-boundary audit 90.0/97.5% vs model (bar 0.75; kappas 0.765/0.936), human-human 92.5%/0.827. ALL pre-filed bars passed | DONE |
 | 8.3 | Mini-validation (pre-scale gate) | 39 OK / 1 AMBIGUOUS / 0 WRONG | DONE |
-| 8.4 | Length confound (R3; theirs section F) | Decile-matched test subsample 1,545 docs (median words 1,003.5 human vs 1,081 AI); headline 0.9808 vs 0.9803 unmatched (their 93.2 -> 93.2 parity); rarity d 1.87; corr(words, rarity) 0.088; per-model matched rarity deepseek 0.543 > claude 0.484 > gemini 0.468 > kimi 0.364 > gpt 0.329 (full-corpus ordering preserved) | DONE |
-| 8.5 | Post-cutoff entity scan | 0.08% pooled; faithful headline unchanged excluding flagged (0.9803) | DONE |
-| 8.6 | Composition sensitivity (R5) | Faithful headline within YC 0.993 / non-YC 0.971; rarity gap in both | DONE |
-| 8.7 | Temporal/era control | Era task at CHANCE (F1 0.493, grouped CV; 187 vs 1,622 posts, majority-class baseline 0.473); faithful orthogonality ablation flat (0.978-0.980); top-25 era/authorship overlap 4/25 | DONE |
+| 8.4 | Length confound (R3; theirs section F) | Decile-matched test subsample 1,545 docs (median words 1,003.5 human vs 1,081 AI); headline 0.9688 vs 0.9695 unmatched (their 93.2 -> 93.2 parity); rarity d 1.83; corr(words, rarity) 0.08; per-model matched rarity deepseek 0.546 > claude 0.492 > gemini 0.467 > kimi 0.373 > gpt 0.333 (full-corpus ordering preserved) | DONE |
+| 8.5 | Post-cutoff entity scan | 0.08% pooled; faithful headline unchanged excluding flagged (0.9695) | DONE |
+| 8.6 | Composition sensitivity (R5) | Faithful headline within YC 0.988 / non-YC 0.956; rarity gap in both | DONE |
+| 8.7 | Temporal/era control | Era task at CHANCE (F1 0.491, grouped CV; 187 vs 1,622 posts, majority-class baseline 0.473); faithful orthogonality ablation flat (0.967-0.970); top-25 era/authorship overlap 3/25 | DONE |
 | 8.8 | Aspect vs single-call | Coverage 99.97% vs 99.75%; cross-mode agreement 0.774 | DONE |
-| 8.9 | Extraction-artifact ablation (R1) | Faithful headline minus all page-format features: 0.9762; minus timeliness too: 0.9751 | DONE (exploratory) |
-| 8.10 | Split-seed sensitivity (R7) | 4 seeds, faithful protocol: 0.9725-0.9844 (mean 0.978, sample sd 0.005) | DONE (exploratory) |
+| 8.9 | Extraction-artifact ablation (R1) | Faithful headline minus all page-format features: 0.9642; minus timeliness too: 0.9652 | DONE (exploratory) |
+| 8.10 | Split-seed sensitivity (R7) | 4 seeds, faithful protocol: 0.9579-0.9695 (mean 0.964, sample sd 0.005) | DONE (exploratory) |
 | 8.11 | Template-vs-direct discovery ablation | Yield parity (raw 354 vs template-run mean 356.7, all 11 dims) BUT only ~23% bidirectional semantic overlap at 0.85 embedding similarity - the discovery pathway substantially shapes WHICH features are found. Template pathway is the one validated end-to-end (screen, alpha, gold kappas, headline); raw set not scored at scale (declared). Conclusion: templates are not a pass-through | DONE |
 | 8.12 | Dedup-threshold sweep | Sweep 0.70-0.95 published: features 200/233/251/266/277/282, silhouette monotone decreasing (0.182 at 0.70 -> 0.065 at 0.85) - silhouette alone prefers lower thresholds; 0.85 RETAINED for parity with the original (our merge 5.7% vs the original's 25.5% at 0.85), sensitivity low. Divergence disclosed | DONE |
-| 8.13 | Raw-text baselines (C1) | Length fails (0.45); stylometric 1.00; TF-IDF 0.993; ModernBERT 1.00 (their 512/3ep config; single seed disclosed); Binoculars-style substitute 0.78; structural retention 98.0% of ceiling (faithful) | DONE |
-| 8.14 | Format-mismatch audit (C3) | Interview/transcript/roundup markers fire in 1-5% of humans, ~0% of mirrors (confound real but thin); headline on self-contained-page humans (86.5%): 0.9745. PROTOCOL NOTE: train-only (the marker column was floor-excluded from the frozen matrix); delta interpreted within that protocol | DONE |
-| 8.15 | Discovery-pool domain overlap (C6) | 11 of 82 pool domains land in test; faithful sensitivity excluding them: 0.9819 | DONE |
-| 8.16 | Memorization (C8, their section E, both rules) | EXACT IMPLEMENTATIONS (supersede a stride-sampled 13-gram scan and a span-less near-verbatim rule): 13-gram 20/10,750 pairs (0.19%; shuffled-human control 0.0%; per-model gemini 0.33% highest; theirs 0.70%); near-verbatim with span>=30 conjunct: 0 pairs; excluding all 16 affected prompts: headline 0.9792 (delta -0.0011; their filtered deltas <= +0.27) | DONE |
-| 8.17 | Geometry (their dispersion finding) | Centroid distance 11.7; human dispersion 1.42x AI; mean 10-NN radius ratio human/AI 1.43 (direction replicates) | DONE |
-| 8.18 | Vertical heterogeneity (Kruskal-Wallis) | FAITHFUL (refit reproduces headline 0.9803 exactly): H=8.997, p=0.109 over the 6 verticals with >=20 test docs - NOT significant, consistent with the original's null (H=4.69, p=0.46). Per-vertical macro-F1: services_other 0.9648, ecommerce_retail 0.9724, fintech_insurance 0.9755, software_saas 1.0, devtools 1.0, health 1.0. SUPERSEDED: an earlier train-only computation (H=11.4, p=0.044, significant) does not survive the faithful protocol - both values disclosed. Artifact: artifacts/r6/vertical_rarity_faithful.json | DONE |
-| 8.19 | Error-overlap diagnostic (direction hypothesis) | Structural errs 19/1,740, style 101/1,740, shared 4 (Jaccard 0.03, kappa 0.05, binomial p < 0.001) - near-disjoint failure sets | DONE |
-| 8.20 | Learning curve | Train+val fractions 25/50/75/100%: 0.968 / 0.978 / 0.980 / 0.980 (3 seeds each) - saturates by ~75%; corpus size not the binding constraint | DONE |
-| 8.21 | LAMP-parity rewording durability (stage 6, section 6.5) | Structural +0.0010 (0.9803 -> 0.9813); style -0.0106; all-features -0.0020; per-model attacked structural gpt/claude/gemini/deepseek 0.9810, kimi 0.9759; attack magnitude: ~73% of 13-grams replaced, 15.6% of feature answers changed; gates: length drift 0 violations, claim census post-QC 0.9821, refusals 0/1,450 | DONE |
+| 8.13 | Raw-text baselines (C1) | Length fails (0.45); stylometric 1.00; TF-IDF 0.993; ModernBERT 1.00 (their 512/3ep config; single seed disclosed); Binoculars-style substitute 0.78; structural retention 97.0% of ceiling (faithful) | DONE |
+| 8.14 | Format-mismatch audit (C3) | Interview/transcript/roundup markers fire in 1-5% of humans, ~0% of mirrors (confound real but thin); headline on self-contained-page humans (86.5%): 0.9617. PROTOCOL NOTE: train-only (the marker column was floor-excluded from the frozen matrix); delta interpreted within that protocol | DONE |
+| 8.15 | Discovery-pool domain overlap (C6) | 11 of 82 pool domains land in test; faithful sensitivity excluding them: 0.9648 | DONE |
+| 8.16 | Memorization (C8, their section E, both rules) | EXACT IMPLEMENTATIONS (supersede a stride-sampled 13-gram scan and a span-less near-verbatim rule): 13-gram 20/10,750 pairs (0.19%; shuffled-human control 0.0%; per-model gemini 0.33% highest; theirs 0.70%); near-verbatim with span>=30 conjunct: 0 pairs; excluding all 16 affected prompts: headline 0.9725 (delta +0.0030; their filtered deltas <= +0.27) | DONE |
+| 8.17 | Geometry (their dispersion finding) | Centroid distance 11.3; human dispersion 1.41x AI; mean 10-NN radius ratio human/AI 1.42 (direction replicates) | DONE |
+| 8.18 | Vertical heterogeneity (Kruskal-Wallis) | FAITHFUL (refit reproduces headline 0.9695 exactly): H=9.047, p=0.107 over the 6 verticals with >=20 test docs - NOT significant, consistent with the original's null (H=4.69, p=0.46). Per-vertical macro-F1: services_other 0.9477, fintech_insurance 0.9626, ecommerce_retail 0.9633, devtools 0.983, software_saas 0.9954, health 1.0. The train-only computation (H=9.982, p=0.076) is not significant either. Artifact: artifacts/r6/vertical_rarity_faithful.json | DONE |
+| 8.19 | Error-overlap diagnostic (direction hypothesis) | Structural errs 29/1,740, style 101/1,740, shared 9 (Jaccard 0.07, kappa 0.12, binomial p < 0.001) - near-disjoint failure sets | DONE |
+| 8.20 | Learning curve | Train+val fractions 25/50/75/100%: 0.954 / 0.964 / 0.964 / 0.970 (3 seeds each) | DONE |
+| 8.21 | LAMP-parity rewording durability (stage 6, section 6.5) | Structural -0.0090 (0.9695 -> 0.9606); style -0.0106; all-features -0.0071; per-model attacked structural gpt 0.9655, kimi 0.9603, gemini 0.9586, deepseek 0.9586, claude 0.9534; attack magnitude: ~73% of 13-grams replaced, 16.0% of feature answers changed; gates: length drift 0 violations, claim census post-QC 0.9821, refusals 0/1,450 | DONE |
+| 8.22 | Format sensitivity (section 3, format-sensitivity filter) | Train+val probe (3 x 250 posts, filed rule) flags 11 structural features, 0 style; the test-split screen (250 AI posts; 235 human posts) flags 9, all among the 11. Final structural classifier on the test arms: 249/250 AI posts detected with markdown stripped, 247/250 with the title also removed; human posts called AI 15/235 with the title added vs 18/235 as scored. Artifacts: instrument/format_exclusions.json | DONE |
 
 ## 9. Instrument validity (the honesty section)
 
@@ -477,7 +500,7 @@ AI writes the tidy self-announcing essay; humans just write the thing.
   replaced the manifest grid (reg_lambda parity).
 - Gold-session operationalization: the extractor-vs-consensus bar
   is operationalized as the MEAN of the two per-annotator extractor kappas
-  (0.946); both per-annotator kappas individually clear the 0.60 bar as
+  (0.951); both per-annotator kappas individually clear the 0.60 bar as
   well.
 - Durability rescoring (stage 6) runs the IDENTICAL frozen stage-5
   instrument and scorer on the rewritten posts; the 8.1/8.2 validity
@@ -487,8 +510,7 @@ AI writes the tidy self-announcing essay; humans just write the thing.
   condition, not a footnote.
 - Battery protocol basis: all batteries run under the faithful protocol
   except 8.14 (train-only, disclosed in its row). 8.18 was first computed
-  train-only and recomputed faithfully (significance flip disclosed in its
-  row); 8.4's matching script was restored and the battery rebuilt
+  train-only and recomputed faithfully (both readings in its row); 8.4's matching script was restored and the battery rebuilt
   faithfully after the original script was found lost.
 
 ## 10. Limitations
@@ -507,7 +529,7 @@ and is disclosed.
 
 **Release posture.** Tiered release: PUBLIC = sampling ledger +
 deterministic fetch pipeline (no redistribution of copyrighted post texts),
-template schema + NarraBench mapping, full 214-feature instrument
+template schema + NarraBench mapping, full 203-feature instrument
 (definitions, answer menus, exclusion records), complete prompt set (incl.
 both screen prompts + rejection reasons and the rewording-attack prompt),
 analysis code + fork patch + the durability harness and gate code, freeze
@@ -550,6 +572,6 @@ humanizer tools untested (declared future work).
 
 Generated by study_b/r6_figures_final.py (one consistent design system,
 captions in artifacts/figures/CAPTIONS.md); the figure refit reproduces the
-reported six-way 0.7917 exactly, asserted in the script. Generated paper
+reported six-way 0.682 exactly, asserted in the script. Generated paper
 tables (instrument composition, core-value tables, fingerprints) are in
 artifacts/r6/PAPER_TABLES.md.

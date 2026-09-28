@@ -1,11 +1,19 @@
 {
   "trainval": {
-    "human_mean": 0.8376,
-    "ai_mean": 0.4352,
-    "cohens_d": 1.8317,
-    "rarest_decile_human_share": 0.4772,
-    "rarest_decile_ai_share": 0.0284,
-    "human_rarest_of_prompt": 0.8549,
+    "human_mean": 0.8346,
+    "ai_mean": 0.4362,
+    "cohens_d": 1.8022,
+    "rarest_decile_human_share": 0.4726,
+    "rarest_decile_ai_share": 0.0297,
+    "human_rarest_of_prompt": 0.8563,
+    "per_source_mean": {
+      "human": 0.8346,
+      "deepseek": 0.5435,
+      "claude": 0.4886,
+      "gemini": 0.4557,
+      "kimi": 0.3635,
+      "gpt": 0.3298
+    },
     "paper": {
       "human_mean": 0.71,
       "ai_mean": 0.49,
@@ -18,12 +26,20 @@
     }
   },
   "all": {
-    "human_mean": 0.8352,
-    "ai_mean": 0.433,
-    "cohens_d": 1.841,
-    "rarest_decile_human_share": 0.4707,
-    "rarest_decile_ai_share": 0.026,
-    "human_rarest_of_prompt": 0.8535,
+    "human_mean": 0.8322,
+    "ai_mean": 0.4336,
+    "cohens_d": 1.8125,
+    "rarest_decile_human_share": 0.4656,
+    "rarest_decile_ai_share": 0.027,
+    "human_rarest_of_prompt": 0.8558,
+    "per_source_mean": {
+      "human": 0.8322,
+      "deepseek": 0.5408,
+      "claude": 0.4853,
+      "gemini": 0.4527,
+      "kimi": 0.3613,
+      "gpt": 0.3279
+    },
     "paper": {
       "human_mean": 0.71,
       "ai_mean": 0.49,

@@ -7,7 +7,7 @@ authors:
     affiliation: Sitefire
     orcid: "https://orcid.org/0000-0003-0359-1689"
 repository-code: "https://github.com/pulse-energy-eu/slopshape"
-license: PolyForm-Noncommercial-1.0.0
+license-url: "https://github.com/pulse-energy-eu/slopshape/blob/main/LICENSE"
 preferred-citation:
   type: article
   title: "SlopShape: Identifying AI-Generated Commercial Web Content"

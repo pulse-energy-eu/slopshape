@@ -97,6 +97,13 @@
       "kimi": 0.0
     }
   },
+  "format_matched_headline": {
+    "native_article_human_docs": 1859,
+    "share_of_humans": 0.865,
+    "test_macro_f1": 0.9617,
+    "test_n": 1536,
+    "column": "PAG_TYP_003__fully_self_contained"
+  },
   "pool_domain_overlap": {
     "pool_domains": 82,
     "test_domains": 38,
@@ -114,13 +121,13 @@
       "rocketrip.com",
       "truelinkfinancial.com"
     ],
-    "sensitivity_test_f1_excl": 0.9697
+    "sensitivity_test_f1_excl": 0.9596
   },
   "geometry": {
-    "centroid_distance": 11.655,
-    "dispersion_human": 35.057,
-    "dispersion_ai": 24.73,
-    "dispersion_ratio": 1.418
+    "centroid_distance": 11.31,
+    "dispersion_human": 34.338,
+    "dispersion_ai": 24.311,
+    "dispersion_ratio": 1.412
   },
   "mirror_length_adherence_10pct": {
     "gpt": 0.066,
@@ -128,12 +135,5 @@
     "gemini": 0.407,
     "deepseek": 0.162,
     "kimi": 0.47
-  },
-  "format_matched_headline": {
-    "native_article_human_docs": 1859,
-    "share_of_humans": 0.865,
-    "test_macro_f1": 0.9745,
-    "test_n": 1536,
-    "column": "PAG_TYP_003__fully_self_contained"
   }
 }

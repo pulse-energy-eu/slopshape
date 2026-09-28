@@ -1,22 +1,23 @@
 {
-  "note": "Gold session scored 2026-08-19 on the final annotations",
+  "note": "Gold session scored on the final annotations, over the draw features in the final instrument (study_b/gold_score.py)",
   "answer_validation": {
-    "items_total": 240,
-    "items_scored": 236,
+    "features_scored": 19,
+    "items_total": 228,
+    "items_scored": 224,
     "unclear_flags": 4,
     "human_human": {
-      "agreement_pct": 93.22,
-      "kappa": 0.9278
+      "agreement_pct": 94.2,
+      "kappa": 0.9388
     },
     "annotatorA_model": {
-      "agreement_pct": 94.49,
-      "kappa": 0.9414
+      "agreement_pct": 95.09,
+      "kappa": 0.9482
     },
     "annotatorB_model": {
-      "agreement_pct": 95.34,
-      "kappa": 0.9502
+      "agreement_pct": 95.54,
+      "kappa": 0.9529
     },
-    "mean_human_model_kappa": 0.9458,
+    "mean_human_model_kappa": 0.9506,
     "bars_filed": {
       "human_human": 0.6,
       "extractor_vs_consensus": 0.6
