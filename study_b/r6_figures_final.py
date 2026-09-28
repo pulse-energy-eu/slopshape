@@ -81,11 +81,11 @@ def f1_schematic(plt):
         (21, 16.5, 17, "Brief mirroring", "reverse-engineered briefs\n5 AI models, 11,250 mirrors"),
         (41, 16.5, 17, "Templates", "11-dim commercial schema (fixed)\n13,500 extractions"),
         (61, 16.5, 17, "Feature discovery", "3 runs, 457 candidates\nscreen 282, dedup 266"),
-        (81, 16.5, 18, "Scoring", "148,500 LLM answers\nalpha 0.89, gold kappa 0.93+"),
-        (1, 1.5, 17, "Instrument floor", "outcome-blind exclusions\n214 features final"),
-        (21, 1.5, 17, "Encoding + splits", "868 columns, domain-disjoint\nmanifest fixed pre-training"),
-        (41, 1.5, 17, "Classification", "XGBoost variants, SHAP core\nheadline macro-F1 0.980"),
-        (61, 1.5, 17, "Rewording test", "each AI post rewritten by\nits own model, F1 unchanged"),
+        (81, 16.5, 18, "Scoring", "148,500 LLM answers\nalpha 0.89, gold kappa 0.94+"),
+        (1, 1.5, 17, "Instrument floor", "outcome-blind exclusions\n203 features final"),
+        (21, 1.5, 17, "Encoding + splits", "840 columns, domain-disjoint\nmanifest fixed pre-training"),
+        (41, 1.5, 17, "Classification", "XGBoost variants, SHAP core\nheadline macro-F1 97.0"),
+        (61, 1.5, 17, "Rewording test", "each AI post rewritten by\nits own model, F1 holds"),
         (81, 1.5, 18, "Validation checks", "robustness + validity checks\nall complete"),
     ]
     for x, y, w, title, sub in rows:
@@ -151,7 +151,7 @@ def f2_violin(plt):
          "Structural rarity percentile by source (k=25 nearest neighbors in "
          "the z-scored narrative-strict feature space, train+val reference; "
          "bars mark source means). Humans concentrate in the rarest regions "
-         "(mean 0.84 vs pooled AI 0.44; Cohen's d = 1.83; original: 0.71 vs "
+         "(mean 0.83 vs pooled AI 0.44; Cohen's d = 1.80; original: 0.71 vs "
          "0.49, d = 0.83).")
     plt.close(fig)
 
@@ -162,11 +162,11 @@ def f3_variants(plt):
     cv = json.load(open(OUT / "core_values_selection.json"))
     bars = [
         ("Style only\n(27 feat)", v["style_only"]["test"]["macro_f1"], 0.858, None),
-        ("Core only\n(10 feat)", cv["variants"]["core_only"]["test"]["macro_f1"], 0.848, None),
-        ("Core + fingerprint\n(33 feat)", cv["variants"]["core_fp"]["test"]["macro_f1"], 0.911, None),
-        ("Structural\n(187 feat, headline)", v["narrative_strict"]["test"]["macro_f1"], 0.932,
+        ("Core only\n(9 feat)", cv["variants"]["core_only"]["test"]["macro_f1"], 0.848, None),
+        ("Core + fingerprint\n(30 feat)", cv["variants"]["core_fp"]["test"]["macro_f1"], 0.911, None),
+        ("Structural\n(176 feat, headline)", v["narrative_strict"]["test"]["macro_f1"], 0.932,
          v["narrative_strict"].get("test_ci")),
-        ("All features\n(214 feat)", v["all_features"]["test"]["macro_f1"], 0.960, None),
+        ("All features\n(203 feat)", v["all_features"]["test"]["macro_f1"], 0.960, None),
     ]
     fig, ax = plt.subplots(figsize=(8.6, 4.6), dpi=160)
     xs = np.arange(len(bars))
@@ -245,7 +245,7 @@ def f4_shap(plt):
          "Top-20 features of the structural (narrative-strict) classifier by "
          "bootstrap-mean absolute SHAP contribution, labeled with their "
          "plain-language instrument names (feature IDs in parentheses; full "
-         "question wording in the released instrument). Dark bars mark the ten core features (Section 6).")
+         "question wording in the released instrument). Dark bars mark the core features (Section 6).")
     plt.close(fig)
 
 
@@ -263,7 +263,7 @@ def f5_f6(plt):
 
     # F5: 6-way confusion (their published 500/7/1.0-centered protocol)
     # exact grid-selected config from the parity run (P3): the figure must
-    # reproduce the reported 0.7917 model
+    # reproduce the reported 0.682 model
     cfg6 = json.load(open(OUT / "parity_fixes.json"))[
         "p2_core_fingerprint"].get("sixway_config") or \
         {"n_estimators": 250, "max_depth": 5, "reg_lambda": 1.0}
@@ -278,8 +278,8 @@ def f5_f6(plt):
     pred = m6.predict(te[cols])
     from sklearn.metrics import f1_score
     mf1 = f1_score(te.source.map(ymap), pred, average="macro")
-    assert abs(mf1 - 0.7917) < 0.005, f"6-way refit {mf1:.4f} != reported 0.7917"
-    print(f"6-way refit macro-F1 {mf1:.4f} (reported 0.7917)", flush=True)
+    assert abs(mf1 - 0.682) < 0.005, f"6-way refit {mf1:.4f} != reported 0.682"
+    print(f"6-way refit macro-F1 {mf1:.4f} (reported 0.682)", flush=True)
     cm = confusion_matrix(te.source.map(ymap), pred, normalize="true") * 100
     fig, ax = plt.subplots(figsize=(6.4, 5.6), dpi=160)
     im = ax.imshow(cm, cmap="Blues", vmin=0, vmax=100)
@@ -299,9 +299,9 @@ def f5_f6(plt):
     fig.colorbar(im, ax=ax, shrink=0.8, label="Row %")
     save(fig, "f5_confusion6",
          "Row-normalized test confusion of the six-way source-attribution "
-         "model (macro-F1 0.792 vs 16.7% chance). Humans are near-perfectly "
+         "model (macro-F1 0.682 vs 16.7% chance). Humans are near-perfectly "
          "separated; the residual confusion is AI-vs-AI, hardest for "
-         "DeepSeek V3.2.")
+         "Claude Sonnet 4.6.")
     plt.close(fig)
 
     # F6: LDA projection
@@ -330,7 +330,7 @@ def f5_f6(plt):
          "Two-component LDA projection of the encoded structural feature "
          "space (12,900 documents). Human posts (blue) separate along LD1; "
          "the five AI models overlap heavily with each other, consistent "
-         "with the original's geometry finding (human dispersion 1.42x AI).")
+         "with the original's geometry finding (human dispersion 1.41x AI).")
     plt.close(fig)
 
 

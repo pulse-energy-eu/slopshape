@@ -35,7 +35,7 @@ is format-sensitive if its TVD exceeds 2 x noise95 + 0.05 in any arm.
   python -m study_b.r8_title_probe score  --split trainval [--max-usd 60]
   python -m study_b.r8_title_probe screen --split trainval
   python -m study_b.r8_title_probe screen --split test      # confirmation
-  python -m study_b.r8_title_probe eval   --split test --report PATH
+  python -m study_b.r8_title_probe eval   --split test
 """
 import argparse
 import concurrent.futures as cf
@@ -59,10 +59,6 @@ N_AI_PER_MODEL = 50
 N_HUMAN_TRAINVAL = 250
 MODELS = ["gpt", "claude", "gemini", "deepseek", "kimi"]
 ARMS = ["A1", "A2", "H1"]
-CORE = ["PUR_OUT_003", "AUD_PRB_002", "STR_STG_008", "STR_STG_001",
-        "VOC_PRT_005", "STR_FLW_005", "STR_FLW_006", "AUD_STK_005",
-        "VOC_VOX_001", "PAG_FUR_011"]
-TITLE_FEATS = ["PUR_OUT_003", "AUD_PRB_002"]
 # screen rule constants (filed in artifacts/FILED_DECISIONS.md)
 NOISE_SEED, NOISE_DRAWS, NOISE_PAIRS = 0, 40, 250
 FLAG_MULT, FLAG_ADD = 2.0, 0.05
@@ -337,11 +333,12 @@ def encode(answers: dict):
     return X
 
 
-def evaluate(split: str, report: Path, v3: bool) -> int:
-    """Per-arm answer shifts and classifier verdicts. The v2 structural
-    config and its title-free refit reproduce the stored test report;
-    --v3 adds the v3 structural model (r6_v3 variant set and val-selected
-    config). On the trainval split every verdict is in-sample."""
+def evaluate(split: str, report: Path) -> int:
+    """Per-arm answer shifts and the structural classifier's verdicts on the
+    original and the reformatted texts. The classifier is the final
+    structural model (variant sets and val-selected configuration from the
+    r6 results), refit on train+val; on the trainval split every verdict is
+    in-sample."""
     import numpy as np
     import pandas as pd
     import xgboost as xgb
@@ -354,39 +351,20 @@ def evaluate(split: str, report: Path, v3: bool) -> int:
     frozen = pd.read_parquet(R6 / "features_encoded.parquet")
     frozen["split"] = frozen.doc_id.map(
         json.load(open(R6 / "splits.json"))["doc_split"])
-    variants = json.load(open(R6 / "variant_sets.json"))
-    enc_cols = [c for c in frozen.columns if "__" in c]
-
-    def cols_for(fids):
-        pref = tuple(f"{f}__" for f in fids)
-        return [c for c in enc_cols if c.startswith(pref)]
-
-    struct = variants["narrative_strict"]
-    specs = [("headline", struct, dict(n_estimators=840, max_depth=4,
-                                       reg_lambda=1.0, scale_pos_weight=5.0)),
-             ("no_title_feats", [f for f in struct if f not in TITLE_FEATS],
-              dict(n_estimators=840, max_depth=4, reg_lambda=1.0,
-                   scale_pos_weight=5.0))]
-    if v3:
-        v3dir = Path("outputs/study_b/r6_v3")
-        v3sets = json.load(open(v3dir / "variant_sets.json"))
-        v3cfg = json.load(open(v3dir / "variant_results_parity.json"))[
-            "narrative_strict"]["config"]
-        specs.append(("v3_structural", v3sets["narrative_strict"],
-                      {k: v3cfg[k] for k in ("n_estimators", "max_depth",
-                                             "reg_lambda", "scale_pos_weight")}))
-    models = {}
+    struct = json.load(open(R6 / "variant_sets.json"))["narrative_strict"]
+    par = json.load(open(R6 / "results" / "variant_results_parity.json"))[
+        "narrative_strict"]
+    core = json.load(open(R6 / "results" / "core_values_selection.json"))[
+        "core_features"]
+    pref = tuple(f"{f}__" for f in struct)
+    cols = [c for c in frozen.columns if c.startswith(pref)]
     tv = frozen[frozen.split.isin(["train", "val"])]
-    for name, fids, cfg in specs:
-        c = cols_for(fids)
-        m = xgb.XGBClassifier(random_state=SEED, n_jobs=-1, tree_method="hist",
-                              eval_metric="logloss", **cfg)
-        m.fit(tv[c], tv.label_ai)
-        models[name] = (m, c)
     te = frozen[frozen.split == "test"]
-    m, c = models["headline"]
-    f1 = f1_score(te.label_ai, m.predict(te[c]), average="macro")
-    assert round(f1, 4) == 0.9803, f"headline refit drifted: {f1:.4f}"
+    model = xgb.XGBClassifier(random_state=SEED, n_jobs=-1, tree_method="hist",
+                              eval_metric="logloss", **par["config"])
+    model.fit(tv[cols], tv.label_ai)
+    f1 = f1_score(te.label_ai, model.predict(te[cols]), average="macro")
+    assert round(f1, 4) == par["test"]["macro_f1"], f"refit drifted: {f1:.4f}"
 
     orig_ans = load_answers(R5 / "answers_full.jsonl")
     fz = frozen.set_index(["doc_id", "source"])
@@ -397,27 +375,27 @@ def evaluate(split: str, report: Path, v3: bool) -> int:
     for k in range(1, 6):
         rep = load_answers(R5 / f"answers_repeat_{k}.jsonl")
         for key, fa in rep.items():
-            for fid in CORE:
+            for fid in core:
                 if fid in fa and fid in orig_ans.get(key, {}):
                     noise_n[fid] += 1
                     noise[fid] += fa[fid] != orig_ans[key][fid]
 
     res_all = {"split": split, "in_sample": split == "trainval",
+               "structural_config": par["config"],
                "noise_flip_rate": {f: round(noise[f] / noise_n[f], 3)
-                                   for f in CORE if noise_n[f]}}
+                                   for f in core if noise_n[f]}}
     for arm in ARMS:
         new = load_answers(out / f"answers_{arm}.jsonl")
-        # only fully scored texts (all 11 dimensions back)
         keys = [k for k in new if k in orig_ans and k in fz.index
                 and len(new[k]) >= FULL_SCORE_SHARE * len(orig_ans[k])]
         if not keys:
             continue
         Xn = encode({k: new[k] for k in keys})
-        Xo = fz.loc[keys, enc_cols]
+        Xo = fz.loc[keys, [c for c in frozen.columns if "__" in c]]
         res = {"n": len(keys)}
         res["flip_rate"] = {
             f: round(float(np.mean([new[k].get(f) != orig_ans[k].get(f)
-                                    for k in keys])), 3) for f in CORE}
+                                    for k in keys])), 3) for f in core}
         res["title_value_rate"] = {
             "PUR_OUT_003=title": {
                 "orig": round(float(np.mean([orig_ans[k].get("PUR_OUT_003") == "title" for k in keys])), 3),
@@ -426,22 +404,21 @@ def evaluate(split: str, report: Path, v3: bool) -> int:
                 "orig": round(float(np.mean([orig_ans[k].get("AUD_PRB_002") == "1_title_or_subtitle" for k in keys])), 3),
                 "arm": round(float(np.mean([new[k].get("AUD_PRB_002") == "1_title_or_subtitle" for k in keys])), 3)},
         }
-        for name, (mdl, c) in models.items():
-            po = mdl.predict_proba(Xo[c])[:, 1]
-            pn = mdl.predict_proba(Xn[c])[:, 1]
-            res[name] = {
-                "share_called_ai_orig": round(float((po >= .5).mean()), 3),
-                "share_called_ai_arm": round(float((pn >= .5).mean()), 3),
-                "called_ai_orig": int((po >= .5).sum()),
-                "called_ai_arm": int((pn >= .5).sum()),
-                "mean_p_ai_orig": round(float(po.mean()), 3),
-                "mean_p_ai_arm": round(float(pn.mean()), 3),
-                "verdict_flips": int(((po >= .5) != (pn >= .5)).sum()),
-            }
+        po = model.predict_proba(Xo[cols])[:, 1]
+        pn = model.predict_proba(Xn[cols])[:, 1]
+        res["structural"] = {
+            "called_ai_orig": int((po >= .5).sum()),
+            "called_ai_arm": int((pn >= .5).sum()),
+            "share_called_ai_orig": round(float((po >= .5).mean()), 3),
+            "share_called_ai_arm": round(float((pn >= .5).mean()), 3),
+            "mean_p_ai_orig": round(float(po.mean()), 3),
+            "mean_p_ai_arm": round(float(pn.mean()), 3),
+            "verdict_flips": int(((po >= .5) != (pn >= .5)).sum()),
+        }
         if arm != "H1":
-            res["by_model_called_ai_arm_headline"] = {
-                s: round(float((models["headline"][0].predict_proba(
-                    Xn.loc[[k for k in keys if k[1] == s], models["headline"][1]])[:, 1] >= .5).mean()), 3)
+            res["by_model_called_ai_arm"] = {
+                s: round(float((model.predict_proba(
+                    Xn.loc[[k for k in keys if k[1] == s], cols])[:, 1] >= .5).mean()), 3)
                 for s in MODELS if any(k[1] == s for k in keys)}
         res_all[arm] = res
     json.dump(res_all, open(report, "w"), indent=1)
@@ -459,8 +436,6 @@ def main() -> int:
                     help="pilot: first N texts per arm")
     ap.add_argument("--out", type=Path, default=None,
                     help="screen/eval output file (never overwritten)")
-    ap.add_argument("--v3", action="store_true",
-                    help="eval: add the v3 structural model")
     a = ap.parse_args()
     if a.cmd == "build":
         return build(a.split)
@@ -468,7 +443,7 @@ def main() -> int:
         return score(a.split, a.max_usd, a.concurrency, a.limit)
     if a.cmd == "screen":
         return screen(a.split, a.out)
-    return evaluate(a.split, a.out or OUTS[a.split] / "report.json", a.v3)
+    return evaluate(a.split, a.out or OUTS[a.split] / "report.json")
 
 
 if __name__ == "__main__":

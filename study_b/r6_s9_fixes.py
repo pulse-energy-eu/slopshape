@@ -21,7 +21,7 @@ f. Battery 8.4 rebuilt: decile-stratified length matching (script was lost),
    frozen faithful headline evaluated on the matched subset, rarity d, corr,
    and PER-MODEL matched rarity means.
 
-Every classifier refit asserts the committed faithful headline (0.9803)
+Every classifier refit asserts the committed faithful headline (0.9695)
 before any new number is derived.
 
 Output -> outputs/study_b/r6/results/s9_fixes.json
@@ -41,7 +41,7 @@ from study_b.r6_baselines import load_texts, stylometrics  # noqa: E402
 
 OUT = Path("outputs/study_b/r6/results")
 SEED = 202616
-HEADLINE_F1 = 0.9803
+HEADLINE_F1 = 0.9695
 STYLE_F1 = 0.8811
 GRID_BIN = {"n_estimators": [210, 420, 840], "max_depth": [4, 8, 12],
             "reg_lambda": [1.0, 2.0, 4.0],

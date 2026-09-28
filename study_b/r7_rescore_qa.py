@@ -10,7 +10,9 @@ Gate 2  off-option rate per feature (single-choice answers outside the allowed
         feature.
 Gate 3  scorer sanity: 20 random docs, per-feature agreement between rewritten
         and original answers (differences expected where the rewrite changed
-        the text; this checks the scorer runs correctly, not equality).
+        the text; this checks the scorer runs correctly, not equality),
+        over every scored feature except the format-sensitive ones
+        (study_b/r6_format_exclusions.py).
 
 Writes outputs/study_b/r7/rescore_qa.json.
 
@@ -25,6 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from study_b.r5_apply import load_features  # noqa: E402
 from study_b.r5_qa import canon  # noqa: E402
+from study_b.r6_format_exclusions import format_sensitive  # noqa: E402
 
 R7 = Path("outputs/study_b/r7")
 MODELS = ["gpt", "claude", "gemini", "deepseek", "kimi"]
@@ -147,9 +150,10 @@ def main() -> int:
     rng = random.Random(SEED)
     sample = rng.sample(sorted(pairs), 20)
     spot = []
+    excl = format_sensitive()
     for p in sample:
         rw, og = rw_ans.get(p, {}), orig_ans.get(p, {})
-        common = set(rw) & set(og)
+        common = (set(rw) & set(og)) - excl
         agree = sum(rw[f] == og[f] for f in common)
         spot.append({"doc_id": p[0], "source": p[1],
                      "n_common_features": len(common),
@@ -163,7 +167,7 @@ def main() -> int:
         "note": ("agreement < 1 is EXPECTED (rewrites changed the text); "
                  "this gate checks the scorer produced full, parseable, "
                  "on-instrument answers for every sampled doc"),
-        "pass": all(s["n_common_features"] >= 250 for s in spot),
+        "pass": all(s["n_common_features"] >= 240 for s in spot),
     }
 
     out = {"gate1_full_matrix": gate1, "gate2_off_option": gate2,

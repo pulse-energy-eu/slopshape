@@ -10,6 +10,8 @@ repeatability pairwise Cohen's kappa (m8), and the F7 length-boxplot figure
 survive; it stays disclosed as train-only.
 
 All outputs -> outputs/study_b/r6/results/review2_fixes.json (+ F7 figure).
+The repeatability kappa (m8) covers every scored feature except the
+format-sensitive ones (study_b/r6_format_exclusions.py).
 
   .venv/bin/python -m study_b.r6_review2_fixes
 """
@@ -26,6 +28,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from study_b.r6_train import load, cols_for  # noqa: E402
 from study_b.r6_parity_fixes import fit  # noqa: E402
 from study_b.r6_battery_tail import PAT  # noqa: E402
+from study_b.r6_format_exclusions import format_sensitive  # noqa: E402
 
 OUT = Path("outputs/study_b/r6/results")
 SEED = 202616
@@ -237,11 +240,14 @@ def main() -> int:
 
     # ---- m8: repeatability mean pairwise Cohen kappa -----------------------
     runs = []
+    excl = format_sensitive()
     for i in range(1, 6):
         d = {}
         for l in open(f"outputs/study_b/r5/answers_repeat_{i}.jsonl"):
             r = json.loads(l)
             for fid, ans in (r.get("answers") or {}).items():
+                if fid in excl:
+                    continue
                 d[(r.get("doc_id"), r.get("source"), fid)] = str(ans)
         runs.append(d)
     common = set(runs[0])

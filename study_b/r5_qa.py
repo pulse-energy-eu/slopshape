@@ -5,7 +5,9 @@ cost projection.
   select    seeded subsets: cov_docs.json (2 doc_ids -> 12 texts),
             repeat_docs.json (10 doc_ids -> 60 texts, 10 per source)
   coverage  aspect-vs-single coverage % + cross-mode agreement (report)
-  alpha     Krippendorff nominal alpha across repeat_1..5 + pairwise exact%
+  alpha     Krippendorff nominal alpha across repeat_1..5 + pairwise exact%,
+            over every scored feature except the format-sensitive ones
+            (study_b/r6_format_exclusions.py)
   project   mean per-call cost from measured usage -> full-run projection
 """
 import argparse
@@ -79,7 +81,11 @@ def cmd_coverage() -> int:
 
 
 def cmd_alpha() -> int:
-    runs = {i: load_answers(f"repeat_{i}") for i in range(1, 6)}
+    from study_b.r6_format_exclusions import format_sensitive
+    excl = format_sensitive()
+    runs = {i: {t: {f: v for f, v in feats.items() if f not in excl}
+                for t, feats in load_answers(f"repeat_{i}").items()}
+            for i in range(1, 6)}
     # units: (text, feature) with >=2 run values
     values_by_unit = defaultdict(list)
     for i, data in runs.items():
@@ -115,7 +121,8 @@ def cmd_alpha() -> int:
             pair_agree.append(ag / tot)
     rep = {"units": len(units), "alpha_nominal": round(alpha, 4),
            "mean_pairwise_exact": round(sum(pair_agree) / max(1, len(pair_agree)), 4),
-           "gate": 0.8, "passes": alpha >= 0.8}
+           "gate": 0.8, "passes": alpha >= 0.8,
+           "features_excluded": len(excl)}
     (OUT / "repeatability_report.json").write_text(json.dumps(rep, indent=2))
     print(json.dumps(rep))
     return 0 if alpha >= 0.8 else 1

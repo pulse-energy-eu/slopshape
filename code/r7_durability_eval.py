@@ -8,7 +8,7 @@ original test split, AI side attacked (symmetric self-rewrite design: each
 model rewrote its own posts).
 
 Detectors (all frozen artifacts, faithful protocol): structural
-(narrative_strict, 187 feats), style-only (27), all-features (214) - XGB
+(narrative_strict, 176 feats), style-only (27), all-features (203) - XGB
 refit deterministically on train+val with the committed hyperparameters
 (artifacts/r6/variant_results_parity.json), seed 202616, the exact
 construction of study_b/r6_s9_fixes.py. Nothing is retrained on rewritten
@@ -16,8 +16,8 @@ text.
 
 HARD GATES (any mismatch = abort before durability numbers exist): each
 frozen classifier must reproduce its recorded macro-F1 on the untouched
-original test split - structural 0.9803 / style 0.8811 / all-features 0.9812
-(band 0.9807-0.9813; canonical record: artifacts/METHODOLOGY.md section 6).
+original test split - structural 0.9695 / style 0.8811 / all-features 0.9800
+(canonical record: artifacts/METHODOLOGY.md section 6).
 
 Also: per-AI-model breakdown, prediction-flip counts, 10k-resample bootstrap
 CIs (domain-cluster primary, prompt secondary, seed 202616) on the attacked
@@ -49,11 +49,8 @@ SEED = 202616
 N_BOOT = 10_000
 MODELS = ["claude", "deepseek", "gemini", "gpt", "kimi"]
 
-# canonical original-test values (artifacts/METHODOLOGY.md section 6); the
-# all-features band covers the recorded train-only (0.9807) vs faithful
-# train+val (0.9812) protocol readings - faithful is expected.
-EXPECT = {"structural": 0.9803, "style_only": 0.8811,
-          "all_features": (0.9807, 0.9813), "all_features_point": 0.9812}
+# canonical original-test values (artifacts/METHODOLOGY.md section 6)
+EXPECT = {"structural": 0.9695, "style_only": 0.8811, "all_features": 0.9800}
 
 
 def sha16(p: Path) -> str:

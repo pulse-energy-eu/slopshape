@@ -57,7 +57,7 @@ def main() -> int:
              "artifacts; regenerate rather than hand-edit.", ""]
 
     # ---- T6: feature distribution by dimension and type --------------------
-    lines += ["## T6 - Frozen-instrument composition (214 features)",
+    lines += [f"## T6 - Frozen-instrument composition ({len(instrument)} features)",
               "", "| Dimension | Features | Types (categorical/binary/ordinal/scale/multi) | Example feature |",
               "|---|---|---|---|"]
     by_dim = {}
@@ -88,7 +88,7 @@ def main() -> int:
         lines.append("")
 
     # ---- T15: all core values with gaps ------------------------------------
-    lines += ["## T15 - All core values (10) with signed direction and gap",
+    lines += [f"## T15 - All core values ({len(signs)}) with signed direction and gap",
               "", "| Feature | Value | Leans | Gap |", "|---|---|---|---|"]
     for c in sorted(signs, key=lambda c: -gaps[c]):
         fid, name, vlab = value_label(c, idx)
