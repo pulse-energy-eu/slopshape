@@ -245,6 +245,7 @@ Sizes are of the current stored artifacts.
 | Rewritten test mirrors (1,450, one JSONL per model) | ~12 MB | Stage-6 self-rewrites of the test mirrors; sha256 prefixes recorded in artifacts/r7/durability_aggregates.json regeneration output |
 | Rewritten-post feature answers (15,950 = 1,450 x 11 dimensions) | ~2 MB | Stage-6 rescore outputs |
 | Encoded rewritten matrix (1,450 x 868, features_encoded_rewritten.parquet) | ~0.8 MB | sha256 prefix 554dceeeebe3fdff (asserted in the durability evaluation) |
+| Format-probe rescoring texts and answers (train+val selection probe 3 x 250 texts; test confirmation probe 735 texts; 11 dimensions each) | ~31 MB | Reformatted post texts derive from the documents; the screen results are public (instrument/format_exclusions.json) |
 | Templates (13,500 structural summaries) | ~158 MB | Stage-2 intermediates, derived from the documents |
 | Gold-session annotation sheets and mini-validation sheet | ~50 KB | Embed full document texts; scored results are public (artifacts/gold/, artifacts/r5_gate/) |
 
