@@ -44,3 +44,63 @@ artifacts/r6/parity_fixes.json. The change was made for parity, not for
 outcomes: the faithful headline (0.9803) and the superseded train-only
 manifest-grid headline (0.9725) support the same conclusions, and
 METHODOLOGY.md reports both.
+
+## Format-sensitivity exclusion rule (filed 2026-09-28, before the train+val probe was scored)
+
+Scorer input. Human posts are scored as extracted and normalized
+(study_b/freeze_corpus.py). The extracted text keeps the page title for
+about 22% of human posts (506 of 2,250) and carries no markdown. Generated
+posts are scored as produced: every one opens with a title line and most
+carry markdown headings or bold. A probe on the test split
+(study_b/r8_title_probe.py, run 2026-09-25) rescored posts with only the
+format changed and found features whose answers follow the format rather
+than the post, above all PUR_OUT_003 and AUD_PRB_002, which answer "title"
+when a title line is present.
+
+Decision. Features sensitive to this format difference are excluded at
+analysis time, as a format-sensitivity exclusion next to the outcome-blind
+reliability filter. The instrument, scorer, prompts and all stored answers
+stay frozen; nothing is rescored. The exclusion set comes from the rule
+below, applied to a new train+val probe whose answers do not exist at the
+time of filing.
+
+Arms (study_b/r8_title_probe.py build):
+
+- A1: AI posts through study_b/normalize.py normalize(): markdown stripped,
+  title kept as a plain first line.
+- A2: the same posts with that first line removed.
+- H1: human posts whose scored text has no title (first line does not match
+  the stored title), with the stored title prepended as a plain first line.
+  Titles are cut at the first " | " and must have 3 or more words.
+
+Sample (build --split trainval): train+val docs only (artifacts/r6/splits.json).
+random.Random(202616) draws 50 AI posts per model, models in the order gpt,
+claude, gemini, deepseek, kimi, each pool sorted by doc_id; then 250 human
+posts from the eligible H1 pool sorted by doc_id. Scoring: the frozen
+stage-5 scorer (study_b/r5_apply.py), all 11 dimensions per text, spend cap
+$60.
+
+Rule (screen --split trainval), applied to all 214 surviving features,
+structural and style:
+
+- For each feature and arm: total variation distance (TVD) between the
+  feature's answer distribution in the original scoring
+  (answers_full) and in the arm, over the arm's fully scored posts (at least
+  95% of the post's original answers returned).
+- Noise baseline per feature: noise95 is the 95th percentile (38th of 40
+  sorted values) of the same TVD between the full run and a repeat run,
+  over 40 draws of 250 full-vs-repeat answer pairs without replacement,
+  random.Random(0), from the five repeat runs restricted to train+val docs
+  (270 pairs).
+- A feature is format-sensitive if its TVD exceeds 2 x noise95 + 0.05 in
+  any of A1, A2, H1.
+
+Use. The set flagged on the train+val probe is the exclusion set, removed
+from every variant (structural, style, all features) before any v3
+classifier is fitted. The test-split probe is confirmation only: its screen
+is run with the same rule and reported with its agreement, and it never
+changes the set. All feature-based analyses are then recomputed over the
+remaining features with the unchanged protocol (val-selected grids, train+val
+finals, bootstrap CIs, SHAP core selection). Baselines that do not use the
+instrument (ModernBERT, stylometric, TF-IDF, length, Binoculars-style) are
+unaffected.
