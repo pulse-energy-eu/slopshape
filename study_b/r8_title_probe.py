@@ -32,7 +32,7 @@ scoring and on the arm, over the arm's fully scored posts. noise95 is the
 is format-sensitive if its TVD exceeds 2 x noise95 + 0.05 in any arm.
 
   python -m study_b.r8_title_probe build  --split trainval
-  python -m study_b.r8_title_probe score  --split trainval [--max-usd 60]
+  python -m study_b.r8_title_probe score  --split trainval  # $60 cap
   python -m study_b.r8_title_probe screen --split trainval
   python -m study_b.r8_title_probe screen --split test \
       --out outputs/study_b/r8_trainval_probe/test_confirmation.json
@@ -76,6 +76,10 @@ def clean_title(t: str) -> str:
 
 
 def human_has_title(text: str, title: str) -> bool:
+    """The scored text already carries its title: its first line equals the
+    cleaned stored title, or one is a 40-character prefix of the other
+    (extraction can truncate either side). H1 draws only from posts where
+    this is False."""
     fl, ti = first_line(text).lower(), clean_title(title).lower()
     if not ti:
         return False
@@ -431,7 +435,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["build", "score", "screen", "eval"])
     ap.add_argument("--split", choices=sorted(OUTS), default="test")
-    ap.add_argument("--max-usd", type=float, default=45.0)
+    ap.add_argument("--max-usd", type=float, default=60.0)
     ap.add_argument("--concurrency", type=int, default=16)
     ap.add_argument("--limit", type=int, default=None,
                     help="pilot: first N texts per arm")
